@@ -1,599 +1,632 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>每日AI全球资讯简报 - 2026年3月26日</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI每日全球资讯简报 · 2026年3月26日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #1a0533 0%, #2d0b5e 30%, #1e1060 60%, #0d1b4b 100%);
+    min-height: 100vh;
+    color: #e8e0f5;
+    padding: 20px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 48px 20px 36px;
+    position: relative;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 3px;
+    background: linear-gradient(90deg, transparent, #c084fc, #818cf8, transparent);
+    border-radius: 2px;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(192, 132, 252, 0.15);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    color: #d8b4fe;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f0abfc, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .header .subtitle {
+    color: #a5b4fc;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+  .header .date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(129, 140, 248, 0.1);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    padding: 6px 18px;
+    border-radius: 30px;
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #c7d2fe;
+  }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
+  /* Summary Card */
+  .summary-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c084fc, #818cf8, #38bdf8);
+  }
+  .summary-card .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #c084fc;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .summary-card .section-title .icon { font-size: 1.2rem; }
 
-        .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .highlight-item {
+    background: rgba(129, 140, 248, 0.08);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .highlight-num {
+    width: 26px; height: 26px;
+    background: linear-gradient(135deg, #c084fc, #818cf8);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+    color: #fff; flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .highlight-text { font-size: 0.88rem; line-height: 1.55; color: #ddd6fe; }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102,126,234,0.15) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
+  .summary-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #c4b5fd;
+    border-top: 1px solid rgba(129,140,248,0.2);
+    padding-top: 16px;
+  }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
+  /* Category Section */
+  .category-section { margin-bottom: 28px; }
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(192,132,252,0.2);
+  }
+  .category-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .cat-product .category-icon { background: linear-gradient(135deg, #7c3aed, #c084fc); }
+  .cat-tech .category-icon { background: linear-gradient(135deg, #1d4ed8, #60a5fa); }
+  .cat-industry .category-icon { background: linear-gradient(135deg, #065f46, #34d399); }
+  .cat-cross .category-icon { background: linear-gradient(135deg, #9a3412, #fb923c); }
 
-        .header h1 {
-            font-size: 2.4em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            position: relative;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
+  .category-header h2 { font-size: 1.05rem; font-weight: 700; color: #e9d5ff; }
+  .category-header .cat-count {
+    margin-left: auto;
+    background: rgba(192,132,252,0.12);
+    border: 1px solid rgba(192,132,252,0.3);
+    color: #d8b4fe;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 20px;
+  }
 
-        .header .emoji-title {
-            font-size: 1.1em;
-            opacity: 0.9;
-            position: relative;
-            letter-spacing: 2px;
-        }
+  /* News Card */
+  .news-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .news-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(192,132,252,0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(192,132,252,0.15);
+  }
+  .news-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  .cat-product .news-card::before { background: linear-gradient(180deg, #c084fc, #7c3aed); }
+  .cat-tech .news-card::before { background: linear-gradient(180deg, #60a5fa, #1d4ed8); }
+  .cat-industry .news-card::before { background: linear-gradient(180deg, #34d399, #065f46); }
+  .cat-cross .news-card::before { background: linear-gradient(180deg, #fb923c, #9a3412); }
 
-        .header .date {
-            font-size: 1.1em;
-            opacity: 0.8;
-            margin-top: 8px;
-            position: relative;
-        }
+  .news-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .news-title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: #f0e6ff;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .news-source {
+    background: rgba(129,140,248,0.12);
+    border: 1px solid rgba(129,140,248,0.25);
+    color: #a5b4fc;
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .news-desc {
+    font-size: 0.84rem;
+    color: #c4b5fd;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .news-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .news-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .news-tag {
+    font-size: 0.71rem;
+    background: rgba(192,132,252,0.1);
+    border: 1px solid rgba(192,132,252,0.2);
+    color: #d8b4fe;
+    padding: 2px 8px;
+    border-radius: 8px;
+  }
+  .news-link {
+    font-size: 0.78rem;
+    color: #818cf8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+    border-bottom: 1px dashed rgba(129,140,248,0.4);
+    padding-bottom: 1px;
+  }
+  .news-link:hover { color: #c084fc; border-bottom-color: rgba(192,132,252,0.6); }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 25px 40px;
-            background: #f8f9fe;
-            border-bottom: 1px solid #e8ecf8;
-            flex-wrap: wrap;
-        }
+  /* Stats Bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .stat-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f0abfc, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+  .stat-label { font-size: 0.72rem; color: #a5b4fc; margin-top: 4px; letter-spacing: 0.5px; }
 
-        .stat-item {
-            text-align: center;
-            padding: 12px 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(102,126,234,0.15);
-            min-width: 100px;
-        }
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 20px;
+    border-top: 1px solid rgba(192,132,252,0.15);
+    margin-top: 20px;
+  }
+  .footer p { font-size: 0.8rem; color: #7c6fa0; line-height: 1.8; }
+  .footer a { color: #a78bfa; text-decoration: none; }
+  .footer a:hover { color: #c084fc; }
 
-        .stat-number {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .stat-label {
-            font-size: 0.75em;
-            color: #888;
-            margin-top: 4px;
-        }
-
-        .highlight-box {
-            margin: 25px 30px;
-            background: linear-gradient(135deg, #f0f3ff 0%, #e8ecff 100%);
-            border-radius: 16px;
-            padding: 25px;
-            border-left: 5px solid #667eea;
-        }
-
-        .highlight-box h2 {
-            font-size: 1.1em;
-            color: #4a5568;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .highlight-points {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .highlight-points li {
-            padding: 10px 15px;
-            background: white;
-            border-radius: 10px;
-            font-size: 0.9em;
-            color: #333;
-            line-height: 1.6;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .highlight-points li::before {
-            content: attr(data-num);
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-            font-weight: bold;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .deep-analysis {
-            margin: 0 30px 25px;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef3e2 100%);
-            border-radius: 16px;
-            padding: 25px;
-            border-left: 5px solid #f6a623;
-        }
-
-        .deep-analysis h2 {
-            font-size: 1.1em;
-            color: #4a5568;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .deep-analysis p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 0.9em;
-        }
-
-        .section {
-            padding: 20px 30px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 18px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            font-size: 1.05em;
-            font-weight: 700;
-        }
-
-        .section-header.products { background: linear-gradient(135deg, #e8f4fd 0%, #d1ecfb 100%); color: #1a6fad; }
-        .section-header.tech { background: linear-gradient(135deg, #e8fdf0 0%, #c8f5d8 100%); color: #1a7a42; }
-        .section-header.industry { background: linear-gradient(135deg, #fdf3e8 0%, #fbe0c4 100%); color: #9a5500; }
-        .section-header.crossover { background: linear-gradient(135deg, #f3e8fd 0%, #e2c8f5 100%); color: #6a1aad; }
-
-        .news-card {
-            background: #fff;
-            border: 1px solid #eef1f8;
-            border-radius: 14px;
-            padding: 18px 20px;
-            margin-bottom: 14px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .news-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            border-radius: 4px 0 0 4px;
-        }
-
-        .news-card.products::before { background: linear-gradient(180deg, #4facde 0%, #00f2fe 100%); }
-        .news-card.tech::before { background: linear-gradient(180deg, #43e97b 0%, #38f9d7 100%); }
-        .news-card.industry::before { background: linear-gradient(180deg, #f6a623 0%, #f093fb 100%); }
-        .news-card.crossover::before { background: linear-gradient(180deg, #a18cd1 0%, #fbc2eb 100%); }
-
-        .news-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102,126,234,0.15);
-        }
-
-        .news-title {
-            font-size: 0.95em;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .news-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .news-title a:hover {
-            color: #667eea;
-            text-decoration: underline;
-        }
-
-        .news-summary {
-            font-size: 0.85em;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-
-        .news-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .news-tag {
-            font-size: 0.72em;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-
-        .tag-intl { background: #e8f4fd; color: #1a6fad; }
-        .tag-cn { background: #fce8e8; color: #ad1a1a; }
-        .tag-hot { background: #fff3e0; color: #e65100; }
-        .tag-research { background: #e8fdf0; color: #1a7a42; }
-        .tag-funding { background: #f3e8fd; color: #6a1aad; }
-
-        .source-link {
-            font-size: 0.75em;
-            color: #667eea;
-            text-decoration: none;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .source-link:hover {
-            text-decoration: underline;
-        }
-
-        .source-link::before {
-            content: '↗';
-            font-size: 0.85em;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: rgba(255,255,255,0.7);
-            padding: 30px 40px;
-            text-align: center;
-            font-size: 0.85em;
-        }
-
-        .footer .footer-logo {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e8ecf8, transparent);
-            margin: 5px 30px;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.7em; }
-            .stats { gap: 10px; }
-            .stat-item { min-width: 80px; padding: 10px 14px; }
-            .highlight-box, .deep-analysis, .section { margin: 15px; padding: 15px; }
-        }
-    </style>
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.6rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .highlights { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+    .summary-card { padding: 20px 16px; }
+    .news-card { padding: 16px 14px; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="emoji-title">⚡ AI GLOBAL DAILY BRIEF</div>
-            <h1>每日AI全球资讯简报</h1>
-            <div class="date">📅 2026年3月26日 &nbsp;|&nbsp; 星期四 &nbsp;|&nbsp; 今日精选 16 条资讯</div>
-        </div>
+<div class="container">
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">16</div>
-                <div class="stat-label">条精选资讯</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">4</div>
-                <div class="stat-label">大分类</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">🌏</div>
-                <div class="stat-label">中英双语</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">实时搜索</div>
-            </div>
-        </div>
-
-        <!-- Today's Key Points -->
-        <div class="highlight-box">
-            <h2>🔥 今日3大要点</h2>
-            <ul class="highlight-points">
-                <li data-num="1">Anthropic起诉五角大楼：法官称政府对Claude的封禁"看起来像是惩罚"，因拒绝将Claude用于自主武器，Anthropic被列为"供应链风险"，此案裁决将深刻影响AI伦理与军事应用边界</li>
-                <li data-num="2">宇树科技科创板IPO申请获受理，预计募资42亿元，有望成A股"人形机器人第一股"；同期西湖大学发布"泰坦o1"搭载全球首个GAE身外化身系统，国产具身智能加速商业化</li>
-                <li data-num="3">中国AI大模型连续称霸全球调用量：OpenRouter数据显示3月16-22日中国大模型周调用量4.69万亿Token，连续多周超越美国，全球前三位置均被中国模型占据</li>
-            </ul>
-        </div>
-
-        <!-- Deep Analysis -->
-        <div class="deep-analysis">
-            <h2>🧠 深度洞察</h2>
-            <p>本周AI行业最大的叙事转折在于：Anthropic与五角大楼的诉讼不仅是一场商业纠纷，更是AI伦理立场能否在政治压力下坚守的试金石。法官质疑政府行为后，硅谷内部出现了罕见的跨公司团结——超30名OpenAI和Google DeepMind员工联署支持Anthropic。与此同时，中国AI大模型Token调用量的持续领跑，与国内具身智能资本热潮（60天500亿元融资）共同勾勒出一幅"模型战争东移、应用落地加速"的全球竞争新格局。AI不再只是实验室课题，而是正在以肉眼可见的速度渗透制造业、金融、医疗和国防等核心领域。</p>
-        </div>
-
-        <!-- Section 1: Products & Hardware -->
-        <div class="section">
-            <div class="section-header products">📱 产品与硬件</div>
-
-            <div class="news-card products">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/infomation/details/33495.html" target="_blank">Luma AI发布自回归图像生成模型Uni-1：兼容76种视觉风格，RISEBench三项第一</a>
-                </div>
-                <div class="news-summary">Luma AI推出全新图像生成模型Uni-1，采用decoder-only自回归Transformer架构，支持文本与图像token交错处理，可实现多参考图引导生成，支持76种视觉风格及实时推理可视化。在RISEBench基准测试多项得分领先，人类偏好Elo排名三项第一。单张2048px文生图约$0.09，官网已开放免费试用。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-hot">模型发布</span>
-                    <a href="https://www.aitop100.cn/infomation/details/33495.html" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card products">
-                <div class="news-title">
-                    <a href="https://toolscompare.ai/news/march-2026/" target="_blank">Google DeepMind发布Genie 3、Lyria 3、Nano Banana 2三款新模型</a>
-                </div>
-                <div class="news-summary">Google DeepMind本月密集发布三款模型：Genie 3能从文本描述生成逼真交互环境（通用世界模型）；Lyria 3专注高保真AI音乐创作；Nano Banana 2用于图像生成，具备更高创意精度。Google在2025年共推出60项主要AI功能，2026年继续加速推进全面AI整合战略。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-hot">多模态</span>
-                    <a href="https://toolscompare.ai/news/march-2026/" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card products">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/infomation/details/33495.html" target="_blank">Dreamina双模型更新：Seedance 2.0多模态视频 + Seedream 5.0 Lite图像生成</a>
-                </div>
-                <div class="news-summary">字节系Dreamina AI同步更新两款生成模型：Seedance 2.0支持图像、视频、文本多模态输入，强化跨场景一致性；Seedream 5.0 Lite提升指令遵循精度与视觉表现力。两款模型已逐步向全体用户推送，刷新页面即可获取最新版本。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-hot">视频生成</span>
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card products">
-                <div class="news-title">
-                    <a href="https://www.androidheadlines.com/2026/03/anthropic-pentagon-court-battle-claude-ai-ban.html" target="_blank">Anthropic为Claude新增电脑控制功能：可操控鼠标键盘、控制macOS</a>
-                </div>
-                <div class="news-summary">Anthropic为Claude推出"电脑使用"研究预览功能，现支持直接控制macOS电脑，模拟鼠标点击、键盘输入，操作浏览器和本地文件。结合Dispatch功能可实现远程自动化任务（如跑测试、生成简报）。当前向Claude Pro/Max订阅用户开放，关键操作需用户确认，内置提示词注入检测。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-hot">AI智能体</span>
-                    <a href="https://www.androidheadlines.com/2026/03/anthropic-pentagon-court-battle-claude-ai-ban.html" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Section 2: Tech & Research -->
-        <div class="section">
-            <div class="section-header tech">🔬 技术与研究</div>
-
-            <div class="news-card tech">
-                <div class="news-title">
-                    <a href="https://www.news.cn/tech/20260323/082d88e8acd7406e8f1e013f5f009667/c.html" target="_blank">西湖大学"泰坦o1"发布：全球首个GAE身外化身系统，动作泛化大模型领先同行6个月</a>
-                </div>
-                <div class="news-summary">西湖大学孵化的西湖机器人公司发布人形机器人"泰坦o1"（Titano1），搭载全球首个GAE（Generalized Action Embodiment）身外化身系统，搭载机器人领域首个动作泛化大模型，能随时随地实时复刻人类任意动作，打破地域限制。据披露，该技术领先国际同行约6个月，橙黑银三色外观颇具辨识度。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-research">技术突破</span>
-                    <a href="https://www.news.cn/tech/20260323/082d88e8acd7406e8f1e013f5f009667/c.html" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card tech">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank">阿里达摩院玄铁C950：RISC-V首次突破70分，可原生运行千亿参数大模型</a>
-                </div>
-                <div class="news-summary">阿里达摩院发布新一代RISC-V旗舰处理器玄铁C950，单核性能首次突破70分（SPECint2006），主频3.2GHz，内置Vector/Matrix引擎，可原生支持千亿参数大模型（Qwen3-235B、DeepSeek V3-671B）推理。与中科院软件所联合研发RISC-V原生AI操作系统，已在AI眼镜、电力工控等200余款芯片场景落地。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-research">芯片突破</span>
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card tech">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/infomation/details/33495.html" target="_blank">阿里通义PrismAudio：ICLR 2026收录视频配音框架，0.63秒生成9秒音频</a>
-                </div>
-                <div class="news-summary">阿里通义实验室发布视频配音框架PrismAudio，引入"分解式思维链"机制，先分析画面元素再生成音效，提升声画同步性。四重虚拟评审（语义/时序/美学/空间）确保质量。仅5.18亿参数，0.63秒生成9秒音频，效率领先。已被ICLR 2026收录，项目已开源发布。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-research">开源研究</span>
-                    <a href="https://prismaudio-project.github.io/" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card tech">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank">美团LongCat-Flash-Prover开源：数学定理证明通过率97.1%，刷新开源记录</a>
-                </div>
-                <div class="news-summary">美团龙猫团队开源LongCat-Flash-Prover，专注数学形式化与定理证明领域，将推理拆解为自动形式化、草稿生成、证明生成三大原子能力。在MiniF2F-Test基准通过率达97.1%，刷新开源模型记录。模型已在GitHub与Hugging Face同步发布，向研究社区完全开放。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-research">开源模型</span>
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Section 3: Industry & Investment -->
-        <div class="section">
-            <div class="section-header industry">💰 产业与投资</div>
-
-            <div class="news-card industry">
-                <div class="news-title">
-                    <a href="https://www.cnbc.com/2026/03/24/anthropic-lawsuit-pentagon-supply-chain-risk-claude.html" target="_blank">Anthropic起诉五角大楼！法官称封禁"像是惩罚"，Claude拒绝用于自主武器引发历史性诉讼</a>
-                </div>
-                <div class="news-summary">Anthropic因拒绝将Claude用于美军自主武器和监控系统，被国防部列为"供应链风险"——这是美国公司首次获得该级别安全指定。3月24日，法官在预审中表示政府行为"看起来像是惩罚"，或将支持Anthropic的临时禁令申请。超30名OpenAI和Google DeepMind员工联署法庭意见书支持Anthropic，跨公司AI伦理同盟罕见浮现。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-hot">重大事件</span>
-                    <a href="https://www.cnbc.com/2026/03/24/anthropic-lawsuit-pentagon-supply-chain-risk-claude.html" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card industry">
-                <div class="news-title">
-                    <a href="https://www.ithome.com/0/932/097.htm" target="_blank">宇树科技科创板IPO获受理，募资42亿元，冲击A股"人形机器人第一股"</a>
-                </div>
-                <div class="news-summary">3月20日，上交所正式受理宇树科技科创板IPO申请，预计募资规模42.02亿元，是科创板发行上市预先审阅机制落地后第2单申报。宇树科技为全球人形机器人出货量第一，多次亮相春晚，同时发布招股书揭示全栈自研技术底牌。此次上市标志着中国具身智能赛道进入资本市场正式收割期。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-funding">IPO融资</span>
-                    <a href="https://www.ithome.com/0/932/097.htm" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card industry">
-                <div class="news-title">
-                    <a href="https://fortune.com/2026/03/21/openai-double-headcount-this-year-sam-altman-anthropic-google/" target="_blank">OpenAI计划年内翻倍扩招至8000人，加速应对Anthropic与Google竞争</a>
-                </div>
-                <div class="news-summary">据《金融时报》报道，OpenAI计划2026年内将员工规模从约4500人扩至8000人，几乎翻倍。新增职位主要集中在产品、销售和企业业务，目标是加速企业级AI落地以应对Anthropic和Google的竞争压力。这一招聘潮也映射出AI时代对专业化高薪职位的巨大需求，即便自动化正在压缩基础岗位。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-hot">公司战略</span>
-                    <a href="https://fortune.com/2026/03/21/openai-double-headcount-this-year-sam-altman-anthropic-google/" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card industry">
-                <div class="news-title">
-                    <a href="https://www.aibusinessreview.org/2026/03/21/ai-startups-41-percent-venture-capital-2026/" target="_blank">AI初创公司独占全球VC 41%份额，20年来最高，Cursor估值达293亿美元</a>
-                </div>
-                <div class="news-summary">TechCrunch与Carta联合报告显示，2025年AI初创公司获得全球1280亿美元风险投资的41%，创20年新高，较2024年的34%大幅提升。代表性案例：AI编码平台Cursor（Anysphere）完成23亿美元D轮，估值飙至293亿美元；AI编码代理Devin（Cognition AI）完成4亿美元C轮，估值102亿美元。资本向AI基础设施和编码工具高度集中。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-funding">投资趋势</span>
-                    <a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card industry">
-                <div class="news-title">
-                    <a href="https://robottoday.com/article/d-robotics-china-s-embodied-ai-chip-platform-for-humanoid-and-service-robots" target="_blank">中国具身AI芯片平台D-Robotics完成1.2亿美元B1轮，60天机器人融资超500亿元</a>
-                </div>
-                <div class="news-summary">3月16日，中国具身智能基础设施龙头D-Robotics（地平线机器人）完成1.2亿美元B1轮融资。更宏观数据显示，中国人形机器人赛道在2026年开年60天内融资已超500亿元（约70亿美元），日均融资超7000万美元，国家产业基金与民间资本双轮驱动，中国正成为全球具身智能最重要的资本聚集地。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-funding">融资</span>
-                    <a href="https://robottoday.com/article/d-robotics-china-s-embodied-ai-chip-platform-for-humanoid-and-service-robots" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Section 4: Cross-domain Applications -->
-        <div class="section">
-            <div class="section-header crossover">🌐 跨界融合</div>
-
-            <div class="news-card crossover">
-                <div class="news-title">
-                    <a href="https://news.cctv.cn/2026/03/23/ARTIY9NK61T7g6W0jjQighKR260323.shtml" target="_blank">中国大模型连续霸榜OpenRouter：周调用4.69万亿Token，全球前三被中国包揽</a>
-                </div>
-                <div class="news-summary">OpenRouter平台最新数据显示，截至3月15日中国AI大模型周调用量达4.69万亿Token，连续多周超越美国，全球前三名均为中国模型。3月16-22日全球总调用量20.4万亿Token，环比增长20.7%。分析认为，背后是"技术迭代-成本下降-应用爆发"的飞轮效应，DeepSeek及OpenClaw等开源Agent工作流普及是主要驱动力。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-hot">全球数据</span>
-                    <a href="https://news.cctv.cn/2026/03/23/ARTIY9NK61T7g6W0jjQighKR260323.shtml" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card crossover">
-                <div class="news-title">
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank">阿里Accio Work：AI智能体30分钟完成跨境电商全流程，从选品到供应链谈判</a>
-                </div>
-                <div class="news-summary">阿里国际推出Accio Work跨境电商智能体平台，内置电商专家、运营、供应链管理等垂直角色，30分钟内全自动完成市场分析、选品、设计、建店、推广及供应链谈判全流程，支持自主外联投放广告。平台现有企业用户超1000万，Accio Work标志着AI在跨境电商领域进入端到端无人值守运营新阶段。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-cn">国内</span>
-                    <span class="news-tag tag-hot">AI应用</span>
-                    <a href="https://www.aitop100.cn/ai-daily-2026-03-24" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-
-            <div class="news-card crossover">
-                <div class="news-title">
-                    <a href="https://www.nature.com/articles/s44387-026-00076-4" target="_blank">Nature发表AI医疗智能体综述：AI Agent正重塑诊断、决策、报告生成全流程</a>
-                </div>
-                <div class="news-summary">《Nature》子刊发表AI医疗智能体系统综述，梳理了AI Agent在辅助诊断、临床决策、报告生成、医疗聊天机器人及医学教育五大场景的最新进展。NVIDIA 2026医疗AI报告同期显示，AI在生命科学领域采用率大幅提升，基础设施投入创新高。AI正从单一任务工具转变为端到端医疗流程协作伙伴。</div>
-                <div class="news-meta">
-                    <span class="news-tag tag-intl">国际</span>
-                    <span class="news-tag tag-research">医疗AI</span>
-                    <a href="https://www.nature.com/articles/s44387-026-00076-4" target="_blank" class="source-link">原文链接</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="footer-logo">⚡ AI Daily Brief</div>
-            <p>由 WorkBuddy AI 每日自动搜索生成 &nbsp;|&nbsp; 内容来源：theaitrack.com / toolscompare.ai / aitop100.cn / 新华网 / CCTV 等</p>
-            <p style="margin-top:8px;">生成时间：2026-03-26 &nbsp;|&nbsp; 仅供参考，不构成投资建议</p>
-        </div>
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">AI Daily Brief</div>
+    <h1>每日全球AI资讯简报</h1>
+    <div class="subtitle">Global Artificial Intelligence News Digest</div>
+    <div class="date-badge">
+      <span>📅</span>
+      <span>2026年3月26日 · Thursday · 15:00更新</span>
     </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">14</span>
+      <div class="stat-label">今日资讯</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <div class="stat-label">重点分类</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <div class="stat-label">今日要点</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">8+</span>
+      <div class="stat-label">覆盖媒体</div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary-card">
+    <div class="section-title">
+      <span class="icon">⚡</span>
+      今日三大要点
+    </div>
+    <div class="highlights">
+      <div class="highlight-item">
+        <div class="highlight-num">1</div>
+        <div class="highlight-text"><strong>OpenAI Sora骤然关停：</strong>发布安全标准后24小时内宣告退场，25个月烧掉逾3亿美元，AI视频赛道进入"中国时刻"，国产多模态模型正悄然赶超</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-num">2</div>
+        <div class="highlight-text"><strong>英伟达AI智能体自我进化：</strong>新一代智能体可7天内自主优化算子，淘汰传统GPU工程师角色，预示AI正从工具演变为工程师替代者</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-num">3</div>
+        <div class="highlight-text"><strong>马斯克"Terafab"芯片帝国：</strong>设想建美版台积电，目标年产1太瓦AI芯片，潜在投资高达13万亿美元，或彻底重塑全球AI算力格局</div>
+      </div>
+    </div>
+    <div class="summary-text">
+      今日AI领域呈现三条主线：其一，OpenAI战略收缩信号显著——Sora骤然关停（平均每天烧1500万美元），配合Anthropic拒绝五角大楼、Claude升级为数字操作员，头部玩家正从"烧钱扩张"转向"商业化务实"；其二，基础设施军备竞赛升温——谷歌TurboQuant、xMemory、IBM量子突破与马斯克Terafab计划同日密集登场，算力与效率之战全面开打；其三，国产AI低调崛起——阿里PrismAudio多模态、DeepSeek转战Agent方向，国产模型正以"不声张"的方式赢得国际认可，中国AI已从跟随者转变为多个赛道的并跑者乃至领跑者。
+    </div>
+  </div>
+
+  <!-- Category 1: Products & Hardware -->
+  <div class="category-section cat-product">
+    <div class="category-header">
+      <div class="category-icon">🚀</div>
+      <h2>产品与硬件 · 新模型 / 产品 / 设备</h2>
+      <span class="cat-count">4条</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">OpenAI关停Sora：发布安全标准后24小时骤然退场，25个月共烧逾3.75亿美元</div>
+        <span class="news-source">VentureBeat / 36氪</span>
+      </div>
+      <div class="news-desc">OpenAI旗下AI视频生成应用Sora在发布其安全标准后不到一天即宣告关停，整个团队甚至不知情，前一晚部分员工还在与迪士尼洽谈合作。Sora存活仅25个月，平均每日烧掉约1500万美元。分析人士指出，这标志着AI视频进入更注重ROI的"算账时代"，并可能将赛道主导权进一步拱手让给国产视频模型。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">OpenAI</span>
+          <span class="news-tag">视频AI</span>
+          <span class="news-tag">战略调整</span>
+        </div>
+        <a href="https://venturebeat.com/technology/openai-is-shutting-down-sora-its-powerful-ai-video-app/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Claude升级为数字操作员：可控制Mac，Cowork+Code双工具同步上线研究预览</div>
+        <span class="news-source">VentureBeat</span>
+      </div>
+      <div class="news-desc">Anthropic将Claude从对话式助手升级为远程数字操作员，新版本可自主控制macOS图形界面，完成跨应用操作任务。该功能已集成至Claude Cowork（生产力工具）和Claude Code（开发工具）作为研究预览版发布。这直接加剧了与Microsoft Copilot、Google Gemini在"AI操作系统"层面的争夺战，AI已从文字助手走向系统级控制器。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">Anthropic</span>
+          <span class="news-tag">Claude</span>
+          <span class="news-tag">AI Agent</span>
+        </div>
+        <a href="https://venturebeat.com/technology/anthropics-claude-can-now-control-your-mac-escalating-the-fight-to-build-ai/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">阿里通义"PrismAudio"发布：国产多模态模型悄然赢得多模态赛道</div>
+        <span class="news-source">36氪 / 硅基星芒</span>
+      </div>
+      <div class="news-desc">阿里通义最新多模态模型PrismAudio在多项基准测试中取得领先成绩，在音频理解与跨模态推理上超越国际竞品。报道指出，这是国产模型在多模态领域"不声张的胜利"——无需大规模发布活动，通过持续迭代已构建起显著竞争优势。结合此前阿里云宣布未来五年AI+云业务突破1000亿美元目标，阿里AI战略商业化路径日趋清晰。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">阿里通义</span>
+          <span class="news-tag">多模态</span>
+          <span class="news-tag">国产AI</span>
+        </div>
+        <a href="https://36kr.com/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">DeepSeek大规模招聘Agent方向人才：从基础模型研究向产品化Agent转型</div>
+        <span class="news-source">量子位</span>
+      </div>
+      <div class="news-desc">DeepSeek近期发布大量Agent方向岗位，覆盖多轮对话、工具调用、任务规划等核心Agent能力方向，标志其战略重心从基础大模型研究显著转向产品化智能体应用。业内人士分析，这与OpenAI、Anthropic的Agent布局路径高度重合，预示2026年中国大模型公司正式进入Agent商业化竞争的关键窗口期。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">DeepSeek</span>
+          <span class="news-tag">AI Agent</span>
+          <span class="news-tag">战略转型</span>
+        </div>
+        <a href="https://www.qbitai.com/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category 2: Technology & Research -->
+  <div class="category-section cat-tech">
+    <div class="category-header">
+      <div class="category-icon">🔬</div>
+      <h2>技术与研究 · 算法 / 论文 / 开源</h2>
+      <span class="cat-count">4条</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Google TurboQuant算法：AI内存速度提升8倍、推理成本降低50%，24小时内被移植到llama.cpp</div>
+        <span class="news-source">VentureBeat</span>
+      </div>
+      <div class="news-desc">谷歌发布TurboQuant量化算法，通过新型内存压缩技术将AI模型的内存访问速度提升8倍，同时将推理成本削减50%。发布后24小时内，开源社区已将其移植至适用于Apple Silicon的MLX框架和广泛使用的llama.cpp，意味着本地部署AI的性价比有望大幅提升。这是谷歌继TensorRT之后在推理效率领域的又一重大突破。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">Google</span>
+          <span class="news-tag">量化算法</span>
+          <span class="news-tag">推理优化</span>
+        </div>
+        <a href="https://venturebeat.com/infrastructure/googles-new-turboquant-algorithm-speeds-up-ai-memory-8x-cutting-costs-by-50/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">xMemory技术突破：四级语义层次替代扁平RAG，多会话AI Agent Token成本削减近50%</div>
+        <span class="news-source">VentureBeat</span>
+      </div>
+      <div class="news-desc">研究人员提出xMemory记忆架构，用四层语义层次结构（即时、短期、中期、长期）取代传统扁平化RAG检索，可将多会话AI智能体的Token使用量削减约47%，同时减少上下文冗余。这对Agent成本控制意义重大——当前一个复杂Agent工作流每月可产生数千美元Token费用，该技术有望将企业级Agent大规模落地的经济可行性提升一个量级。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">AI Agent</span>
+          <span class="news-tag">记忆系统</span>
+          <span class="news-tag">Token优化</span>
+        </div>
+        <a href="https://venturebeat.com/orchestration/how-xmemory-cuts-token-costs-and-context-bloat-in-ai-agents/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">IBM量子计算机首次超越经典计算机：量子时代里程碑式突破</div>
+        <span class="news-source">humai.blog</span>
+      </div>
+      <div class="news-desc">IBM宣布其量子计算机在特定计算任务上首次实现对经典计算机的全面超越，验证了"量子优势"在实际应用场景中的可行性。这一突破对AI意义深远——量子算法在优化问题、密码学和分子模拟领域具有指数级加速潜力，预计将在未来3-5年内开始与AI大模型的训练和推理流程深度融合，催生新一代量子AI计算范式。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">IBM</span>
+          <span class="news-tag">量子计算</span>
+          <span class="news-tag">技术突破</span>
+        </div>
+        <a href="https://www.humai.blog/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">英伟达AI智能体自主进化7天：自动优化算子革掉GPU专家饭碗，Nemotron Cascade 2再获数学编程金牌</div>
+        <span class="news-source">机器之心 / VentureBeat</span>
+      </div>
+      <div class="news-desc">英伟达发布新一代AI智能体系统，可在7天内自主迭代优化算子（operator）设计，其性能超越人类工程师手工调优结果，直接冲击算子工程师和GPU调优专家岗位。与此同时，英伟达开源模型Nemotron Cascade 2以30亿活动参数在数学和编程基准夺金，其训练后流程（post-training pipeline）被认为比模型本身更具参考价值。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">英伟达</span>
+          <span class="news-tag">自主AI</span>
+          <span class="news-tag">开源模型</span>
+        </div>
+        <a href="https://venturebeat.com/orchestration/nvidias-nemotron-cascade-2-wins-math-and-coding-gold-medals-with-3b-active/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category 3: Industry & Investment -->
+  <div class="category-section cat-industry">
+    <div class="category-header">
+      <div class="category-icon">💼</div>
+      <h2>产业与投资 · 融资 / 并购 / 政策</h2>
+      <span class="cat-count">3条</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">马斯克设想"Terafab"美版台积电：年产1太瓦AI芯片，潜在投资规模达13万亿美元</div>
+        <span class="news-source">36氪 / 日经中文网</span>
+      </div>
+      <div class="news-desc">马斯克计划建设名为"Terafab"的AI芯片制造厂，目标年产量达1太瓦（1万亿瓦）规模的AI芯片，潜在投资规模可能高达13万亿美元，被形容为"美版台积电"。此计划若落地将与英伟达构成直接竞争，也与其xAI的超算集群Colossus形成战略协同。分析师指出，13万亿美元的投资体量几乎相当于2024年全球GDP的12%，凸显AI算力军备竞赛已进入史无前例的量级。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">马斯克</span>
+          <span class="news-tag">AI芯片</span>
+          <span class="news-tag">算力基建</span>
+        </div>
+        <a href="https://36kr.com/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Atlassian以两位AI专注CTO替代原CTO：技术领导层向AI全面倾斜的时代信号</div>
+        <span class="news-source">humai.blog</span>
+      </div>
+      <div class="news-desc">软件协作巨头Atlassian宣布以两位分别专注于AI产品和AI基础设施的CTO同时替代其原任CTO，开创企业高管架构中"双AI-CTO"模式。分析认为此举是技术公司重组领导层以全面拥抱AI的典型案例，预示未来CTO岗位将大量分化为AI战略负责人与传统工程领导人两类角色，AI已从工具层渗透至企业最高决策层。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">Atlassian</span>
+          <span class="news-tag">企业AI战略</span>
+          <span class="news-tag">组织变革</span>
+        </div>
+        <a href="https://www.humai.blog/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Token官方定名"词元"：中国AI术语话语权争夺战打响</div>
+        <span class="news-source">36氪 / 科技狐</span>
+      </div>
+      <div class="news-desc">中国全国科学技术名词审定委员会正式将AI领域"Token"统一定名为中文标准术语"词元"，并推进在学术、产业、媒体等场景的统一使用。分析人士认为，这不仅是语言规范化举措，更是中国在AI核心概念命名权上的主权主张——掌握术语定义权，是影响技术叙事与产业标准的深层战略手段，折射出中国AI话语体系的日趋自信。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">AI术语</span>
+          <span class="news-tag">中国AI</span>
+          <span class="news-tag">话语权</span>
+        </div>
+        <a href="https://36kr.com/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category 4: Cross-sector -->
+  <div class="category-section cat-cross">
+    <div class="category-header">
+      <div class="category-icon">🌐</div>
+      <h2>跨界融合 · AI应用于其他行业</h2>
+      <span class="cat-count">3条</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Bank of America引入AI代理担任银行职务：金融AI从辅助工具升格为职能岗位</div>
+        <span class="news-source">AI News International</span>
+      </div>
+      <div class="news-desc">美国银行（Bank of America）宣布在多个业务部门正式引入AI代理担任具体银行职务，负责处理风险分析、合规审查和客户洞察等任务，这是AI首次以"职务"而非"工具"形式进入主流金融机构组织架构。同期，Ocorian报道家族办公室已开始系统性使用AI获取金融数据洞察，金融业AI渗透率正以超预期速度扩张。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">金融AI</span>
+          <span class="news-tag">AI就业</span>
+          <span class="news-tag">银行业</span>
+        </div>
+        <a href="https://www.artificialintelligence-news.com/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">Cloudflare Dynamic Workers发布：抛弃容器，AI代理代码运行速度提升100倍</div>
+        <span class="news-source">VentureBeat</span>
+      </div>
+      <div class="news-desc">Cloudflare推出Dynamic Workers基础设施服务，采用动态代码加载取代传统容器架构，AI代理代码的冷启动时间从秒级降至毫秒级，整体运行速度提升约100倍。定价为每天每个已加载Worker收费0.002美元，叠加标准CPU和调用费用。这直接降低了企业部署实时AI代理的技术门槛，预计将加速边缘AI代理在物联网、实时决策等场景的规模化落地。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">Cloudflare</span>
+          <span class="news-tag">边缘AI</span>
+          <span class="news-tag">基础设施</span>
+        </div>
+        <a href="https://venturebeat.com/infrastructure/cloudflares-new-dynamic-workers-ditch-containers-to-run-ai-agent-code-100x/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title">AI改变精神医学范式：从被动诊断到主动预防，AI穿戴情绪监测引发隐私争议</div>
+        <span class="news-source">humai.blog</span>
+      </div>
+      <div class="news-desc">最新研究显示，AI正从根本上重构精神医学工作方式，从"等待患者出现症状后诊断"转变为"基于生物信号持续预测并预防"。与此同时，AI穿戴情绪监测设备（可实时采集心率变异性、皮肤电导率等生理指标）开始商业化部署，引发关于便利性与隐私边界的广泛争议。专家警告，在监管框架明确之前，精神健康数据的商业化使用存在严重的伦理风险。</div>
+      <div class="news-footer">
+        <div class="news-tags">
+          <span class="news-tag">医疗AI</span>
+          <span class="news-tag">精神健康</span>
+          <span class="news-tag">AI伦理</span>
+        </div>
+        <a href="https://www.humai.blog/" target="_blank" class="news-link">📖 原文链接</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>
+      本简报由 <strong style="color:#a78bfa">WorkBuddy AI</strong> 自动搜集整理 · 每个工作日上午10:00准时发布<br>
+      数据来源：VentureBeat · humai.blog · 36氪 · 量子位 · 雷峰网 · AI News International<br>
+      <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">📚 历史简报归档</a>
+      &nbsp;·&nbsp;
+      <a href="https://kenny378178-ai.github.io/ai-daily-news/daily-news/2026-03-26.html" target="_blank">🔗 在线阅读</a>
+    </p>
+    <p style="margin-top:10px; font-size:0.72rem; color:#5b4e7a">
+      内容仅供参考，不构成投资建议 · © 2026 AI Daily Brief
+    </p>
+  </div>
+
+</div>
 </body>
 </html>
