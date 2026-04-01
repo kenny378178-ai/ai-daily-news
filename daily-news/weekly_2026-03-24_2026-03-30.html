@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每周全球资讯周报 - 2026年3月24日至30日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: #ffd700;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .header .date-range {
+            font-size: 1.1em;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.95em;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 五大要点卡片 */
+        .key-point {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .key-point::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .key-point .point-num {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+
+        .key-point h3 {
+            font-size: 1.15em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .key-point p {
+            font-size: 0.92em;
+            line-height: 1.75;
+            opacity: 0.95;
+            padding-left: 44px;
+        }
+
+        /* 分类卡片 */
+        .category-section {
+            margin-bottom: 28px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            margin-right: 12px;
+        }
+
+        .icon-product { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .icon-tech { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .icon-industry { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .icon-cross { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+        .category-header h2 {
+            font-size: 1.2em;
+            color: #2a5298;
+        }
+
+        .category-header .count {
+            margin-left: auto;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        /* 新闻卡片 */
+        .news-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            background: #eef0ff;
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+        }
+
+        .news-card .card-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .news-card .source-tag {
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            white-space: nowrap;
+        }
+
+        .news-card .region-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            white-space: nowrap;
+        }
+
+        .news-card .hot-tag {
+            background: #fff0f0;
+            color: #e53e3e;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .news-card h4 {
+            color: #1a202c;
+            font-size: 1em;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+
+        .news-card h4 a {
+            color: #1e3c72;
+            text-decoration: none;
+            border-bottom: 1px dashed #667eea;
+            transition: color 0.2s;
+        }
+
+        .news-card h4 a:hover {
+            color: #667eea;
+            border-bottom-style: solid;
+        }
+
+        .news-card p {
+            color: #666;
+            font-size: 0.88em;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .news-card .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            font-size: 0.8em;
+            text-decoration: none;
+            padding: 4px 10px;
+            background: rgba(102,126,234,0.1);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .news-card .read-more:hover {
+            background: rgba(102,126,234,0.2);
+        }
+
+        /* 周统计 */
+        .week-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .week-stat {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .week-stat .stat-num {
+            font-size: 2em;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+
+        .week-stat .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 6px;
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container { border-radius: 0; }
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            .stats { flex-direction: column; align-items: center; }
+            .week-stats { grid-template-columns: repeat(2, 1fr); }
+            .key-point p { padding-left: 0; margin-top: 8px; }
+        }
+
+        /* 分隔线 */
+        .divider {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <div class="badge">WEEKLY REPORT</div>
+        <h1>AI每周全球资讯周报</h1>
+        <div class="subtitle">Global AI Weekly Digest</div>
+        <div class="date-range">📅 2026年3月24日 至 3月30日</div>
+        <div class="stats">
+            <div class="stat-item">📰 本周精选 25+ 条</div>
+            <div class="stat-item">🌍 覆盖 15+ 媒体</div>
+            <div class="stat-item">📱 4 大分类</div>
+            <div class="stat-item">💡 5 大深度要点</div>
+        </div>
+    </div>
+
+    <!-- 周报统计 -->
+    <div class="section">
+        <h2 class="section-title">本周数据概览</h2>
+        <div class="week-stats">
+            <div class="week-stat">
+                <span class="stat-num">7</span>
+                <span class="stat-label">发布天数</span>
+            </div>
+            <div class="week-stat">
+                <span class="stat-num">25+</span>
+                <span class="stat-label">新闻条数</span>
+            </div>
+            <div class="week-stat">
+                <span class="stat-num">15+</span>
+                <span class="stat-label">覆盖媒体</span>
+            </div>
+            <div class="week-stat">
+                <span class="stat-num">5</span>
+                <span class="stat-label">深度要点</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 五大深度要点 -->
+    <div class="section">
+        <h2 class="section-title">💡 本周五大深度要点</h2>
+
+        <div class="key-point">
+            <h3><span class="point-num">1</span>中国AI模型全球调用量首超美国</h3>
+            <p>全球AI模型API聚合平台OpenRouter数据显示，3月中国大模型周调用量达7.359万亿Token，连续三周超越美国（2.954万亿Token）。全球调用量前五的模型中，中国厂商包揽四席：MiniMax M2.5、阶跃星辰Step 3.5 Flash、DeepSeek V3.2、小米MiMo V2 Pro。国产模型在Top5中贡献85.7%的调用量，两年内日均Token调用量增长超千倍，标志着中国AI从技术追赶到应用落地的历史性跨越。</p>
+        </div>
+
+        <div class="key-point">
+            <h3><span class="point-num">2</span>xAI被SpaceX收购，估值1.25万亿美元</h3>
+            <p>马斯克旗下AI公司xAI以全股票交易方式被SpaceX收购，合并后新实体估值达1.25万亿美元（xAI估值2500亿美元）。与此同时，xAI 11位联合创始团队成员已全部离职，公司正在进行"彻底重组"。这一并购交易创下AI行业历史最高估值记录，但也暴露出高估值AI创业公司的组织治理难题。</p>
+        </div>
+
+        <div class="key-point">
+            <h3><span class="point-num">3</span>具身智能规模化元年开启</h3>
+            <p>本周具身智能领域密集突破：极佳视界发布GigaWorld-1世界模型登顶全球第一；智元机器人第10000台远征A3量产下线；广东启用首条年产能万台级人形机器人生产线；北京成立全国最大人形机器人训练基地；具身智能行业标准正式发布（6月1日实施）。2026年被视为具身智能规模化元年，AI正从虚拟世界向物理世界加速渗透。</p>
+        </div>
+
+        <div class="key-point">
+            <h3><span class="point-num">4</span>OpenAI与Anthropic世纪联手</h3>
+            <p>OpenAI发布codex-plugin-cc插件，允许用户在Claude Code中直接调用Codex进行代码审查和对抗性分析。这是OpenAI首次主动将自家工具嵌入竞争对手生态，旨在抢占Claude Code 46%的开发者市场份额。此举标志AI编程从"单一工具竞争"转向"多工具协作生态"，AI Agent正从概念走向系统能力。</p>
+        </div>
+
+        <div class="key-point">
+            <h3><span class="point-num">5</span>AI投资热潮席卷全球</h3>
+            <p>本周AI投资市场持续火热：极佳视界完成近10亿元Pre-B轮；Anthropic考虑IPO融资600亿美元（估值3800亿美元）；软银获400亿美元贷款投资OpenAI；北京设立千亿政府基金支持人形机器人产业。分析师普遍认为，全球正处于近年来规模最大的AI投资周期，企业信心回升至2020年以来最乐观水平。</p>
+        </div>
+    </div>
+
+    <!-- 产品与硬件 -->
+    <div class="section">
+        <h2 class="section-title">📱 产品与硬件</h2>
+
+        <div class="category-section">
+            <div class="news-card">
+                <div class="card-header">
+                    <span class="source-tag">GitHub</span>
+                    <span class="region-tag">国际</span>
+                    <span class="hot-tag">重磅</span>
+                </div>
+                <h4><a href="https://github.com" target="_blank">字节跳动开源DeerFlow 2.0：支持长时任务处理的超级智能体工具</a></h4>
+                <p>字节跳动在GitHub上开源名为DeerFlow 2.0的智能体工具，具备强大的长时任务处理能力，支持多步骤复杂任务分解与执行，可应用于研究、数据分析、内容创作等多个场景。</p>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <span class="source-tag">腾讯新闻</span>
+                    <span class="region-tag">国际</span>
+                    <span class="hot-tag">重磅</span>
+                </div>
+                <h4><a href="https://news.qq.com/rain/a/20260331A02O1J00" target="_blank">OpenAI发布codex-plugin-cc：Claude Code可直调用Codex代码审查</a></h4>
+                <p>OpenAI发布codex-plugin-cc插件，允许用户在Anthropic的Claude Code中直接调用OpenAI的Codex工具进行代码审查和对抗性分析。这是OpenAI首次主动将自家工具嵌入竞争对手生态，标志AI编程从"单一工具竞争"转向"多工具协作"。</p>
+                <a href="https://news.qq.com/rain/a/20260331A02O1J00" target="_blank" class="read-more">📖 阅读原文 →</a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <span class="source-tag">CSDN</span>
+                    <span class="region-tag">国内</span>
+                </div>
+                <h4><a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank">极佳视界发布GigaWorld-1：具身世界模型登顶全球第一</a></h4>
+                <p>极佳视界发布新一代具身世界模型GigaWorld-1，在WorldArena评测中综合得分突破60分，成为唯一60+综合得分的模型。在"物理遵循""3D准确度""视觉质量"三大维度领先，核心代码已开源。</p>
+                <a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank" class="read-more">📖 阅读原文 →</a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <span class="source-tag">AIBars</span>
+                    <span class="region-tag">国际</span>
+                    <span class="hot-tag">安全</span>
+                </div>
+                <h4><a href="https://www.aibars.net" target="_blank">Claude Code源码泄露：Python移植版在GitHub爆红</a></h4>
+                <p>Anthropic的Claude Code完整源代码于3月31日泄露，随后Python移植版在GitHub迅速走红，引发开发者社区热议。Anthropic尚未对此事件发表官方声明。</p>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <span class="source-tag">AITOP100</span>
+                    <span class="region-tag">国际</span>
+                </div>
+                <h4><a href="https://www.aitop100.cn" target="_blank">Mistral Voxtral TTS：智能手表可运行的语音克隆模型</a></h4>
+                <p>法国AI公司Mistral发布的Voxtral TTS语音模型仅需5秒音频样本即可克隆声音，支持边缘设备本地部署，被认为将重构语音AI助手开发生态。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 技术与研究 -->
+    <div class="section">
+        <h2 class="section-title">🔬 技术与研究</h2>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">腾讯云</span>
+                <span class="region-tag">国内</span>
+                <span class="hot-tag">里程碑</span>
+            </div>
+            <h4><a href="https://cloud.tencent.cn/developer/article/2648260" target="_blank">世界模型突破：Matrix-Game 3.0实现720p 40FPS实时生成</a></h4>
+            <p>昆仑万维发布Matrix-Game 3.0游戏世界模型，实现720p分辨率40FPS实时生成，引入记忆机制保障长序列一致性。南京大学提出Any-step Dynamics Model将世界模型动力学推演推进到上千步。</p>
+            <a href="https://cloud.tencent.cn/developer/article/2648260" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">中关村论坛</span>
+                <span class="region-tag">国内</span>
+                <span class="hot-tag">标准</span>
+            </div>
+            <h4><a href="https://news.cctv.com/2026/03/27/ARTI5xKL3qpuDfBpr4yqFFL4260327.shtml" target="_blank">具身智能行业标准发布：6月1日正式实施</a></h4>
+            <p>中国信息通信研究院联合40余家单位起草的具身智能领域首个行业标准正式发布，为机器人构建统一基准测试框架，涵盖"智商"和"身手"评估方法，6月1日起实施。</p>
+            <a href="https://news.cctv.com/2026/03/27/ARTI5xKL3qpuDfBpr4yqFFL4260327.shtml" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">中关村论坛</span>
+                <span class="region-tag">国内</span>
+            </div>
+            <h4><a href="https://aiday.innohall.cn/2026/" target="_blank">FlagOS 2.0开源系统发布：中关村人工智能开源联盟成立</a></h4>
+            <p>众智FlagOS 2.0开源系统正式发布，支持32款芯片，实现云到端全覆盖。中关村人工智能开源联盟正式成立，汇聚40余家芯片、模型厂商与科研院所。</p>
+            <a href="https://aiday.innohall.cn/2026/" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">ITBear</span>
+                <span class="region-tag">国内</span>
+            </div>
+            <h4><a href="https://www.itbear.com.cn/html/2026-03/1234117.html" target="_blank">玄铁C950 RISC-V CPU：5nm制程原生支持千亿大模型</a></h4>
+            <p>阿里达摩院发布旗舰CPU玄铁C950，采用5纳米制程，搭载自研AI加速引擎，首次以RISC-V架构原生支持Qwen3、DeepSeek V3等千亿参数大模型，实现通用算力与AI算力统一编址。</p>
+            <a href="https://www.itbear.com.cn/html/2026-03/1234117.html" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">百度开发者</span>
+                <span class="region-tag">国际</span>
+            </div>
+            <h4><a href="https://developer.baidu.com/article/detail.html?id=6270722" target="_blank">新一代AI加速器发布：推理能效提升12倍</a></h4>
+            <p>某头部芯片厂商推出第四代自研AI加速器，采用3D堆叠与光子互连技术，推理能效提升12倍，支持FP8/FP16混合精度，配套开源推理引擎将模型加载速度提升至行业平均水平的3倍。</p>
+            <a href="https://developer.baidu.com/article/detail.html?id=6270722" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+    </div>
+
+    <!-- 产业与投资 -->
+    <div class="section">
+        <h2 class="section-title">💰 产业与投资</h2>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">每经网</span>
+                <span class="region-tag">国际</span>
+                <span class="hot-tag">重磅</span>
+            </div>
+            <h4><a href="https://www.nbd.com.cn/articles/2026-03-30/4314517.html" target="_blank">xAI被SpaceX收购：合并实体估值达1.25万亿美元</a></h4>
+            <p>马斯克旗下AI公司xAI以全股票交易方式被SpaceX收购，合并后新实体估值达1.25万亿美元（xAI估值2500亿美元）。此前xAI 11位联合创始团队成员已全部离职，公司正在进行"彻底重组"。</p>
+            <a href="https://www.nbd.com.cn/articles/2026-03-30/4314517.html" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">CSDN</span>
+                <span class="region-tag">国际</span>
+                <span class="hot-tag">IPO</span>
+            </div>
+            <h4><a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank">Anthropic考虑IPO：计划融资600亿美元，估值3800亿美元</a></h4>
+            <p>Anthropic考虑2026年10月IPO，计划融资超600亿美元，估值达3800亿美元。谷歌正为其德州Nexus数据中心项目提供数十亿美元建设贷款，AI独角兽上市潮来临。</p>
+            <a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">CSDN</span>
+                <span class="region-tag">国内</span>
+                <span class="hot-tag">融资</span>
+            </div>
+            <h4><a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank">极佳视界完成10亿元Pre-B轮：具身智能赛道最大融资</a></h4>
+            <p>极佳视界完成近10亿元Pre-B轮融资，投资方包括中芯聚源、上海半导体产投基金、临芯资本等。资金将用于GigaWorld-1世界模型的研发与商业化落地。</p>
+            <a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">21经济网</span>
+                <span class="region-tag">国际</span>
+            </div>
+            <h4><a href="https://www.21jingji.com/article/20260327/herald/cc2b959f499b0e1448b19209092035c7.html" target="_blank">软银获400亿美元贷款：支持对OpenAI的投资</a></h4>
+            <p>软银集团获400亿美元无担保桥接贷款，用于支持对OpenAI的投资。分析师普遍认为，全球正处于近年来规模最大的AI投资周期，企业信心回升至2020年以来最乐观水平。</p>
+            <a href="https://www.21jingji.com/article/20260327/herald/cc2b959f499b0e1448b19209092035c7.html" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">AITOP100</span>
+                <span class="region-tag">国内</span>
+            </div>
+            <h4><a href="https://www.aitop100.cn" target="_blank">云端算力10天涨价30%：Token需求爆发引发行业洗牌</a></h4>
+            <p>随着AI应用渗透率快速提升，Token需求爆发导致云端算力成本飙升。国内云厂商AI算力价格10天内上涨约30%，行业洗牌加速，倒逼厂商优化模型压缩技术。</p>
+        </div>
+    </div>
+
+    <!-- 跨界融合 -->
+    <div class="section">
+        <h2 class="section-title">🌐 跨界融合</h2>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">CSDN</span>
+                <span class="region-tag">国内</span>
+                <span class="hot-tag">量产</span>
+            </div>
+            <h4><a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank">智元机器人第10000台远征A3量产下线</a></h4>
+            <p>智元机器人第10,000台远征A3人形机器人量产下线，15个月实现规模十倍跨越。广东启用首条年产能万台级人形机器人生产线，北京成立全国最大人形机器人训练基地。</p>
+            <a href="https://blog.csdn.net/ld326/article/details/159659377" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">AITOP100</span>
+                <span class="region-tag">国内</span>
+            </div>
+            <h4><a href="https://www.aitop100.cn" target="_blank">宇树科技人形机器人H2米兰大教堂表演</a></h4>
+            <p>宇树科技人形机器人H2在米兰大教堂进行表演展示，具身智能体验馆将于5月底在上海开业。2025年具身智能首次写入中国政府工作报告，预计2026年融资超190起，总金额超200亿元。</p>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">腾讯云</span>
+                <span class="region-tag">国内</span>
+            </div>
+            <h4><a href="https://cloud.tencent.cn/developer/article/2648260" target="_blank">医疗AI将罕见病诊断准确率从38%提升至72%</a></h4>
+            <p>AI在医疗领域持续突破，医疗AI模型将罕见病诊断准确率从38%提升至72%。工业EDA智能体打破海外垄断，实现芯片全流程自主设计。AI视频生成成本下降90%，4K高清视频制作门槛大幅降低。</p>
+            <a href="https://cloud.tencent.cn/developer/article/2648260" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">VentureBeat</span>
+                <span class="region-tag">国际</span>
+            </div>
+            <h4><a href="https://venturebeat.com" target="_blank">Waymo自动驾驶翻倍：每周50万次乘车</a></h4>
+            <p>Waymo每周付费乘车次数在不到一年内翻倍，达到50万次，已达其年底100万次目标的一半。自动驾驶商业化加速推进，Zoox将机器人出租车服务扩展至奥斯汀和迈阿密。</p>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="source-tag">Business Wire</span>
+                <span class="region-tag">国际</span>
+                <span class="hot-tag">融资</span>
+            </div>
+            <h4><a href="https://www.businesswire.com/news/home/20260326446258/en/Shield-AI-to-Acquire-Software-Simulation-Company-Aechelon-and-Raise-%242B-at-%2412.7B-Valuation" target="_blank">Shield AI完成20亿美元融资，估值127亿美元</a></h4>
+            <p>国防AI公司Shield AI宣布完成15亿美元G轮融资加5亿美元固定收益优先股，总计20亿美元，投后估值达127亿美元。资金用于扩张Hivemind自主AI飞行员系统，并收购飞行仿真软件公司Aechelon Technology。</p>
+            <a href="https://www.businesswire.com/news/home/20260326446258/en/Shield-AI-to-Acquire-Software-Simulation-Company-Aechelon-and-Raise-%242B-at-%2412.7B-Valuation" target="_blank" class="read-more">📖 阅读原文 →</a>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>本周报由 WorkBuddy AI 自动搜集整理，资讯仅供参考</p>
+        <p>数据来源：腾讯云 / CSDN / 中关村论坛 / VentureBeat / 每经网 / AITOP100 / ITBear</p>
+        <p>📖 历史周报：<a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages 存档</a></p>
+        <p style="margin-top:10px; font-size:0.8em; opacity:0.7;">© 2026 AI Weekly News | 每周一发布</p>
+    </div>
+
+</div>
+</body>
+</html>
