@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年4月3日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            animation: shimmer 8s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,215,0,0.3);
+            border: 1px solid rgba(255,215,0,0.6);
+            color: #ffd700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+
+        .stat-item .label {
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 今日要点 */
+        .highlight {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .highlight:hover {
+            transform: translateX(4px);
+        }
+
+        .highlight h3 {
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .highlight .meaning {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .highlight .src-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            font-size: 0.85em;
+            text-decoration: none;
+        }
+
+        .highlight .src-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 分类标签 */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .category-icon {
+            font-size: 1.4em;
+        }
+
+        .category-title {
+            font-size: 1.25em;
+            color: #2a5298;
+            font-weight: 700;
+        }
+
+        .category-count {
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            padding: 2px 10px;
+            font-size: 0.8em;
+        }
+
+        /* 资讯卡片 */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .news-item:hover {
+            background: #eef0f8;
+            border-left-color: #667eea;
+            transform: translateX(4px);
+        }
+
+        .news-item-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .news-tag {
+            background: #667eea;
+            color: white;
+            padding: 2px 9px;
+            border-radius: 4px;
+            font-size: 0.72em;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .news-tag.china {
+            background: #e74c3c;
+        }
+
+        .news-tag.global {
+            background: #2980b9;
+        }
+
+        .news-tag.hot {
+            background: #e67e22;
+        }
+
+        .news-tag.new {
+            background: #27ae60;
+        }
+
+        .news-title {
+            font-size: 1em;
+            color: #222;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .news-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-title a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .news-desc {
+            color: #666;
+            font-size: 0.88em;
+            line-height: 1.6;
+            margin-top: 4px;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .news-source {
+            color: #999;
+            font-size: 0.8em;
+        }
+
+        .news-link {
+            color: #667eea;
+            font-size: 0.8em;
+            text-decoration: none;
+        }
+
+        .news-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 深度分析 */
+        .insight-box {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 28px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+        }
+
+        .insight-box h3 {
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            color: #ffd700;
+        }
+
+        .insight-box p {
+            line-height: 1.85;
+            opacity: 0.92;
+            font-size: 0.97em;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .insight-grid { grid-template-columns: 1fr; }
+        }
+
+        .insight-card {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .insight-card h4 {
+            font-size: 0.9em;
+            color: #ffd700;
+            margin-bottom: 6px;
+        }
+
+        .insight-card p {
+            font-size: 0.85em;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        /* 数据看板 */
+        .data-panel {
+            background: #f0f4ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .data-panel h4 {
+            color: #1e3c72;
+            font-size: 1em;
+            margin-bottom: 12px;
+        }
+
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #cdd;
+            font-size: 0.9em;
+        }
+
+        .data-row:last-child { border-bottom: none; }
+
+        .data-label { color: #555; }
+        .data-value { color: #1e3c72; font-weight: 700; }
+
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        .footer p { opacity: 0.85; font-size: 0.9em; line-height: 2; }
+        .footer a { color: #ffd700; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .container { border-radius: 0; }
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            .stats { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <div class="badge">⚡ AI DAILY BRIEFING</div>
+        <h1>每日AI全球资讯简报</h1>
+        <div class="date">2026年4月3日 星期五 | 今日速览</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="num">16</div>
+                <div class="label">精选资讯</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">5</div>
+                <div class="label">国内动态</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">11</div>
+                <div class="label">国际资讯</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">4</div>
+                <div class="label">资讯分类</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 今日3大要点 -->
+    <div class="section">
+        <div class="section-title">🔥 今日3大要点</div>
+
+        <div class="highlight">
+            <h3>① 谷歌Gemma 4震撼开源：Apache 2.0许可，31B模型全球第三</h3>
+            <p class="meaning">
+                谷歌于4月2日正式发布Gemma 4系列开源模型，包含四款不同规模（E2B/E4B/26B MoE/31B Dense），全部采用Apache 2.0宽松协议，支持140+语言和音频输入。31B Dense模型在Chatbot Arena公开基准排名全球第三，仅次于GLM-5和Kimi 2.5，但参数量远低于对手。NVIDIA同日宣布与谷歌合作，将Gemma 4全系加速至RTX PC和DGX Spark，标志着高性能本地AI代理时代正式来临。此次许可证从受限的Gemma License切换至Apache 2.0，解除了此前对商用和衍生模型的诸多限制，开发者生态将大幅扩展。
+            </p>
+            <a class="src-link" href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank">→ 原文：Ars Technica</a>
+        </div>
+
+        <div class="highlight">
+            <h3>② Anthropic 4亿美元收购生物AI，OpenAI同日买下科技媒体TBPN</h3>
+            <p class="meaning">
+                同一天内，两大AI巨头各自完成了截然不同的收购。Anthropic以超4亿美元全股票交易收购生物AI初创公司Coefficient Bio，该团队将并入Anthropic医疗与生命科学部门，加速探索"面向科学的人工超级智能"。Coefficient Bio成立仅8个月，投资方Dimension的IRR高达38,513%。与此同时，OpenAI宣布收购科技播客TBPN（旨在对标彭博社和CNBC），进军科技媒体赛道，二者战略方向形成鲜明对比：一方深耕科学研究，一方抢占信息传播渠道。
+            </p>
+            <a class="src-link" href="https://news.qq.com/rain/a/20260403A01N9W00" target="_blank">→ 原文：腾讯新闻</a>
+        </div>
+
+        <div class="highlight">
+            <h3>③ 豆包日均Token破120万亿，Q1全球AI融资3000亿美元创历史</h3>
+            <p class="meaning">
+                2026年第一季度全球风险投资总额达到3000亿美元，其中AI占比高达80%（2420亿美元）。仅OpenAI（1220亿）、Anthropic（300亿）、xAI（200亿）、Waymo（160亿）四家合计募得1880亿美元，占全球总额的65%。国内方面，字节跳动旗下豆包大模型日均Token调用量突破120万亿，三个月内翻倍，较2024年5月上线时增长1000倍。MaaS（模型即服务）商业模式加速演进，AI视频创作爆发与AI智能体普及成为双引擎，中国AI应用规模化落地进入新阶段。
+            </p>
+            <a class="src-link" href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">→ 原文：Crunchbase</a>
+        </div>
+    </div>
+
+    <!-- 深度分析 -->
+    <div class="section">
+        <div class="section-title">💡 今日深度分析</div>
+        <div class="insight-box">
+            <h3>开源大模型重新定义竞争格局</h3>
+            <p>
+                谷歌Gemma 4的发布是本周最具战略意义的事件之一。Apache 2.0许可证的采用不仅是一次商业策略调整，更是对开源生态全面开放的宣言。此前Gemma系列的自定义许可证令许多企业望而却步，而今这一障碍彻底消除。同日NVIDIA深度绑定加速，意味着从云端到手机的全链路部署将变得轻而易举。与此同时，Anthropic和OpenAI的并购路径分叉——前者向科学与垂直行业深耕，后者向媒体与大众影响力扩展——揭示了两种截然不同的超级智能应用路线。Q1风投狂欢3000亿美元背后，AI基础设施（算力/能源/数据中心）正成为新型战略资产，Meta豪砸10座天然气电厂为AI供电即为缩影。
+            </p>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h4>开源生态加速</h4>
+                    <p>Gemma 4切换Apache 2.0 + NVIDIA加速，本地AI代理部署门槛大幅降低</p>
+                </div>
+                <div class="insight-card">
+                    <h4>AI并购多元化</h4>
+                    <p>生物医药/媒体/科技平台成为并购新方向，AI能力向垂直行业渗透</p>
+                </div>
+                <div class="insight-card">
+                    <h4>国内应用规模化</h4>
+                    <p>豆包日均120万亿Token证明MaaS商业模式已规模化落地，视频+Agent双引擎驱动</p>
+                </div>
+                <div class="insight-card">
+                    <h4>能源成关键瓶颈</h4>
+                    <p>Meta 10座天然气电厂 = 7.5GW，AI数据中心能耗堪比一个州，绿色转型迫在眉睫</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 产品与硬件 -->
+    <div class="section">
+        <div class="section-title">🚀 产品与硬件</div>
+        <p style="color:#666;font-size:0.9em;margin-bottom:15px;">新模型发布 / 产品更新 / 硬件动态</p>
+
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">谷歌</span>
+                    <span class="news-tag hot">重磅</span>
+                    <span class="news-title">
+                        <a href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank">谷歌发布Gemma 4开源系列：4款模型 + Apache 2.0许可，31B全球第三</a>
+                    </span>
+                </div>
+                <p class="news-desc">4月2日，谷歌发布Gemma 4系列：E2B（20亿，手机端）、E4B（40亿）、26B MoE（推理时仅激活3.8亿）、31B Dense（基准全球第三）。全部支持140+语言、256K上下文（大模型）。许可证升级为Apache 2.0，消除商用限制。模型已上线Hugging Face、Kaggle、Ollama。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：Ars Technica · 2026-04-02</span>
+                    <a class="news-link" href="https://arstechnica.com/ai/2026/04/google-announces-gemma-4-open-ai-models-switches-to-apache-2-0-license/" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">NVIDIA</span>
+                    <span class="news-tag new">合作</span>
+                    <span class="news-title">
+                        <a href="https://blogs.nvidia.com/blog/rtx-ai-garage-open-models-google-gemma-4/" target="_blank">NVIDIA与谷歌合作加速Gemma 4：RTX PC到DGX Spark全覆盖</a>
+                    </span>
+                </div>
+                <p class="news-desc">NVIDIA宣布与谷歌战略合作，将Gemma 4全系4款模型深度优化至RTX PC、DGX Spark及边缘设备。本地AI代理推理性能大幅提升，为消费级硬件上运行高质量多模态AI代理铺路。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：NVIDIA Blog · 2026-04-02</span>
+                    <a class="news-link" href="https://blogs.nvidia.com/blog/rtx-ai-garage-open-models-google-gemma-4/" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">微软</span>
+                    <span class="news-tag hot">重磅</span>
+                    <span class="news-title">
+                        <a href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">微软MAI超智能团队发布三款基础模型：语音/转录/图像全覆盖</a>
+                    </span>
+                </div>
+                <p class="news-desc">微软AI（MAI Superintelligence团队）发布：①MAI-Transcribe-1（25语言语音转文字，比Azure Fast服务快2.5倍，$0.36/小时）；②MAI-Voice-1（1秒生成60秒音频，$22/百万字符）；③MAI-Image-2（文本/图像转视频，$5-33/百万token）。定价全面低于Google和OpenAI同类产品，均可在Microsoft Foundry使用。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：TechCrunch · 2026-04-02</span>
+                    <a class="news-link" href="https://techcrunch.com/2026/04/02/microsoft-takes-on-ai-rivals-with-three-new-foundational-models/" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag china">阶跃星辰</span>
+                    <span class="news-tag new">发布</span>
+                    <span class="news-title">
+                        <a href="https://www.nbd.com.cn/articles/2026-04-02/4323121.html" target="_blank">阶跃星辰发布Step 3.5 Flash 2603：新增低推理模式，降低智能体成本</a>
+                    </span>
+                </div>
+                <p class="news-desc">阶跃星辰4月2日上线Step 3.5 Flash 2603，新增"低推理模式（low think mode）"，进一步降低Token消耗同时保持高响应速度，面向Step Plan订阅用户开放。该模式尤其适合智能体场景中大量重复低复杂度任务，有助于企业优化运营成本。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：每日经济新闻 · 2026-04-02</span>
+                    <a class="news-link" href="https://www.nbd.com.cn/articles/2026-04-02/4323121.html" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag china">智谱AI</span>
+                    <span class="news-tag new">发布</span>
+                    <span class="news-title">
+                        <a href="https://llm-stats.com/ai-news" target="_blank">智谱AI发布GLM-5V-Turbo多模态模型（4月2日）</a>
+                    </span>
+                </div>
+                <p class="news-desc">智谱AI发布旗下最新多模态模型GLM-5V-Turbo，在视觉理解、图文问答和OCR等任务上实现新突破。该模型延续GLM系列高效推理优势，为企业级视觉AI应用提供更强基础能力支撑。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：LLM-Stats · 2026-04-02</span>
+                    <a class="news-link" href="https://llm-stats.com/ai-news" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 技术与研究 -->
+    <div class="section">
+        <div class="section-title">🔬 技术与研究</div>
+        <p style="color:#666;font-size:0.9em;margin-bottom:15px;">开源框架 / 学术前沿 / 技术突破</p>
+
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">微软</span>
+                    <span class="news-tag new">开源</span>
+                    <span class="news-title">
+                        <a href="https://aitoolly.com/ai-news/2026-04-02" target="_blank">微软开源Agent-Lightning：AI代理启发式训练框架</a>
+                    </span>
+                </div>
+                <p class="news-desc">微软在GitHub开源Agent-Lightning，定位为AI代理的"终极训练器"，专注于启发式代理学习，支持复杂多步骤任务的规划与执行。同日微软还发布了Microsoft Research ADeLe框架，可预测和解释AI模型在不同任务中的性能分布，为模型评估提供新思路。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：GitHub/Microsoft · 2026-04-02</span>
+                    <a class="news-link" href="https://aitoolly.com/ai-news/2026-04-02" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Arcee AI</span>
+                    <span class="news-tag new">开源</span>
+                    <span class="news-title">
+                        <a href="https://llm-stats.com/ai-news" target="_blank">Arcee AI发布Trinity Large Thinking：长视野智能体开源推理模型</a>
+                    </span>
+                </div>
+                <p class="news-desc">Arcee AI发布Trinity Large Thinking，基于Apache 2.0开源许可，专为长视野智能体和工具使用设计，具备强大的多步骤推理能力。该模型填补了开源推理领域的重要空缺，开发者可免费部署用于复杂任务规划和工具链编排。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：Planet AI / LLM-Stats · 2026-04-03</span>
+                    <a class="news-link" href="https://llm-stats.com/ai-news" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Hugging Face</span>
+                    <span class="news-tag new">发布</span>
+                    <span class="news-title">
+                        <a href="https://huggingface.co/blog/gemma4" target="_blank">Holo3亮相Hugging Face：突破计算机使用前沿的新智能体框架</a>
+                    </span>
+                </div>
+                <p class="news-desc">Hugging Face博客发布Holo3，定位为突破计算机使用（computer use）前沿的新型智能体框架，能够更精准地模拟人类在计算机界面上的操作行为，在多个自动化基准上取得新突破，引发开发者社区广泛关注。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：Hugging Face Blog · 2026-04-01</span>
+                    <a class="news-link" href="https://huggingface.co/blog/gemma4" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag china">小米</span>
+                    <span class="news-tag hot">突破</span>
+                    <span class="news-title">
+                        <a href="https://www.ithome.com/0/934/538.htm" target="_blank">雷军官宣：小米MiMo-V2-Pro在TextArena权威榜单跻身全球前五</a>
+                    </span>
+                </div>
+                <p class="news-desc">小米创始人雷军宣布，MiMo-V2-Pro在大模型权威评测榜单TextArena凭借复杂逻辑推理、长指令遵循及多轮对话稳定表现跻身全球前五。原定4月2日结束的限免活动因热度超预期已延长一周，开发者可通过小米开放平台免费使用旗舰Agent模型。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：IT之家 · 2026-04-01</span>
+                    <a class="news-link" href="https://www.ithome.com/0/934/538.htm" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 产业与投资 -->
+    <div class="section">
+        <div class="section-title">💰 产业与投资</div>
+        <p style="color:#666;font-size:0.9em;margin-bottom:15px;">融资动态 / 并购重组 / 政策监管</p>
+
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">OpenAI</span>
+                    <span class="news-tag hot">重磅</span>
+                    <span class="news-title">
+                        <a href="https://news.qq.com/rain/a/20260401A01IQP00" target="_blank">OpenAI完成史上最大融资：1220亿美元，估值8520亿，拟年底纳斯达克IPO</a>
+                    </span>
+                </div>
+                <p class="news-desc">OpenAI宣布以8520亿美元投后估值完成1220亿美元融资，亚马逊领投500亿（含IPO后条件支付350亿），英伟达、软银联合领投。ChatGPT周活跃用户超9亿，月收入20亿美元，GPT-5.4 API每分钟处理超150亿Token。公司首次向个人投资者开放，已纳入ARK创新ETF。拟2026年Q4于纳斯达克IPO。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：腾讯科技 · 2026-04-01</span>
+                    <a class="news-link" href="https://news.qq.com/rain/a/20260401A01IQP00" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Anthropic</span>
+                    <span class="news-tag hot">并购</span>
+                    <span class="news-title">
+                        <a href="https://news.qq.com/rain/a/20260403A01N9W00" target="_blank">Anthropic 4亿美元收购Coefficient Bio，押注生物医药AI</a>
+                    </span>
+                </div>
+                <p class="news-desc">Anthropic以超4亿美元全股票交易收购生物AI初创公司Coefficient Bio（成立仅8个月），后者致力于AI驱动的药物研发，目标是"面向科学的人工超级智能"。团队并入Anthropic医疗与生命科学部门，同日OpenAI收购科技播客TBPN，两大巨头并购方向形成对比。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：腾讯新闻/界面新闻 · 2026-04-03</span>
+                    <a class="news-link" href="https://news.qq.com/rain/a/20260403A01N9W00" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Crunchbase</span>
+                    <span class="news-tag hot">数据</span>
+                    <span class="news-title">
+                        <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Q1 2026全球风投创纪录3000亿美元：AI占比80%，美国吃下83%</a>
+                    </span>
+                </div>
+                <p class="news-desc">Crunchbase：Q1 2026全球风投3000亿美元创历史，AI占2420亿（80%）。前四大笔：OpenAI 1220亿+Anthropic 300亿+xAI 200亿+Waymo 160亿=1880亿（占总额65%）。美国吸收2500亿（83%）。独角兽榜单Q1新增9000亿美元估值，为史上最大单季涨幅。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：Crunchbase News · 2026-04-01</span>
+                    <a class="news-link" href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Sarvam AI</span>
+                    <span class="news-tag new">融资</span>
+                    <span class="news-title">
+                        <a href="https://llm-stats.com/ai-news" target="_blank">印度AI公司Sarvam AI即将完成3-3.5亿美元融资，估值约15亿美元</a>
+                    </span>
+                </div>
+                <p class="news-desc">印度本土AI公司Sarvam AI接近完成新一轮3-3.5亿美元融资，投后估值约15亿美元，预计由Bessemer Venture Partners领投，最快本周完成。Sarvam AI聚焦印地语等南亚语言大模型，是印度AI独立发展战略的重要棋子。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：Techmeme / LLM-Stats · 2026-04-03</span>
+                    <a class="news-link" href="https://llm-stats.com/ai-news" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag china">字节豆包</span>
+                    <span class="news-tag hot">数据</span>
+                    <span class="news-title">
+                        <a href="https://edu.yunnan.cn/system/2026/04/03/033948870.shtml" target="_blank">豆包大模型日均Token突破120万亿，Seedance 2.0视频模型开放企业测试</a>
+                    </span>
+                </div>
+                <p class="news-desc">火山引擎总裁谭待宣布，截至2026年3月豆包日均Token调用量突破120万亿，三个月内翻倍，较2024年5月上线时增长1000倍。Token调用量超1万亿的企业客户从100家增至140家。视频生成模型Seedance 2.0同日面向企业公测，AI视频创作爆发+AI智能体加速普及成为双引擎。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：科技日报/云南网 · 2026-04-03</span>
+                    <a class="news-link" href="https://edu.yunnan.cn/system/2026/04/03/033948870.shtml" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 跨界融合 -->
+    <div class="section">
+        <div class="section-title">🌐 跨界融合</div>
+        <p style="color:#666;font-size:0.9em;margin-bottom:15px;">AI×能源 / AI×生物医药 / AI×媒体</p>
+
+        <ul class="news-list">
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">Meta</span>
+                    <span class="news-tag hot">能源</span>
+                    <span class="news-title">
+                        <a href="https://www.ic.work/article/meta-ai-data-center-natural-gas-power-plants-louisiana" target="_blank">Meta豪砸10座天然气电厂为Hyperion AI数据中心供电：7.5GW堪比一个州</a>
+                    </span>
+                </div>
+                <p class="news-desc">Meta将建设10座天然气电厂专供其超大规模AI数据中心Hyperion（总投资270亿美元），总装机约7.5吉瓦，相当于南达科他州全州用电量。此举引发AI行业能源消耗争议——Meta此前曾承诺2030年实现净零碳排放，大规模转向化石燃料与绿色目标形成矛盾，监管机构已介入关注。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：TechCrunch / IC.work · 2026-04-02</span>
+                    <a class="news-link" href="https://www.ic.work/article/meta-ai-data-center-natural-gas-power-plants-louisiana" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag global">OpenAI</span>
+                    <span class="news-tag new">媒体</span>
+                    <span class="news-title">
+                        <a href="https://www.ithome.com/0/935/542.htm" target="_blank">OpenAI收购科技脱口秀TBPN：对标彭博社，亲自下场做媒体</a>
+                    </span>
+                </div>
+                <p class="news-desc">OpenAI宣布收购科技商业播客TBPN，由AGI部署CEO菲吉·西莫（Fidji Simo）主导，理由是"加速全球AI教育普及"。TBPN定位为彭博社和CNBC的竞争对手，提供即时科技新闻分析和高管访谈。此举发生在Sora关停后，OpenAI从内容生成者转型为内容分发平台，战略意图明显。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：IT之家 / 36氪 · 2026-04-03</span>
+                    <a class="news-link" href="https://www.ithome.com/0/935/542.htm" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+
+            <li class="news-item">
+                <div class="news-item-header">
+                    <span class="news-tag china">腾讯云</span>
+                    <span class="news-tag new">业务</span>
+                    <span class="news-title">
+                        <a href="https://cloud.tencent.cn/developer/article/2648260" target="_blank">中国AI迈入智能体时代：周调用量突破7.359万亿Token，连续三周超越美国</a>
+                    </span>
+                </div>
+                <p class="news-desc">腾讯云开发者报告：2026年3月，中国AI大模型周调用量突破7.359万亿Token，连续三周超越美国。AI智能体已从"执行工具"升级为"数字伙伴"，能自主拆解任务、调用工具并持续优化。国产AI实现集群式崛起，多家企业20天收入超2025年全年总收入。</p>
+                <div class="news-meta">
+                    <span class="news-source">来源：腾讯云开发者 · 2026-04-03</span>
+                    <a class="news-link" href="https://cloud.tencent.cn/developer/article/2648260" target="_blank">阅读原文 →</a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 数据看板 -->
+        <div class="data-panel">
+            <h4>📊 本周AI关键数据</h4>
+            <div class="data-row">
+                <span class="data-label">Q1全球AI风投总额</span>
+                <span class="data-value">2420亿美元（占风投总额80%）</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">OpenAI融资后估值</span>
+                <span class="data-value">8520亿美元（史上最大私募）</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">豆包大模型日均Token</span>
+                <span class="data-value">120万亿（三个月翻倍，1000x增长）</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">中国AI周调用量</span>
+                <span class="data-value">7.359万亿Token（连续3周超美国）</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Gemma 4开源模型数</span>
+                <span class="data-value">4款（E2B/E4B/26B MoE/31B Dense）</span>
+            </div>
+            <div class="data-row">
+                <span class="data-label">Meta Hyperion数据中心电力</span>
+                <span class="data-value">7.5GW（10座天然气电厂）</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>📡 <strong>每日AI全球资讯简报</strong> | 2026年4月3日</p>
+        <p>数据来源：Ars Technica / TechCrunch / Crunchbase / 腾讯新闻 / IT之家 / NVIDIA Blog / 每日经济新闻</p>
+        <p>
+            <a href="https://kenny378178-ai.github.io/ai-daily-news/daily-news/2026-04-03.html" target="_blank">🌐 查看网页版</a>
+            &nbsp;|&nbsp;
+            <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">📚 历史归档</a>
+        </p>
+        <p style="margin-top:8px;opacity:0.6;font-size:0.8em;">本简报由AI实时搜索生成，内容经人工筛选去重 · WorkBuddy Auto</p>
+    </div>
+
+</div>
+</body>
+</html>
