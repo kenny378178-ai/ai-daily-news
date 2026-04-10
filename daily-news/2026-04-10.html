@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年4月10日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            opacity: 0.85;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px 40px;
+        }
+
+        .highlight-box h2 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box p {
+            line-height: 1.8;
+            font-size: 1em;
+        }
+
+        .top-3 {
+            background: #f8f9fc;
+            padding: 25px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-3 h2 {
+            font-size: 1.15em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .top-3-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-3-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .top-3-num {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        .top-3-text {
+            flex: 1;
+            font-size: 0.95em;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        .category {
+            margin-bottom: 35px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .category-icon.product { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .category-icon.tech { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .category-icon.industry { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .category-icon.cross { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .category-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .news-card {
+            background: #f8f9fc;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            transition: box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+        }
+
+        .news-card.tech-card { border-left-color: #11998e; }
+        .news-card.industry-card { border-left-color: #f5576c; }
+        .news-card.cross-card { border-left-color: #4facfe; }
+
+        .news-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .news-title a {
+            color: #1a56db;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .news-title a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .news-summary {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .news-meta {
+            margin-top: 8px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75em;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .tag-hot { background: #fff0f0; color: #e53e3e; }
+        .tag-new { background: #f0fff4; color: #276749; }
+        .tag-tech { background: #ebf8ff; color: #2b6cb0; }
+        .tag-fund { background: #fef3c7; color: #92400e; }
+        .tag-cn { background: #faf5ff; color: #6b46c1; }
+        .tag-global { background: #e6fffa; color: #234e52; }
+
+        .footer {
+            background: #f0f4ff;
+            padding: 25px 40px;
+            text-align: center;
+            border-top: 1px solid #e8ecf4;
+        }
+
+        .footer p {
+            color: #888;
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.7em; }
+            .content { padding: 20px; }
+            .highlight-box, .top-3 { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 头部 -->
+    <div class="header">
+        <h1>每日AI全球资讯简报</h1>
+        <div class="date">2026年4月10日 · 星期五</div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">14</div>
+                <div class="stat-label">今日资讯</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">大类分类</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4天</div>
+                <div class="stat-label">GPT-6倒计时</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 今日深度总结 -->
+    <div class="highlight-box">
+        <h2>🔥 今日深度速览</h2>
+        <p>
+            GPT-6（代号"Spud"）定档4月14日发布进入最后倒计时，OpenAI押注5-6万亿参数MoE架构，性能较GPT-5.4提升40%，整个AI行业屏息等待这场"AGI前夜"的终极对决。与此同时，具身智能生态迎来密集爆发：中国具身智能大会（CEAI 2026）今日在合肥开幕，智元GO-2以98.5%的基准成功率刷新行业纪录，具身AI芯片商D-Robotics完成1.5亿美元融资。语音交互也迎来新里程碑——字节跳动Seeduplex实现真正的"边听边说"，将人机对话体验推向实时全双工新纪元。
+        </p>
+    </div>
+
+    <!-- 今日3大焦点 -->
+    <div class="top-3">
+        <h2>⚡ 今日3大焦点</h2>
+        <div class="top-3-list">
+            <div class="top-3-item">
+                <div class="top-3-num">1</div>
+                <div class="top-3-text"><strong>GPT-6发布倒计时4天</strong>——OpenAI下一代旗舰模型GPT-6（"Spud"）定档4月14日，5-6万亿参数MoE架构，上下文窗口200万Token，训练投入超20亿美元，被视为OpenAI迈向AGI的关键押注。</div>
+            </div>
+            <div class="top-3-item">
+                <div class="top-3-num">2</div>
+                <div class="top-3-text"><strong>中国具身智能大会今日开幕</strong>——2026中国具身智能大会（CEAI 2026）4月10-12日在合肥举办，智元GO-2具身大模型同步发布，首创"动作思维链"，LIBERO基准全球第一，标志具身智能从"实验室"走向"大规模落地"。</div>
+            </div>
+            <div class="top-3-item">
+                <div class="top-3-num">3</div>
+                <div class="top-3-text"><strong>字节Seeduplex实现全双工语音突破</strong>——字节跳动发布全双工语音大模型Seeduplex，实现"边听边说"同步处理，误打断率降低50%，判停延迟缩短250ms，已全量上线豆包App，人机语音交互进入实时新时代。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <div class="content">
+
+        <!-- 第一类：产品与硬件 -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon product">🚀</div>
+                <div class="category-title">产品与硬件</div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://openai.com/research/gpt-6" target="_blank">GPT-6（代号"Spud"）定档4月14日发布：5-6万亿参数，性能暴涨40%</a>
+                </div>
+                <div class="news-summary">
+                    OpenAI下一代旗舰模型GPT-6（内部代号"Spud"）已完成预训练，预计4月14日正式发布，Polymarket预测市场概率达78%。关键参数：5-6万亿MoE架构（实际激活约10%）；上下文窗口200万Token；较GPT-5.4主流基准提升40%；训练投入超20亿美元，动用约10万张H100 GPU；采用"Symphony"底层架构，原生支持文本、音频、图像、视频全模态统一处理；双系统推理框架（System-1快速生成 + System-2逻辑校验）；定价与GPT-5.4持平。OpenAI已关停Sora独立应用，将算力资源全力聚焦GPT-6。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 重磅</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-09" target="_blank">字节跳动发布Seeduplex全双工语音大模型：边听边说，豆包全量上线</a>
+                </div>
+                <div class="news-summary">
+                    字节跳动推出全双工语音大模型Seeduplex，实现"边听边说"的同步处理框架，彻底告别传统半双工的"说完等回复"模式。核心性能：误回复率与误打断率降低50%；动态判停技术让判停延迟缩短约250ms；抢话比例下降40%；通话满意度提升8.34%。目前已在豆包App全量上线，后续将引入视觉模态，向多维协同的通用智能体进化。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">新发布</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.engadget.com/ai/google-notebooklm-gemini-integration-2026" target="_blank">Google NotebookLM完整集成Gemini界面：AI研究助手与对话平台正式合体</a>
+                </div>
+                <div class="news-summary">
+                    Google将AI研究工具NotebookLM完整集成到Gemini聊天界面，用户可直接在Gemini中创建研究笔记本。支持上传PDF、文档、网站URL、YouTube视频和文本等多种格式；可生成学习指南、信息图和音视频概览；目前面向Google AI Ultra、Pro和Plus订阅用户开放。此次整合标志着传统RAG工具向Agentic AI助手的深度演进。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">新功能</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.anthropic.com/news/claude-managed-agents" target="_blank">Anthropic Claude Managed Agents公测上线：无需自建基础设施，数天完成代理部署</a>
+                </div>
+                <div class="news-summary">
+                    Anthropic正式上线Claude Managed Agents公测版，专为构建和大规模部署AI代理设计的一站式解决方案。核心价值：开发者无需自建复杂基础设施即可部署企业级AI代理，从原型到生产仅需数天；支持多代理并行编排；提供内置监控、日志、权限管理等企业功能。该产品进一步巩固Anthropic在企业级AI代理市场的竞争优势。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">公测</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://aicode.cc/2026-04-09-070910b9-2aa5-47e9-b204-b07da2309c64.html" target="_blank">神秘视频模型HappyHorse 1.0横空出世屠榜：文本生成视频全面领先，开发方成谜</a>
+                </div>
+                <div class="news-summary">
+                    一个名为HappyHorse 1.0的视频生成模型悄然登顶Artificial Analysis视频生成排行榜，在文本生成视频、画面一致性、音频同步等多项核心指标上全面领先Seedance 2.0。发布方未公开任何背景信息，业界推测可能来自某亚洲实验室，有消息称可能出自阿里淘天，并预计将于近期正式宣布。目前已上线Web端，可通过API平台试用。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 热点</span>
+                    <span class="tag tag-new">屠榜</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 第二类：技术与研究 -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon tech">🔬</div>
+                <div class="category-title">技术与研究</div>
+            </div>
+
+            <div class="news-card tech-card">
+                <div class="news-title">
+                    <a href="https://www.mrjjxw.com/articles/2026-04-09/4332159.html" target="_blank">智元发布GO-2具身大模型：首创"动作思维链"，LIBERO基准全球第一（98.5%）</a>
+                </div>
+                <div class="news-summary">
+                    智元机器人在中国具身智能大会期间正式发布GO-2具身基座大模型，核心技术突破是首创"动作思维链"（Action Chain of Thought），该成果已被CVPR 2026正式接收。技术架构：异步双系统（慢系统负责长程逻辑规划，快系统负责高频实时修正）；LIBERO Benchmark平均成功率98.5%（四类核心任务全球第一）；真实环境测试成功率82.9%。智元旗下GO-2机器人已在全球100余家企业落地部署。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">技术突破</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card tech-card">
+                <div class="news-title">
+                    <a href="https://www.mrjjxw.com/articles/2026-04-09/4332159.html" target="_blank">微软Bing开源多语言嵌入模型Harrier：覆盖100+语言，MTEB v2榜单表现优异</a>
+                </div>
+                <div class="news-summary">
+                    微软Bing团队正式开源多语言嵌入模型Harrier，在MTEB v2多语言基准测试中表现优异。技术规格：训练数据达20亿示例，并辅以GPT-5合成数据扩充；提供2.7B、0.27B、0.06B三个参数规模版本；支持100余种语言。Harrier的发布将为多语言RAG、语义搜索等下游任务提供更强的开源基础设施支撑。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">开源</span>
+                    <span class="tag tag-tech">技术</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+            <div class="news-card tech-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-09" target="_blank">MiniMax发布MMX-CLI：一行代码接入全模态模型，Claude Code等开发环境原生集成</a>
+                </div>
+                <div class="news-summary">
+                    MiniMax推出MMX-CLI工具，只需一行代码即可原生接入全模态大模型，无需编写复杂的MCP Server配置。支持在Claude Code、Cursor等主流开发环境中直接调用，可驱动代码编写、视频生成、语音合成等多模态任务。商业落地方面，淘宝闪购AI店铺助手已全量上线语音搜索功能，用户可通过语音指令执行完整购物闭环操作。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">开发工具</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card tech-card">
+                <div class="news-title">
+                    <a href="https://aicode.cc/2026-04-09-070910b9-2aa5-47e9-b204-b07da2309c64.html" target="_blank">AI发现存在17年的软件漏洞：代码安全审查能力持续颠覆传统白帽黑客行业</a>
+                </div>
+                <div class="news-summary">
+                    继Anthropic Claude Mythos Preview在"Project Glasswing"计划中发现数千个零日漏洞后，又有报道指出AI系统在代码审查中发现了一个存在17年之久的重大安全漏洞。AI安全模型已可在4小时内独立发现并利用FreeBSD内核远程代码执行（RCE）漏洞，标志着AI安全攻防进入"小时级"响应时代，传统漏洞赏金猎人行业面临重大冲击。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-tech">安全</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 第三类：产业与投资 -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon industry">💰</div>
+                <div class="category-title">产业与投资</div>
+            </div>
+
+            <div class="news-card industry-card">
+                <div class="news-title">
+                    <a href="https://theaiinsider.tech/2026/04/08/chinas-d-robotics-raises-usd-150m-in-new-funding-with-series-b-total-of-usd-270m/" target="_blank">具身AI芯片商D-Robotics完成1.5亿美元B2轮融资：Series B总融资额达2.7亿美元</a>
+                </div>
+                <div class="news-summary">
+                    地平线机器人旗下具身AI芯片公司D-Robotics（地瓜机器人）宣布完成1.5亿美元B2轮融资，Series B轮总融资额达2.7亿美元。公司2025年年出货量同比增长180%，客户数量同比增长200%。D-Robotics专注于为具身智能机器人提供专用计算平台，旗下RDK系列已成为中国具身智能生态的主流开发套件。本轮融资将用于全球市场扩张和下一代芯片研发。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-fund">融资</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card industry-card">
+                <div class="news-title">
+                    <a href="https://www.gexiong.com/rmzx/281.html" target="_blank">面壁智能完成数亿元融资跻身独角兽：CPM系列大模型估值突破百亿</a>
+                </div>
+                <div class="news-summary">
+                    面壁智能（ModelBest）正式宣布完成数亿元融资，公司估值超过百亿人民币，跻身AI独角兽行列。面壁智能由清华大学自然语言处理实验室孵化，旗下拥有CPM-Bee、MiniCPM等明星开源模型，在端侧大模型赛道表现突出，MiniCPM系列凭借极低参数量实现接近大模型的推理性能，成为端侧AI部署的重要选择。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-fund">融资</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card industry-card">
+                <div class="news-title">
+                    <a href="http://ah.anhuinews.com/kjyww/202604/t20260407_9201011.html" target="_blank">2026中国具身智能大会（CEAI 2026）今日合肥开幕：聚焦机器人从实验室走向大规模落地</a>
+                </div>
+                <div class="news-summary">
+                    由中国人工智能学会主办的2026中国具身智能大会（CEAI 2026）于4月10日至12日在合肥隆重召开，安徽大学承办。大会核心议题：大规模真实环境部署、多模态感知与交互、端到端学习框架、人机协作安全规范。国内多家头部具身智能企业将进行最新技术成果展示，宇树科技、智元机器人、傅利叶智能等均参展。本届大会将同步发布中国具身智能产业发展蓝皮书。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">行业大会</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 第四类：跨界融合 -->
+        <div class="category">
+            <div class="category-header">
+                <div class="category-icon cross">🌐</div>
+                <div class="category-title">跨界融合</div>
+            </div>
+
+            <div class="news-card cross-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-09" target="_blank">爱诗科技发布PixVerse C1影视级视频大模型：15秒1080P高清，专为影视行业设计</a>
+                </div>
+                <div class="news-summary">
+                    爱诗科技推出PixVerse C1，专为影视行业设计的视频生成大模型，实现15秒1080P高清视频一键生成。核心功能：音画同步生成（无需额外配音）、自动分镜（根据剧本智能规划画面构成）、首尾帧精确控制（保证场景连贯性）、支持AI定制风格迁移。C1的发布将AI视频生成的应用场景从短视频社交延伸到专业影视制作领域，已吸引多家中国影视公司进行商务洽谈。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">影视AI</span>
+                    <span class="tag tag-cn">国内</span>
+                </div>
+            </div>
+
+            <div class="news-card cross-card">
+                <div class="news-title">
+                    <a href="https://duoke360.com/post/46142" target="_blank">美国犹他州立法允许AI自主续签医疗处方：全美首个AI处方法规正式落地</a>
+                </div>
+                <div class="news-summary">
+                    美国犹他州立法通过全美首个允许AI系统自主续签医疗处方的法规，成为AI进入医疗核心决策流程的重要里程碑。该法规规定：AI系统可在明确诊断情况下、对慢性病患者（如高血压、糖尿病等稳定期）自主续签处方药；必须在医生监督下运作；患者需提前授权；AI决策全程可追溯审计。法规支持者认为此举可显著减少农村及偏远地区的医疗资源短缺问题。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">AI立法</span>
+                    <span class="tag tag-global">国际</span>
+                    <span class="tag tag-tech">医疗</span>
+                </div>
+            </div>
+
+            <div class="news-card cross-card">
+                <div class="news-title">
+                    <a href="https://www.idlen.io/news/openai-spud-gpt6-release-april-14-may-5-super-app-ambient-computing" target="_blank">OpenAI押注"超级应用+环境计算"：GPT-6发布后将整合入可穿戴与智能家居生态</a>
+                </div>
+                <div class="news-summary">
+                    随着GPT-6发布临近，OpenAI正推进"超级应用"战略布局——计划将GPT-6能力整合到可穿戴设备（Apple Watch、Meta Ray-Ban等）和智能家居（HomeKit、Matter协议设备）生态中，实现"环境计算"（Ambient Computing）体验：用户无需打开手机，直接通过语音或空间感知完成复杂任务。分析师认为，这标志着AI助手从"App内功能"演化为"无处不在的基础设施"，对整个移动互联网格局将产生深远影响。
+                </div>
+                <div class="news-meta">
+                    <span class="tag tag-new">战略</span>
+                    <span class="tag tag-global">国际</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>本简报由 AI 自动搜索生成 · 每个工作日 10:00 推送</p>
+        <p>数据来源：humai.blog / aitop100.cn / duoke360.com / cnbc.com 等权威媒体</p>
+        <p>
+            <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages 归档</a>
+            &nbsp;·&nbsp;
+            <a href="https://kenny378178-ai.github.io/ai-daily-news/daily-news/2026-04-10.html" target="_blank">本期永久链接</a>
+        </p>
+        <p style="margin-top:8px; color:#aaa; font-size:0.82em;">内容仅供参考，不构成投资建议 · 2026-04-10</p>
+    </div>
+</div>
+</body>
+</html>
