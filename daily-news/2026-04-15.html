@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年4月15日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.95em;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 今日要点样式 */
+        .highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .highlight h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .highlight p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .highlight a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: underline;
+        }
+
+        /* 深度总结 */
+        .summary-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .summary-box p {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        /* 新闻卡片 */
+        .news-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateX(3px);
+            box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+        }
+
+        .news-card h3 {
+            font-size: 1.05em;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .news-card p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.78em;
+        }
+
+        .tag.green { background: #27ae60; }
+        .tag.orange { background: #e67e22; }
+        .tag.red { background: #e74c3c; }
+        .tag.purple { background: #8e44ad; }
+        .tag.blue { background: #2980b9; }
+        .tag.teal { background: #16a085; }
+
+        .source-link {
+            font-size: 0.82em;
+            color: #667eea;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 玻璃态效果区域 */
+        .glass-section {
+            background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102,126,234,0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .glass-section h3 {
+            color: #1e3c72;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+
+        .glass-section p {
+            color: #444;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+
+        /* 分类标题 */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .category-icon {
+            font-size: 1.5em;
+        }
+
+        .category-label {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+
+        /* 底部 */
+        .footer {
+            background: #f8f9ff;
+            padding: 20px 40px;
+            text-align: center;
+            color: #888;
+            font-size: 0.85em;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .section { padding: 20px; }
+            .stats { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <h1>⚡ 每日AI全球资讯简报</h1>
+        <div class="date">2026年4月15日（星期三）</div>
+        <div class="stats">
+            <div class="stat-item">📰 今日资讯 14条</div>
+            <div class="stat-item">🌏 国际 9条 | 国内 5条</div>
+            <div class="stat-item">🔥 GPT-6正式发布</div>
+        </div>
+    </div>
+
+    <!-- 今日要点 -->
+    <div class="section">
+        <div class="section-title">🎯 今日三大要点</div>
+
+        <div class="highlight">
+            <h3>① GPT-6"土豆"正式发布：Symphony架构重写AGI赛道规则</h3>
+            <p>4月14日，OpenAI如期发布代号"Spud（土豆）"的GPT-6旗舰模型，采用Symphony全模态架构，200万Token超长上下文，性能较GPT-5.4提升40%，华为与英伟达当日完成适配支持。这是OpenAI近18个月最重磅的一次发布，也是AGI之争的关键节点。<br><a href="https://openai.com" target="_blank">— OpenAI官方</a></p>
+        </div>
+
+        <div class="highlight" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <h3>② Anthropic估值飙至8000亿美元：两个月翻倍，IPO前夜资本疯狂押注</h3>
+            <p>据Business Insider报道，Anthropic近期收到多个风险投资机构的投资要约，最新估值高达8000亿美元，较2月的3500亿美元翻逾两倍。同日，Anthropic还宣布调整Claude Enterprise定价为按用量付费模式，分析人士认为这是IPO前的战略蓄力。<br><a href="https://blockchain.news/ainews/anthropic-valuation-could-hit-800b-latest-funding-offers-and-2026-ai-market-analysis" target="_blank">— Business Insider / Blockchain News</a></p>
+        </div>
+
+        <div class="highlight" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <h3>③ 中国最大规模科学智算集群正式投运：6万张国产AI芯片，打响算力主权战</h3>
+            <p>4月14日，郑州国家超算互联网核心节点正式投入使用，AI加速芯片从试运行的3万张升级至6万张，成为中国目前最大规模的科学智能计算基础设施。集群支持自然语言驱动、自动算力调度，将支撑第五代科学研究范式革命。<br><a href="https://news.cctv.com/2026/04/14/ARTIaFpFPv6YWfCqw8p7oDTK260414.shtml" target="_blank">— 央视新闻</a></p>
+        </div>
+
+        <!-- 深度总结 -->
+        <div class="summary-box">
+            <p><strong>深度解读：</strong>今日最大信号是GPT-6的正式落地——这场历时18个月、斥资超20亿美元的豪赌，标志着AI竞赛进入新一轮高强度淘汰赛。与此同时，Anthropic估值短短两个月从3500亿飙至8000亿，折射出资本市场对"AGI第一阵营"的极度押注情绪。国内侧，6万张国产AI芯片集群的落地，是中国在算力主权层面的重要里程碑——这不仅是工程成就，更是与美国科技封锁博弈的直接答案。三条主线交织：模型能力竞赛、资本与商业化跃迁、算力基础设施主权化，正在共同塑造未来12个月AI格局的底色。</p>
+        </div>
+    </div>
+
+    <!-- 产品与硬件 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">🚀</span>
+            <span class="category-label">产品与硬件</span>
+        </div>
+
+        <div class="news-card">
+            <h3>GPT-6正式发布：Symphony架构+200万Token，华为英伟达当日完成适配</h3>
+            <p>OpenAI于4月14日发布GPT-6（代号Spud），采用全新Symphony全模态架构，200万Token上下文窗口（相当于可一次处理100万字），性能较GPT-5.4提升40%。华为和英伟达在发布当日即完成对GPT-6的适配支持，彰显其开放生态布局。模型已向ChatGPT Plus、Pro、Team用户开放，API将于本周陆续上线。</p>
+            <div class="news-meta">
+                <span class="tag red">重磅发布</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://openai.com/blog/gpt-6" target="_blank">来源：OpenAI官方博客 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Anthropic调整Claude Enterprise定价：$20/月/用户+按量计费，押注IPO前规模化</h3>
+            <p>Anthropic悄然更改Claude Enterprise定价模式，从此前的固定席位费调整为"$20/月/用户基础费+按实际使用量计费"的混合模式。The Information分析认为，此举是Anthropic在谋划今年10月IPO前，主动降低企业采购门槛、抢占市场份额的战略布局。</p>
+            <div class="news-meta">
+                <span class="tag orange">定价策略</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://www.techmeme.com/260414/p44" target="_blank">来源：The Information / Techmeme →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Chrome浏览器推出"AI Skills"：复杂提示词一键封装，AI使用门槛大幅降低</h3>
+            <p>谷歌Chrome浏览器上线"AI Skills"新功能，允许用户将复杂的AI提示词封装为一键式快捷工具，无需每次手动输入即可调用常用AI工作流。该功能面向非技术用户设计，被认为是谷歌将AI能力"大众化"的重要一步，有望使普通用户的AI使用效率提升数倍。</p>
+            <div class="news-meta">
+                <span class="tag blue">产品功能</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://www.neican.ai/morningnews/2026-04-15-ai-2026-04-15-/" target="_blank">来源：AI内参 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Meta Ray-Ban智能眼镜"Look and Ask"功能成消费级AI硬件最强落地</h3>
+            <p>Ray-Ban Meta智能眼镜凭借"Look and Ask"功能——用户只需看着物体发问，AI即时回答——成为目前市场上最具实用价值的消费级AI穿戴设备。此前苹果Vision Pro定位偏高端，Meta的策略是以日常穿戴切入，分析师认为该品类有望成为2026年最热AI硬件赛道。</p>
+            <div class="news-meta">
+                <span class="tag purple">AI硬件</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://about.fb.com/news/" target="_blank">来源：Meta官方 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 技术与研究 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">🔬</span>
+            <span class="category-label">技术与研究</span>
+        </div>
+
+        <div class="news-card">
+            <h3>NVIDIA发布Ising：全球首个开源量子AI模型家族，量子纠错速度提升2.5倍</h3>
+            <p>NVIDIA在"世界量子日"（4月14日）正式开源NVIDIA Ising——全球首个专为量子计算机研发设计的AI模型家族。Ising模型提供业界顶尖的AI量子处理器校准能力，量子纠错解码速度比传统方法快2.5倍，准确率高出3倍。模型已上线GitHub、Hugging Face及build.nvidia.com，IBM和Quantinuum等量子企业已率先使用。</p>
+            <div class="news-meta">
+                <span class="tag teal">技术突破</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Ising-the-Worlds-First-Open-AI-Models-to-Accelerate-the-Path-to-Useful-Quantum-Computers/default.aspx" target="_blank">来源：NVIDIA官方 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Cursor 3.0套壳实锤：核心AI能力为Claude Code SDK，500亿估值遭开发者质疑</h3>
+            <p>知名开发者Jason Kneen在GitHub发布完整逆向分析报告，证实Cursor 3.0.1的Agent模式核心AI能力完全依赖Anthropic官方的Claude Code SDK，仅做了字符串替换等包装处理。消息引发开发者社区轩然大波，用户质疑每月$20会员费的价值。此事件折射出AI应用层创业"套壳困境"与创新价值边界问题。</p>
+            <div class="news-meta">
+                <span class="tag red">热门争议</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://blog.csdn.net/techforward/article/details/160163925" target="_blank">来源：36氪 / CSDN →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>MiniMax M2.7开源协议争议：禁止商业用途，国产大模型"免费红利"集体收缩</h3>
+            <p>MiniMax发布M2.7自进化代理开源模型，但采用自定义"Modified-MIT"协议，明确禁止未经授权的商业用途，偏离了社区期待的真正开源。分析人士指出，这标志着国内大模型公司正集体从"开源换增长"策略向商业变现模式转型，是继智谱GLM-5.1限量发布后又一信号。</p>
+            <div class="news-meta">
+                <span class="tag orange">开源生态</span>
+                <span class="tag">国内</span>
+                <a class="source-link" href="https://www.neican.ai/morningnews/2026-04-15-ai-2026-04-15-/" target="_blank">来源：AI内参 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>中国最大规模科学智算集群投入使用：6万张国产AI芯片，构建"数算模用"一体化生态</h3>
+            <p>4月14日，郑州国家超算互联网核心节点正式宣布AI加速芯片规模从3万张升级至6万张，成为国内最大规模科学智能计算集群。集群汇聚上千款开源大模型，用户仅需通过自然语言提需求，"超级科学计算智能体"即可自动完成任务拆解、模型调用和算力调度，支撑第五代科学研究范式革命。</p>
+            <div class="news-meta">
+                <span class="tag red">国家重器</span>
+                <span class="tag green">国内</span>
+                <a class="source-link" href="https://news.cctv.com/2026/04/14/ARTIaFpFPv6YWfCqw8p7oDTK260414.shtml" target="_blank">来源：央视新闻 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 产业与投资 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">💰</span>
+            <span class="category-label">产业与投资</span>
+        </div>
+
+        <div class="news-card">
+            <h3>Anthropic估值飙至8000亿美元：两个月翻倍，资本疯狂押注AGI第一阵营</h3>
+            <p>据Business Insider独家报道，Anthropic近期收到来自多家顶级VC机构的新一轮融资要约，估值最高达8000亿美元，远超今年2月的3500亿美元。Anthropic计划于2026年10月IPO，此次估值跃升使其有望成为有史以来估值最高的AI公司IPO之一。</p>
+            <div class="news-meta">
+                <span class="tag red">重磅融资</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://www.msn.com/en-us/money/other/anthropic-attracts-investor-offers-at-an-800-billion-valuation/ar-AA20UA6Q" target="_blank">来源：Business Insider / MSN →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>NAACP起诉xAI孟菲斯数据中心：非法排污违反清洁空气法，马斯克"算力帝国"惹祸</h3>
+            <p>美国民权组织NAACP与EarthJustice联合向法院提起诉讼，指控马斯克旗下xAI及其子公司MZX Tech，在孟菲斯南部Colossus 2数据中心非法运行数十台未经许可的甲烷燃气轮机，违反清洁空气法，严重危害周边社区（尤其是黑人社区）居民健康。此案引发外界对AI数据中心"无序扩张"的环境代价的广泛关注。</p>
+            <div class="news-meta">
+                <span class="tag orange">监管诉讼</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://naacp.org/articles/naacp-sues-xai-illegal-pollution-data-center" target="_blank">来源：NAACP官方 / The Hill →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Mintlify获4500万美元B轮：AI文档生成平台，a16z领投，估值5亿美元</h3>
+            <p>AI文档生成平台Mintlify完成4500万美元B轮融资，由a16z和Salesforce Ventures共同领投，估值达5亿美元。Mintlify专注于自动生成、维护API文档和代码文档，已服务数千家开发者团队。此次融资将用于扩展企业级功能和代理驱动的文档自动化能力。</p>
+            <div class="news-meta">
+                <span class="tag blue">融资动态</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://blockchain.news/ainews/anthropic-valuation-could-hit-800b-latest-funding-offers-and-2026-ai-market-analysis" target="_blank">来源：Forbes →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>杰瑞股份斩获北美11亿美元订单：AI数据中心电力危机催生"能源破局者"</h3>
+            <p>中国能源装备企业杰瑞股份凭借17年北美市场本地化运营经验和模块化电力解决方案，在AI数据中心用电需求爆炸背景下斩获北美市场11亿美元大单。此案例被视为中国工业企业借助AI算力基建热潮向海外高价值市场突围的标志性案例。</p>
+            <div class="news-meta">
+                <span class="tag green">出海突围</span>
+                <span class="tag green">国内</span>
+                <a class="source-link" href="https://www.neican.ai/morningnews/2026-04-15-ai-2026-04-15-/" target="_blank">来源：AI内参 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 跨界融合 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">🌐</span>
+            <span class="category-label">跨界融合</span>
+        </div>
+
+        <div class="news-card">
+            <h3>Apple威胁下架Grok：深度伪造内容生成能力触碰App Store红线</h3>
+            <p>苹果公司正式通知X平台（Twitter），Grok AI应用因具备生成"性化深度伪造（Sexual Deepfake）"内容的能力，已触犯App Store审核政策，将面临被下架处理。这是苹果首次对AI生成内容应用发出正式下架警告，或将引发其他AI平台的内容审查跟进，对AI应用分发生态产生深远影响。</p>
+            <div class="news-meta">
+                <span class="tag red">内容治理</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://www.neican.ai/morningnews/2026-04-15-ai-2026-04-15-/" target="_blank">来源：NBC News / AI内参 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>Uber AI编码预算告急：数月耗尽全年配额，企业AI成本管控成新风险</h3>
+            <p>Uber CTO公开表示，由于工程师使用AI编码工具的频率远超预期，公司在2026年仅几个月就耗尽了全年AI工具预算。这一案例揭示了"AI工具引入即失控"的企业隐患——当AI成为开发标配，用量管理与ROI核算成为下一个管理难题，Uber已开始研究限额与计费分摊机制。</p>
+            <div class="news-meta">
+                <span class="tag orange">企业AI</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://llm-stats.com/ai-news" target="_blank">来源：The Information / LLM-Stats →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>南方医院联合华为发布医院通用AI平台：医疗AI从点状工具向"全院大脑"演进</h3>
+            <p>南方医科大学南方医院联合华为及多家医疗机构，在广州"AI驱动智慧医院建设新范式高峰论坛"上正式发布医院通用人工智能平台。平台整合院内多源异构数据，支持临床决策辅助、智能影像分析、病历质控等多场景应用，被视为医疗AI从"单点工具"向"全院智能大脑"升级的样板工程。</p>
+            <div class="news-meta">
+                <span class="tag teal">医疗AI</span>
+                <span class="tag green">国内</span>
+                <a class="source-link" href="https://e.huawei.com/cn/news/2026/industries/healthcare/general-artificial-intelligence-platform-hospitals" target="_blank">来源：华为官网 →</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h3>中美AI治理范式分化：中国备案制 vs 美国"荒野西部"，全球规则之争加速</h3>
+            <p>中美两国AI监管路径差异日益显著：中国持续推进AI备案制和分类治理，十部门伦理审查办法逐步落地；美国在特朗普执政下废除拜登AI监管令，呈现"荒野西部"态势。分析认为，当中国成为"规则输出方"，而美国放松管制，全球AI标准制定权的争夺已从技术层面延伸到制度层面，将深刻影响全球AI供应链格局。</p>
+            <div class="news-meta">
+                <span class="tag purple">治理政策</span>
+                <span class="tag">国际</span>
+                <a class="source-link" href="https://www.neican.ai/morningnews/2026-04-15-ai-2026-04-15-/" target="_blank">来源：AI内参 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 数据概览 -->
+    <div class="section">
+        <div class="section-title">📊 今日数据概览</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div class="glass-section">
+                <h3>🏆 最高估值</h3>
+                <p style="font-size: 1.6em; font-weight: 700; color: #e74c3c;">8000亿美元</p>
+                <p>Anthropic最新估值要约（较2月翻倍）</p>
+            </div>
+            <div class="glass-section">
+                <h3>⚡ 算力规模</h3>
+                <p style="font-size: 1.6em; font-weight: 700; color: #2980b9;">6万张</p>
+                <p>中国最大科学智算集群国产AI芯片数量</p>
+            </div>
+            <div class="glass-section">
+                <h3>📈 GPT-6提升</h3>
+                <p style="font-size: 1.6em; font-weight: 700; color: #27ae60;">+40%</p>
+                <p>相较GPT-5.4的综合性能提升幅度</p>
+            </div>
+            <div class="glass-section">
+                <h3>🔬 NVIDIA Ising</h3>
+                <p style="font-size: 1.6em; font-weight: 700; color: #8e44ad;">2.5x</p>
+                <p>量子纠错解码速度提升倍数</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <p>⚡ Nova AI每日资讯简报 | 实时搜索生成 | 2026年4月15日</p>
+        <p style="margin-top: 5px;">
+            <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">查看历史简报 →</a>
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
