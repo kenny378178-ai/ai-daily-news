@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每周全球资讯周报 - 2026年4月13日至4月19日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* 头部 */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 48px 40px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f6d365, #fda085, #f5576c, #4facfe);
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            backdrop-filter: blur(4px);
+        }
+
+        .header h1 {
+            font-size: 2.4em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header .date-range {
+            font-size: 1.15em;
+            opacity: 0.92;
+            margin-bottom: 24px;
+            color: #f6d365;
+            font-weight: 500;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 12px 24px;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            min-width: 100px;
+        }
+
+        .stat-box .num {
+            font-size: 1.8em;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-box .lbl {
+            font-size: 0.78em;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        /* 深度总结区 */
+        .summary-section {
+            padding: 36px 44px;
+            background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 100%);
+            border-left: 5px solid #764ba2;
+            margin: 32px 40px;
+            border-radius: 0 16px 16px 0;
+        }
+
+        .summary-section h2 {
+            color: #5a2ea6;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 22px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .summary-item:last-child { margin-bottom: 0; }
+
+        .summary-item h3 {
+            color: #4c3d9e;
+            font-size: 1em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .summary-item p {
+            color: #444;
+            font-size: 0.92em;
+            line-height: 1.75;
+        }
+
+        /* 分类区块 */
+        .category-section {
+            padding: 0 40px 32px;
+        }
+
+        .cat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 0 16px;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+
+        .cat-icon {
+            font-size: 1.6em;
+        }
+
+        .cat-title {
+            font-size: 1.35em;
+            font-weight: 700;
+        }
+
+        .cat-count {
+            background: #667eea;
+            color: white;
+            font-size: 0.75em;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        /* 产品与硬件 */
+        .cat-product .cat-title { color: #e05a2b; }
+        .cat-product .cat-count { background: #e05a2b; }
+        .cat-product .news-card { border-left-color: #e05a2b; }
+
+        /* 技术与研究 */
+        .cat-tech .cat-title { color: #2563eb; }
+        .cat-tech .cat-count { background: #2563eb; }
+        .cat-tech .news-card { border-left-color: #2563eb; }
+
+        /* 产业与投资 */
+        .cat-biz .cat-title { color: #16a34a; }
+        .cat-biz .cat-count { background: #16a34a; }
+        .cat-biz .news-card { border-left-color: #16a34a; }
+
+        /* 跨界融合 */
+        .cat-cross .cat-title { color: #7c3aed; }
+        .cat-cross .cat-count { background: #7c3aed; }
+        .cat-cross .news-card { border-left-color: #7c3aed; }
+
+        /* 新闻卡片 */
+        .news-card {
+            background: #fafafa;
+            border-left: 4px solid #667eea;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 16px rgba(102,126,234,0.15);
+        }
+
+        .news-card:last-child { margin-bottom: 0; }
+
+        .news-title {
+            font-size: 1em;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .news-title a {
+            color: #4338ca;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .news-title a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .news-summary {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.72;
+        }
+
+        .news-meta {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .tag {
+            font-size: 0.73em;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .tag-hot { background: #fff0f0; color: #dc2626; }
+        .tag-new { background: #f0fff4; color: #15803d; }
+        .tag-tech { background: #eff6ff; color: #1d4ed8; }
+        .tag-fund { background: #fef3c7; color: #92400e; }
+        .tag-cn { background: #faf5ff; color: #6d28d9; }
+        .tag-global { background: #ecfdf5; color: #065f46; }
+        .tag-policy { background: #fff7ed; color: #c2410c; }
+        .tag-robot { background: #f0f9ff; color: #0369a1; }
+
+        .source-link {
+            font-size: 0.78em;
+            color: #9ca3af;
+            margin-left: auto;
+        }
+
+        .source-link a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .source-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* 分割线 */
+        .cat-divider {
+            height: 1px;
+            background: linear-gradient(90deg, #667eea20, #764ba240, #667eea20);
+            margin: 8px 0 28px;
+        }
+
+        /* 底部 */
+        .footer {
+            background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 100%);
+            padding: 28px 40px;
+            text-align: center;
+            border-top: 1px solid #e0d9f7;
+        }
+
+        .footer p {
+            color: #888;
+            font-size: 0.88em;
+            line-height: 1.9;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .github-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 14px;
+            transition: opacity 0.2s;
+        }
+
+        .footer .github-btn:hover { opacity: 0.9; text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 1.6em; }
+            .category-section, .summary-section { margin: 16px 16px; padding: 20px; }
+            .stats-row { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 头部 -->
+    <div class="header">
+        <div class="badge">⚡ AI WEEKLY DIGEST</div>
+        <h1>AI每周全球资讯周报</h1>
+        <div class="date-range">📅 2026年4月13日（周一）— 4月19日（周日）</div>
+        <div class="stats-row">
+            <div class="stat-box">
+                <span class="num">20</span>
+                <span class="lbl">本周资讯</span>
+            </div>
+            <div class="stat-box">
+                <span class="num">4</span>
+                <span class="lbl">大类分类</span>
+            </div>
+            <div class="stat-box">
+                <span class="num">5</span>
+                <span class="lbl">深度要点</span>
+            </div>
+            <div class="stat-box">
+                <span class="num">🌍</span>
+                <span class="lbl">全球视野</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 深度总结 -->
+    <div class="summary-section">
+        <h2>🔥 本周五大深度要点</h2>
+
+        <div class="summary-item">
+            <h3>1. GPT-6"Spud"正式发布 — AGI最后一公里到来</h3>
+            <p>
+                4月14日，OpenAI如期发布GPT-6（内部代号"Spud/土豆"），这是耗时18个月、投入超20亿美元、动用10万张H100 GPU训练的里程碑模型。GPT-6采用全新Symphony原生多模态架构，总参数5-6万亿（MoE激活10%），上下文窗口扩展至200万Token，是前代的2倍，可一次性处理完整高清视频和百万行代码库。性能较GPT-5.4提升约40%，数学推理准确率92.5%，代码生成通过率96.8%。同日OpenAI还发布了网络安全专用模型GPT-5.4-Cyber。Anthropic随即以Claude Opus 4.6（Arena评分1503分）应战，本周成为有史以来AI模型竞争最激烈的一周。
+            </p>
+        </div>
+
+        <div class="summary-item">
+            <h3>2. 斯坦福《2026年AI指数报告》发布 — 中美AI差距仅剩2.7%</h3>
+            <p>
+                4月13日，斯坦福大学以人为本AI研究所（Stanford HAI）发布了第九版《AI指数年度报告》（共423页）。报告最震撼的发现是中美顶级AI模型差距已缩小至2.7%：美国第一Claude Opus 4.6得分1503，中国第一Dola-SeeD-2.0得分1464。全球TOP 10 AI机构中，中国占4席（阿里、DeepSeek、清华、字节）。SWE-bench编程能力基准一年内从60%涨至接近100%；Agent网络安全能力更是从15%跃升至93%，远超预期。报告还指出，2026年全球企业AI投资达5817亿美元，22-25岁开发者就业下滑20%，AI扩张速度已超过治理框架的适应能力。
+            </p>
+        </div>
+
+        <div class="summary-item">
+            <h3>3. Meta转向闭源：Muse Spark发布，开源旗手的战略转变</h3>
+            <p>
+                4月8日，Meta正式发布由超级智能实验室（Meta Superintelligence Labs）研发的首款模型Muse Spark（内部代号"牛油果"）。这是Alexandr Wang加盟后，团队耗时9个月重建AI技术栈的成果。Muse Spark最大亮点是在HealthBench Hard（健康场景）基准测试中以42.8%名列全球第一，并引入创新的Contemplating模式（多Agent并行推理）和深度整合Meta社交数据的Shopping Mode。此次发布意味着Meta彻底放弃Llama系列的开源策略，转向闭源变现——核心逻辑是：AI能力"够用"后，30亿月活用户的分发网络才是终局变量，广告转化率提升1-2个百分点即可覆盖所有AI研发投入。
+            </p>
+        </div>
+
+        <div class="summary-item">
+            <h3>4. 智元机器人2026合作伙伴大会 — 具身智能进入产线量产元年</h3>
+            <p>
+                4月17日，智元机器人在上海举办2026合作伙伴大会（APC 2026），2500名来自34个国家的合作伙伴参会，规模远超往届。大会以"共启具身智能生产力新时代"为主题，发布了4款本体新品（含精灵G系列工业机器人、灵犀X系列人形机器人、中型四足机器人及家庭服务机器人）、4大AI大模型及7个解决方案，并提出"一体三智"框架（以GO-2具身基座大模型为核心，整合感知智、运动智、认知智）。其中精灵G2在龙旗科技工厂实测中实现了8小时连续工作零重大异常，成功率超99.5%，每小时完成310件产品，综合成本已正式低于人工，标志着人形机器人进入可量产的商业化元年。
+            </p>
+        </div>
+
+        <div class="summary-item">
+            <h3>5. 全球AI监管密集落地 — 中国首发"AI拟人化互动"专项法规</h3>
+            <p>
+                本周是全球AI治理史上立法最密集的一周之一。中国方面，4月10日国家网信办等五部门联合发布全球首个针对AI拟人化互动服务的专项法规《人工智能拟人化互动服务管理暂行办法》，7月15日起施行，核心理念是"以人为本、智能向善"；工业和信息化部等十部门同步发布《人工智能科技伦理审查与服务体系（试行）》，从六大维度建立伦理审查标准。与此同时，教育部等五部门联合发布《"人工智能+教育"行动计划》，将AI纳入教师资格考试内容。国际层面，欧盟AI法案进入关键执行阶段，美国要求高风险AI系统进行第三方安全审计，全球AI治理正从"技术创新驱动"转向"制度与技术双轮驱动"新阶段。
+            </p>
+        </div>
+    </div>
+
+    <!-- 分类新闻 -->
+    <div class="category-section">
+
+        <!-- 产品与硬件 -->
+        <div class="cat-product">
+            <div class="cat-header">
+                <span class="cat-icon">📱</span>
+                <span class="cat-title">产品与硬件</span>
+                <span class="cat-count">6条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.sohu.com/a/1006065368_122585292" target="_blank">GPT-6正式发布：代号"Spud"，AGI最后一公里，性能暴涨40%</a>
+                </div>
+                <div class="news-summary">4月14日，OpenAI正式发布GPT-6（内部代号"Spud"），采用全新Symphony原生多模态架构，总参数5-6万亿，上下文窗口达200万Token，是GPT-5.4的2倍。性能综合提升约40%，数学推理准确率92.5%，代码生成通过率96.8%。同步发布ChatGPT+、Codex、Atlas三合一整合版，API定价较前代降低一半。被OpenAI内部定位为"AGI的最后一公里"。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 本周最热</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="tag tag-new">重大发布</span>
+                    <span class="source-link"><a href="https://k.sina.com.cn/article_5953190046_162d6789e06702yp72.html?cre=tianyi" target="_blank">来源: 华西计算机/新浪</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.thepaper.cn/newsDetail_forward_32932266" target="_blank">Meta推出闭源模型Muse Spark：健康场景全球第一，开源时代宣告终结</a>
+                </div>
+                <div class="news-summary">Meta超级智能实验室（MSL）首款模型Muse Spark（代号"牛油果"）正式发布，引入Contemplating模式（多Agent并行推理）和Shopping Mode（深度整合社交数据）。HealthBench Hard健康场景基准全球第一（42.8%）。Meta股价当日涨超6%，标志着Meta彻底从开源旗手转向闭源商业化战略，30亿用户基盘将成为核心变现壁垒。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 重大转变</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://finance.sina.com.cn/wm/2026-04-14/doc-inhunicu4819997.shtml" target="_blank">来源: 新浪财经</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">Midjourney V8.1发布：原生2K高清渲染，速度成本双降3倍</a>
+                </div>
+                <div class="news-summary">Midjourney推出V8.1 Alpha版，原生2K高清模式渲染速度比V8快3倍、成本降低3倍，使高清生成成为默认选项。视觉风格回归V7经典美学，恢复图像提示功能并新增"Describe"描述功能。目前已在alpha.midjourney.com上线测试。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">版本更新</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">来源: AI TOP100</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">阿里发布AI开发工具Meoo（秒悟）：集成四大模型，1分钟生成网站零编程门槛</a>
+                </div>
+                <div class="news-summary">阿里巴巴推出AI开发工具Meoo（秒悟），集成千问、Kimi、GLM和MiniMax四大模型。用户无需编程基础，通过自然语言1分钟即可生成网站或H5页面，并支持阿里云一键部署。创新的蜂群Agent模式可让多个Agent并行处理任务并自主修复问题，瞄准中小企业市场。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">新品发布</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://meoo.com/" target="_blank">来源: Meoo官网</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/kimi-k2.6-code" target="_blank">月之暗面发布Kimi K2.6-code：万亿参数编程模型，月费39元起对标Sonnet 4.6</a>
+                </div>
+                <div class="news-summary">月之暗面推出万亿参数编程大模型Kimi K2.6-code-preview，在推理深度、代理规划和工具调用方面显著提升，评分从83分升至89分，实际体验达到Sonnet 4.6水平。目前已上线Kimi Code，推出月费39元起的会员计划，以国产价格参与全球编程模型竞争。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">新品发布</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://www.aitop100.cn/kimi-k2.6-code" target="_blank">来源: AI TOP100</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">阿里千问AI眼镜全球首店落地南京机场，旗舰产品S1同步开售</a>
+                </div>
+                <div class="news-summary">阿里千问AI眼镜全球首家线下体验店落户南京禄口国际机场，主打"尖端科技体验+专业验光配镜"一站式服务。由阿里自研闭源大模型驱动的旗舰产品S1同步开售，计划2026年下半年起向全国重点城市扩张，布局AI眼镜线下零售渠道。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">新品落地</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">来源: AI TOP100</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-divider"></div>
+
+        <!-- 技术与研究 -->
+        <div class="cat-tech">
+            <div class="cat-header">
+                <span class="cat-icon">🔬</span>
+                <span class="cat-title">技术与研究</span>
+                <span class="cat-count">5条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.sohu.com/a/1010009455_695881" target="_blank">斯坦福《2026年AI指数报告》：中美差距仅剩2.7%，Agent能力超预期跃升</a>
+                </div>
+                <div class="news-summary">4月13日，斯坦福HAI发布423页年度AI指数报告。核心发现：中美顶级模型差距缩至2.7%（美国第一Claude Opus 4.6得分1503 vs 中国第一Dola-SeeD-2.0得1464）；SWE-bench编程能力一年从60%涨至~100%；Agent网络安全能力从15%跃至93%；全球企业AI投资飙至5817亿美元；22-25岁开发者就业下滑20%，入门级岗位被精准替代。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 权威报告</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://new.qq.com/rain/a/20260416A067T200" target="_blank">来源: 腾讯新闻/斯坦福HAI</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://blog.csdn.net/m0_74961596/article/details/160313577" target="_blank">DeepSeek V3.1更新上线，专家模式开放；V4与华为芯片深度适配研发中</a>
+                </div>
+                <div class="news-summary">本周DeepSeek低调推送V3.1更新，专家模式（Expert Mode）正式开放，推理能力和工具调用进一步提升，开源模型榜首地位稳固。与此同时，DeepSeek V4正在与华为昇腾芯片进行深度适配测试，预计4月下旬对外发布，是中国AI"脱钩"路径的重要技术里程碑。</div>
+                <div class="news-meta">
+                    <span class="tag tag-tech">技术更新</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://blog.csdn.net/m0_74961596/article/details/160313577" target="_blank">来源: CSDN博客</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">阿里happyhorse-1.0斩获LM Arena视频编辑全球冠军：国产模型首次登顶该榜单</a>
+                </div>
+                <div class="news-summary">在LM Arena公布的Video Edit视频编辑排行榜中，阿里旗下happyhorse-1.0模型以1299分位列全球榜首，超越Grok等国际主流模型。这是中国AI团队首次在视频编辑方向登顶LM Arena，标志着国产视频编辑技术进入世界顶尖梯队。happyhorse正式发布版预计近期推出。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 全球冠军</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://www.aitop100.cn/ai-daily-2026-04-15" target="_blank">来源: AI TOP100</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aitop100.cn/infomation/details/33632.html" target="_blank">Chrome为Gemini上线"技能库"：一键复用提示词，AI助手进入场景化工具时代</a>
+                </div>
+                <div class="news-summary">谷歌为桌面版Chrome内置的Gemini引入"技能库"功能，允许用户将复杂提示词固化为"技能"实现跨网页一键复用，支持自定义技能、跨标签页批量处理，覆盖健康、购物、办公等场景。这一设计标志着AI助手从通用聊天工具向个性化场景工具库演进，为生产力工具树立新范式。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">功能更新</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://www.aitop100.cn/infomation/details/33632.html" target="_blank">来源: AI TOP100</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://new.qq.com/rain/a/20260416A067T200" target="_blank">斯坦福报告：AI编程Agent全面进入自主阶段，22岁以下程序员就业出现拐点</a>
+                </div>
+                <div class="news-summary">斯坦福AI指数报告专门指出，Terminal-Bench 2.0测试中AI编程Agent得分从20%提升至77.3%（+57.3pp），OSWorld基准达到66.3%逼近人类基线。报告首次将"22-25岁开发者就业下滑20%"列为重点章节，这是全球权威机构首次以数据确认AI对初级程序员就业的精准替代效应，引发行业广泛讨论。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 就业影响</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://new.qq.com/rain/a/20260416A067T200" target="_blank">来源: 腾讯新闻</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-divider"></div>
+
+        <!-- 产业与投资 -->
+        <div class="cat-biz">
+            <div class="cat-header">
+                <span class="cat-icon">💰</span>
+                <span class="cat-title">产业与投资</span>
+                <span class="cat-count">5条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.21jingji.com/article/20260414/herald/258a3350df971ce31c4ecd42072ec0a8.html" target="_blank">具身智能Q1融资超200亿：超50起、30家企业获投，估值百亿成新标配</a>
+                </div>
+                <div class="news-summary">据IT桔子、CENTI不完全统计，2026年第一季度国内具身智能赛道披露融资超50起，获投企业超30家，累计融资额约200亿元，同比增长近60%，创下历史新高。至少六家企业已有年内上市计划。智元机器人2026年营收目标定为5亿元，行业整体进入从"Pre-A估值博弈"转向"产能落地竞速"的新阶段。</div>
+                <div class="news-meta">
+                    <span class="tag tag-fund">💰 投资热点</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://www.21jingji.com/article/20260414/herald/258a3350df971ce31c4ecd42072ec0a8.html" target="_blank">来源: 21世纪经济报道</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://aimojo.io/zh-CN/ai-startup-funding-report/" target="_blank">2026年Q1全球AI融资创纪录：1300亿美元，AI占风投资金80%</a>
+                </div>
+                <div class="news-summary">据全球AI融资报告，2026年第一季度全球AI公司融资总额达1300亿美元（部分数据源估算2970亿含战略投资）。人工智能领域已吸引80%的风险投资资金，传统SaaS行业正面临结构性压力。从项目层面看，AI基础设施（算力/存储）和垂直应用（医疗/法律/教育）成为最受追捧的两大方向。</div>
+                <div class="news-meta">
+                    <span class="tag tag-fund">💰 行业数据</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://aimojo.io/zh-CN/ai-startup-funding-report/" target="_blank">来源: AI Mojo</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://blog.csdn.net/m0_74961596/article/details/160313577" target="_blank">豆包日均Token破120万亿，中国大模型连续五周调用量超越美国</a>
+                </div>
+                <div class="news-summary">本周OpenRouter统计数据显示，中国大模型平台周调用量达12.96万亿Token，环比增长31.48%，连续五周超越美国，榜单前六名全部被中国模型占据。其中豆包日均Token使用量突破120万亿，成为中国第一、全球第三，较发布时增长1000倍。Qwen3.6-Plus发布1天即登顶OpenRouter日榜，日调用量破1.4万亿Token。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 里程碑</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://blog.csdn.net/m0_74961596/article/details/160313577" target="_blank">来源: CSDN博客</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://k.sina.com.cn/article_7857201856_1d45362c001904bmt6.html" target="_blank">OpenAI发布GPT-5.4-Cyber，扩大网络安全可信访问计划（TAC）</a>
+                </div>
+                <div class="news-summary">4月14日，OpenAI宣布推出GPT-5.4-Cyber，基于GPT-5.4并针对网络安全防御专项微调，同步扩大"网络安全可信访问"项目（TAC），向经审核验证的网络安全人员和团队开放。OpenAI表示随着模型能力提升，防御措施需同步升级，体现出AI公司在安全领域差异化布局加速。</div>
+                <div class="news-meta">
+                    <span class="tag tag-new">产品发布</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://so.html5.qq.com/page/real/search_news?docid=70000021_22569dec66965952" target="_blank">来源: IT之家</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://jishuzhan.net/article/2045300207567568897" target="_blank">智元机器人APC 2026：人形机器人"上下料"成本首次低于人工，2026年营收目标5亿</a>
+                </div>
+                <div class="news-summary">4月17日，智元机器人2026合作伙伴大会发布重磅数据：精灵G2人形机器人在龙旗科技南昌工厂实测8小时连续工作零重大异常，成功率超99.5%，每小时完成310件产品，两班制综合成本已正式低于人工——这是具身智能行业首次实现"上下料"环节对工人的经济性替代。公司将2026年营收目标定为5亿元，"元苼"生态发展计划未来5年投入超20亿元。</div>
+                <div class="news-meta">
+                    <span class="tag tag-hot">🔥 行业突破</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://jishuzhan.net/article/2045300207567568897" target="_blank">来源: 技术栈</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-divider"></div>
+
+        <!-- 跨界融合 -->
+        <div class="cat-cross">
+            <div class="cat-header">
+                <span class="cat-icon">🌐</span>
+                <span class="cat-title">跨界融合</span>
+                <span class="cat-count">4条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.sohu.com/a/1009829036_122439921" target="_blank">全球首个AI拟人化互动专项法规出台，中国五部门联合监管"情感AI"</a>
+                </div>
+                <div class="news-summary">4月10日，国家网信办等五部门联合发布《人工智能拟人化互动服务管理暂行办法》，7月15日起施行，这是全球首个专门针对AI拟人化互动服务的法规。监管范围涵盖文化传播、适幼照护、适老陪伴等场景，核心理念为"以人为本、智能向善"，采用包容审慎与分类分级相结合的监管方式，为各国情感AI立法提供参考范本。</div>
+                <div class="news-meta">
+                    <span class="tag tag-policy">政策法规</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="tag tag-hot">🔥 全球首例</span>
+                    <span class="source-link"><a href="https://www.sohu.com/a/1009829036_122439921" target="_blank">来源: 搜狐网</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://openaxo.com/trends/china-ai-ethics-review-2026-guide" target="_blank">十部门发布AI伦理审查六维度框架，AI医疗金融监管进入"深水区"</a>
+                </div>
+                <div class="news-summary">工业和信息化部等十部门发布《人工智能科技伦理审查与服务体系（试行）》，确立了人类福祉、公平公正、可控可信、透明可解释、责任可追溯、隐私保护六大维度的审查框架。在医疗、金融、交通等重要领域，要求AI安全风险防控与现行法律法规深度融合，企业合规成本显著上升。</div>
+                <div class="news-meta">
+                    <span class="tag tag-policy">政策法规</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://openaxo.com/trends/china-ai-ethics-review-2026-guide" target="_blank">来源: OpenAxo</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://segmentfault.com/a/1190000047703927" target="_blank">AI+医疗行业加速渗透：2026年医疗健康AI投融资回暖，渗透率从0到1爆发前夜</a>
+                </div>
+                <div class="news-summary">据2026中国医疗健康行业趋势报告，AI+医疗正处于渗透率从0到1的爆发前夜，斯坦福AI指数报告也首次设立"医学"独立章节，AI正从计算机科学的"自留地"向医学领域深度渗透。Meta Muse Spark在HealthBench Hard健康场景基准夺冠（42.8%），OpenAI推出GPT-5.4-Cyber布局网络安全，AI垂直场景竞争进入白热化阶段。</div>
+                <div class="news-meta">
+                    <span class="tag tag-fund">💰 产业趋势</span>
+                    <span class="tag tag-global">🌍 全球</span>
+                    <span class="source-link"><a href="https://segmentfault.com/a/1190000047703927" target="_blank">来源: SegmentFault</a></span>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-title">
+                    <a href="https://www.aixuexiquan.com/news/regulations/1025/" target="_blank">教育部五部门发布《AI+教育行动计划》：AI纳入教师资格考试，防范学术造假</a>
+                </div>
+                <div class="news-summary">教育部等五部门联合发布《"人工智能+教育"行动计划》，将人工智能纳入教师资格考试和认证内容，同步建立安全防护体系，重点防范利用AI伪造诈骗、学术造假、应试内卷等问题。这是中国教育系统对AI渗透的系统性应对，从课堂教学到教师培养全面纳入AI能力要求，为全球AI+教育立法提供参考。</div>
+                <div class="news-meta">
+                    <span class="tag tag-policy">政策法规</span>
+                    <span class="tag tag-cn">🇨🇳 国内</span>
+                    <span class="source-link"><a href="https://www.aixuexiquan.com/news/regulations/1025/" target="_blank">来源: AI学习圈</a></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+        <p>
+            📅 周报周期：<strong>2026年4月13日（周一）— 4月19日（周日）</strong><br>
+            🤖 本周报由 AI 实时搜索生成，所有新闻均附原文链接可验证<br>
+            📢 每周一自动推送，覆盖全球AI产品/技术/投资/政策动态<br>
+            🔗 往期日报：<a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">kenny378178-ai.github.io/ai-daily-news</a>
+        </p>
+        <a class="github-btn" href="https://kenny378178-ai.github.io/ai-daily-news/daily-news/weekly_2026-04-13_2026-04-19.html" target="_blank">
+            📖 在线阅读完整版
+        </a>
+        <p style="margin-top:14px; font-size:0.78em; color:#aaa;">
+            Generated by WorkBuddy AI · Nova ⚡ · 2026-04-20
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
