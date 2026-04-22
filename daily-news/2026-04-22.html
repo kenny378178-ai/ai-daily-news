@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年4月22日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 今日要点样式 */
+        .highlight {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.2s;
+        }
+
+        .highlight:hover {
+            transform: translateX(5px);
+        }
+
+        .highlight-num {
+            font-size: 2em;
+            font-weight: 900;
+            color: #667eea;
+            float: left;
+            margin-right: 15px;
+            line-height: 1;
+        }
+
+        .highlight-content h3 {
+            font-size: 1.1em;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+
+        .highlight-content p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* 深度总结 */
+        .summary-box {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 10px;
+            line-height: 1.8;
+            font-size: 0.98em;
+        }
+
+        /* 新闻卡片 */
+        .news-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+            transition: box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 15px rgba(102,126,234,0.2);
+        }
+
+        .news-card h3 {
+            font-size: 1.05em;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-card p {
+            color: #555;
+            line-height: 1.65;
+            font-size: 0.92em;
+        }
+
+        .news-card .source-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .news-card .source-link:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .tag.green { background: #27ae60; }
+        .tag.orange { background: #e67e22; }
+        .tag.red { background: #e74c3c; }
+        .tag.purple { background: #8e44ad; }
+        .tag.teal { background: #16a085; }
+
+        /* 分类标题 */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            margin-top: 5px;
+        }
+
+        .category-icon {
+            font-size: 1.6em;
+        }
+
+        .category-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1e3c72;
+        }
+
+        /* footer */
+        .footer {
+            background: #1e3c72;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85em;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .glass-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            border-radius: 2px;
+            margin: 5px 0 25px 0;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            .stats { gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>&#127758; 每日AI全球资讯简报</h1>
+        <div class="date">2026年4月22日 星期三</div>
+        <div class="stats">
+            <div class="stat-item">&#128218; 12条精选资讯</div>
+            <div class="stat-item">&#127758; 国内6 + 国际6</div>
+            <div class="stat-item">&#128197; 每日10:00更新</div>
+        </div>
+    </div>
+
+    <!-- 今日要点 -->
+    <div class="section">
+        <div class="section-title">&#128293; 今日三大要点</div>
+        <div class="glass-divider"></div>
+
+        <div class="highlight">
+            <div class="highlight-num">1</div>
+            <div class="highlight-content">
+                <h3>OpenAI ChatGPT Images 2.0 正式发布：2K分辨率 + 会"思考"的AI画师</h3>
+                <p>4月21日，OpenAI发布新一代图像生成模型ChatGPT Images 2.0（底层为gpt-image-2），支持最高2K分辨率、多宽高比、非拉丁语系文字渲染，并首创"Thinking版"（深度推理后生成）和"Instant版"（即时生成）双模式。新模型具备网络搜索能力，可获取最新信息后再作图，并支持从文案撰写到排版设计的端到端创作流，官方宣称可用于创作完整杂志。</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <div class="highlight-num">2</div>
+            <div class="highlight-content">
+                <h3>荣耀"闪电"机器人50分26秒半马夺冠，大幅超越人类世界纪录</h3>
+                <p>4月19日，2026北京亦庄人形机器人半程马拉松落幕，荣耀"闪电"以50分26秒自主导航完成全程，包揽冠亚季军，成绩远超人类半马世界纪录（57分20秒），并较去年天工2小时40分钟的夺冠成绩大幅跃进。完赛率从6/20提升至47/100+，参赛规模扩大5倍。中国人形机器人工程化能力由实验室快速走向实战验证。</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <div class="highlight-num">3</div>
+            <div class="highlight-content">
+                <h3>DeepSeek V4 FP4精度支持曝光，4月底首个"国产芯片原生"万亿参数大模型即将登场</h3>
+                <p>DeepSeek GitHub仓库DeepGEMM更新110个文件，显示V4将同时支持FP8和激进的FP4精度，并完全运行于华为昇腾950PR芯片（算力超英伟达H20）。阿里、字节、腾讯已提前下单算力资源。这将是全球首个原生在国产AI芯片上训练+推理的顶级大模型，彻底打破"唯英伟达"算力神话。发布时间锁定4月下旬。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 深度总结 -->
+    <div class="section">
+        <div class="section-title">&#128269; 深度总结</div>
+        <div class="glass-divider"></div>
+        <div class="summary-box">
+            4月22日的AI资讯折射出三条清晰主线：<strong>第一，生成式AI从"能用"走向"专业级"</strong>——ChatGPT Images 2.0的2K分辨率与"思考模式"标志着图像AI首次拥有策略推理能力，创作门槛进一步下沉；<strong>第二，具身智能完成历史性自我证明</strong>——荣耀"闪电"半马夺冠+百队完赛率45%，证明中国人形机器人已从展示性Demo迈入规模工程化落地，工信部同期发布行业标准体系，顶层框架加速成型；<strong>第三，国产算力生态拼图日趋完整</strong>——DeepSeek V4深度绑定华为昇腾950PR，腾讯/阿里世界模型双雄竞逐空间智能，AI云算力集体涨价则表明"Token稀缺时代"已然来临，算力议价权正在从消费者向供给方转移。下一阶段值得关注：DeepSeek V4的实际发布与性能对比、世界模型在游戏/自动驾驶领域的商业落地速度。
+        </div>
+    </div>
+
+    <!-- 产品与硬件 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">&#129302;</span>
+            <span class="category-title">产品与硬件</span>
+        </div>
+        <div class="glass-divider"></div>
+
+        <div class="news-card">
+            <h3><span class="tag">OpenAI</span> ChatGPT Images 2.0 正式上线，首创图像"思考模式"</h3>
+            <p>4月21日，OpenAI发布ChatGPT Images 2.0（底层模型gpt-image-2），支持最高2K分辨率、多宽高比输出，新增"Thinking版"（深度推理后生成）和"Instant版"（即时生成）两种模式。模型具备联网搜索能力，可实时获取最新信息用于图像创作，同时大幅提升文字渲染精度和非拉丁语系支持，官方展示了用其设计完整杂志封面与内页的能力。</p>
+            <a class="source-link" href="https://9to5mac.com/2026/04/21/openai-unveiling-chatgpt-images-2-image-generation-model-watch-live-demo-here/" target="_blank">&#128279; 来源：9to5Mac</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag green">Google</span> Gemini 3.1 Flash TTS 正式发布：70+语言低延迟语音合成</h3>
+            <p>4月15日，Google通过Gemini API发布Gemini 3.1 Flash TTS Preview模型，支持超过70种语言的高质量语音合成，新增200+音频标签可精细控制语气、节奏、情感，Elo评分1211分，在多语言自然度上领先ElevenLabs等竞品。模型定位低延迟场景，适合语音助手、有声读物、实时翻译等应用，API已对开发者全面开放。</p>
+            <a class="source-link" href="https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview" target="_blank">&#128279; 来源：Google AI官网</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag orange">字节跳动</span> Seedance 2.0 API正式开放，视频生成全面商业化</h3>
+            <p>字节跳动旗下火山引擎宣布Seedance 2.0系列视频生成API正式上线，面向企业和个人开发者全面开放。Seedance 2.0在运动连贯性、物理真实感和长视频生成方面较1.0版本大幅提升，支持文本驱动和图像转视频两种模式，按帧数计费，定价低于同类国际竞品。这是字节继豆包、即梦之后，在AIGC商业化领域的又一关键布局。</p>
+            <a class="source-link" href="https://news.qq.com/rain/a/20260418A05QES00" target="_blank">&#128279; 来源：腾讯新闻 i黑马</a>
+        </div>
+
+    </div>
+
+    <!-- 技术与研究 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">&#128300;</span>
+            <span class="category-title">技术与研究</span>
+        </div>
+        <div class="glass-divider"></div>
+
+        <div class="news-card">
+            <h3><span class="tag purple">腾讯+阿里</span> 3D世界模型双雄竞逐：混元3D 2.0 vs Happy Oyster</h3>
+            <p>4月16日，腾讯混元团队发布混元3D世界模型2.0（HY-World2.0），与阿里ATH事业群同日推出世界模型"Happy Oyster（快乐生蚝）"，正面对决。混元3D 2.0突破"仅生成视频"局限，可直接输出可二次编辑的Mesh/3DGS/点云格式3D资产，与Unity/UE游戏引擎无缝对接；Happy Oyster基于原生多模态架构，支持用户实时构建可互动、可探索的AI数字世界。A股游戏板块当日异动，完美世界一度涨停。</p>
+            <a class="source-link" href="https://news.qq.com/rain/a/20260418A05QES00" target="_blank">&#128279; 来源：腾讯新闻</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag teal">DeepSeek</span> V4 GitHub仓库曝光FP4支持，全面绑定华为昇腾950PR</h3>
+            <p>DeepSeek官方GitHub仓库DeepGEMM新增110个文件，显示即将发布的V4模型将同时支持FP8和前沿FP4精度（FP4在2026年仍属激进选择），底层硬件完全切换至华为昇腾950PR推理芯片（2026年3月量产，算力达1.56P FLOPS，超英伟达H20）。阿里、字节、腾讯已提前锁定昇腾950PR算力。V4将成为全球首个原生在国产AI芯片上全栈部署的顶级大模型，发布时间锁定4月底。</p>
+            <a class="source-link" href="https://www.msn.cn/zh-cn/news/other/deepseek-v4%E5%8F%88%E6%9C%89%E9%87%8D%E5%A4%A7%E5%8F%98%E5%8C%96-%E6%94%AF%E6%8C%81fp4-%E4%B8%BAnvidia%E6%98%BE%E5%8D%A1%E5%81%9A%E4%BC%98%E5%8C%96/ar-AA212e2R" target="_blank">&#128279; 来源：快科技/MSN中国</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag">MIT</span> Technology Review 发布2026年AI十大关键趋势</h3>
+            <p>4月21日，MIT Technology Review在EmTech AI大会圆桌讨论上，正式发布2026年第二季度十大AI关键技术清单，覆盖大模型、智能体等核心方向。会议由AI记者Grace Huckins主持，核心结论包括：LLMs应用正从文本生成深入数据分析和客户服务等高价值场景；AI赋能医疗个性化治疗已进入临床推广阶段；算法伦理与公平性成企业合规核心议题；底层技术的持续创新（深度学习、强化学习）将驱动下一轮用户体验革命。</p>
+            <a class="source-link" href="https://www.technologyreview.com/2026/04/21/1135643/10-ai-artificial-intelligence-trends-technologies-research-2026/" target="_blank">&#128279; 来源：MIT Technology Review</a>
+        </div>
+
+    </div>
+
+    <!-- 产业与投资 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">&#128200;</span>
+            <span class="category-title">产业与投资</span>
+        </div>
+        <div class="glass-divider"></div>
+
+        <div class="news-card">
+            <h3><span class="tag red">AI涨价潮</span> AWS/Azure/Google Cloud三巨头集体提价，Token成AI时代"新硬通货"</h3>
+            <p>澎湃新闻报道，2026年初以来，三大云厂商历史上首次同步涨价：AWS上调EC2机器学习容量块15%（1月）、Azure取消GPT-4o免费额度并将ChatGPT Plus从20美元提至30美元（2月）、Google Cloud 5月起下架低价套餐（3月）。根本驱动因素是AI Agent单任务Token消耗是对话式AI的几十至上百倍，叠加中国日均Token调用量突破140万亿（同比+1000倍），硬件供给极度紧张。文章指出"Token正成为AI时代新硬通货"。</p>
+            <a class="source-link" href="https://www.thepaper.cn/newsDetail_forward_32995981" target="_blank">&#128279; 来源：澎湃新闻</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag orange">具身智能</span> 极佳视界完成15亿元融资，估值超百亿，世界模型赛道资本热度爆表</h3>
+            <p>世界模型明星企业极佳视界于4月14日完成15亿元融资，估值超过百亿元，成为世界模型赛道2026年最大单笔融资。与此同时，4月全国具身智能领域融资突破历史记录：仅4月11-17日一周内，灵智科技完成30亿融资、多家头部具身智能公司同步完成亿级以上轮次，2026年Q1具身智能融资总额超200亿元，较2025年全年翻番。</p>
+            <a class="source-link" href="https://stock.jrj.com.cn/2026/04/17093056783102.shtml" target="_blank">&#128279; 来源：金融界</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag red">人才流动</span> DeepSeek核心研究员密集离职：R1作者郭达雅、多模态团队相继出走</h3>
+            <p>多方消息证实，DeepSeek近期经历核心人才流失：V1大语言模型主要作者王炳宣已加入腾讯；OCR核心魏浩然、多模态贡献者阮翀（加入元戎启行）先后离职；R1系列核心作者郭达雅近期正式离职，去向成谜。分析人士指出，人才流动反映出DeepSeek在高速扩张中面临的组织压力，但其V4模型仍按计划推进发布，展示出较强的技术积累和团队韧性。</p>
+            <a class="source-link" href="https://finance.sina.com.cn/wm/2026-04-12/doc-inhuexuf8761841.shtml" target="_blank">&#128279; 来源：新浪财经</a>
+        </div>
+
+    </div>
+
+    <!-- 跨界融合 -->
+    <div class="section">
+        <div class="category-header">
+            <span class="category-icon">&#9889;</span>
+            <span class="category-title">跨界融合</span>
+        </div>
+        <div class="glass-divider"></div>
+
+        <div class="news-card">
+            <h3><span class="tag green">具身智能</span> 荣耀"闪电"半马夺冠破人类纪录，工信部同步发布具身智能标准体系2026版</h3>
+            <p>4月19日，荣耀"闪电"人形机器人以50分26秒成绩在北京亦庄人形机器人半程马拉松赛中夺冠，超越人类半马世界纪录（57分20秒），包揽前三名且全部采用自主导航模式。本届参赛100+队、完赛47队、完赛率45%，较2025年首届大幅提升。与此同时，工信部发布《人形机器人与具身智能标准体系（2026版）》，并推出首份行业测试标准，具身智能正式进入有标可依的规模化商业落地阶段。</p>
+            <a class="source-link" href="https://news.qq.com/rain/a/20260419A04N0Y00" target="_blank">&#128279; 来源：腾讯新闻/封面新闻</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag teal">AI基础研究</span> FAIC 2026人工智能基础大会在上海财经大学举办，AI研究正式进入"深水区"</h3>
+            <p>4月18至19日，第二届FAIC人工智能基础大会在上海财经大学举行，400余位来自北大、清华、复旦、浙大等顶尖高校与企业的学者与会，共同讨论大模型性能竞赛之外的基础问题：AI机理与可解释性、训练效率与能耗优化、模型稳健性与泛化能力。与会专家指出，2026年AI研究已从"什么能做到"转向"为什么能做到、如何更可靠地做到"，标志着基础研究正告别浮躁走向深度。</p>
+            <a class="source-link" href="https://news.qq.com/rain/a/20260420A07UPZ00" target="_blank">&#128279; 来源：腾讯新闻/中新网</a>
+        </div>
+
+        <div class="news-card">
+            <h3><span class="tag purple">AI+教育</span> 教育部等五部门印发《"人工智能+教育"行动计划》，人机协同教学模式进入政策框架</h3>
+            <p>教育部等五部门于4月10日联合印发《"人工智能+教育"行动计划》，提出优化传统学科专业人才培养方案、指导高校开设AI交叉融合课程、探索人机协同教学模式等核心举措。行动计划强调"AI赋能教师"而非"AI替代教师"，鼓励高校建立AI素养评价体系，并计划在职业教育领域率先落地AI驱动的技能培训模式。这是继《关于加快推进教育数字化的意见》之后，国家层面最具体的AI教育政策文件。</p>
+            <a class="source-link" href="https://www.moe.gov.cn/srcsite/A16/s3342/202604/t20260410_1433240.html" target="_blank">&#128279; 来源：教育部官网</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>每日AI全球资讯简报 &copy; 2026 | 由 WorkBuddy AI 自动生成 | 数据来源：9to5Mac / Google AI Dev / 腾讯新闻 / 新浪财经 / 澎湃新闻 / 封面新闻 / 教育部 / MIT Technology Review</p>
+        <p style="margin-top:8px;"><a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">&#127968; GitHub Pages 历史存档</a></p>
+    </div>
+
+</div>
+</body>
+</html>
