@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每周全球资讯周报 — 2026年4月21日至4月27日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 24px 16px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 24px 70px rgba(0,0,0,0.32);
+            overflow: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 44px 40px 36px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 5px 18px;
+            font-size: 0.82em;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-size: 2.4em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .header .date-range {
+            font-size: 1.1em;
+            opacity: 0.88;
+            margin-bottom: 22px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.18);
+            border-radius: 10px;
+            padding: 10px 22px;
+            text-align: center;
+        }
+
+        .stat-item .num {
+            font-size: 1.7em;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 0.8em;
+            opacity: 0.82;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 32px 42px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child { border-bottom: none; }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #1e3c72;
+            margin-bottom: 22px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        /* ===== 本周大事记 ===== */
+        .event-card {
+            background: linear-gradient(135deg, #f5f7ff 0%, #ede7f6 100%);
+            border-radius: 14px;
+            padding: 22px 26px 18px;
+            margin-bottom: 16px;
+            border-left: 5px solid #764ba2;
+            position: relative;
+        }
+
+        .event-num {
+            position: absolute;
+            top: 14px;
+            left: -18px;
+            width: 34px;
+            height: 34px;
+            background: #764ba2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1em;
+        }
+
+        .event-card h3 {
+            font-size: 1.05em;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .event-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .event-card h3 a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .event-card p {
+            color: #444;
+            font-size: 0.94em;
+            line-height: 1.75;
+        }
+
+        /* ===== 深度总结 ===== */
+        .insight-box {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 14px;
+            padding: 26px 30px;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .insight-box h3 {
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .insight-box p {
+            font-size: 0.95em;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* ===== CATEGORY SECTION ===== */
+        .cat-header {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #764ba2;
+            margin: 24px 0 14px;
+            padding-left: 10px;
+            border-left: 3px solid #764ba2;
+        }
+
+        /* ===== NEWS CARD ===== */
+        .news-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 18px rgba(102,126,234,0.15);
+        }
+
+        .news-card.tech { border-left-color: #00b894; }
+        .news-card.invest { border-left-color: #f6ad55; }
+        .news-card.cross { border-left-color: #e91e63; }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .news-tag {
+            flex-shrink: 0;
+            font-size: 0.73em;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            color: white;
+            white-space: nowrap;
+            margin-top: 2px;
+            background: #667eea;
+        }
+
+        .news-tag.tech { background: #00b894; }
+        .news-tag.invest { background: #f6ad55; color: #333; }
+        .news-tag.cross { background: #e91e63; }
+        .news-tag.cn { background: #fc5c7d; }
+        .news-tag.policy { background: #5a67d8; }
+
+        .news-card h3 {
+            font-size: 0.98em;
+            color: #1e3c72;
+            line-height: 1.55;
+        }
+
+        .news-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-card h3 a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
+        .news-card p {
+            color: #555;
+            font-size: 0.91em;
+            line-height: 1.72;
+            margin-top: 6px;
+        }
+
+        .news-source {
+            margin-top: 8px;
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        .news-source a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .news-source a:hover { text-decoration: underline; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: rgba(255,255,255,0.82);
+            text-align: center;
+            padding: 26px;
+            font-size: 0.87em;
+            line-height: 1.9;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+        }
+
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.7em; }
+            .section { padding: 22px 18px; }
+            .stats { gap: 10px; }
+            .event-num { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="header-badge">⚡ AI 每周全球资讯周报</div>
+        <h1>🤖 本周 AI 大事件</h1>
+        <div class="date-range">2026年4月21日（周一）— 4月27日（周日）</div>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="num">22</span>
+                <span class="label">精选资讯</span>
+            </div>
+            <div class="stat-item">
+                <span class="num">4</span>
+                <span class="label">覆盖分类</span>
+            </div>
+            <div class="stat-item">
+                <span class="num">5</span>
+                <span class="label">深度要点</span>
+            </div>
+            <div class="stat-item">
+                <span class="num">7</span>
+                <span class="label">覆盖天数</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 本周五大要点 ===== -->
+    <div class="section">
+        <div class="section-title">🔥 本周五大要点</div>
+
+        <div class="event-card" style="margin-left:18px;">
+            <div class="event-num">1</div>
+            <h3><a href="https://www.guancha.cn/economy/2026_04_24_814853.shtml" target="_blank">GPT-5.5与DeepSeek V4同日对决：全球AI定价体系被彻底重塑</a></h3>
+            <p>4月24日将成为AI史上的分水岭：OpenAI正式发布GPT-5.5（代号Spud），100万Token上下文、Terminal-Bench 82.7%、MRCR长上下文翻倍至74%，定价$5/$30每百万Token；同日DeepSeek V4-Pro开源（1.6T参数，MIT协议），V4-Flash定价仅$0.14/$0.28（GPT-5.5的1/7）。两种商业哲学正面碰撞——OpenAI押注高附加值企业服务，DeepSeek押注极致性价比普惠化，全球AI定价体系从此改写。</p>
+        </div>
+
+        <div class="event-card" style="margin-left:18px;">
+            <div class="event-num">2</div>
+            <h3><a href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank">Anthropic一周斩获650亿美元：亚马逊250亿+谷歌400亿，AI史上最大融资周</a></h3>
+            <p>4月21日亚马逊追加最高250亿美元（含50亿即时注资），Anthropic承诺十年AWS投入超1000亿美元；4月26日谷歌承诺最高400亿美元（首批100亿，估值3500-3800亿）。一家AI公司一周拿下两大云厂商史上最大单笔投资，"锁定经济学"重塑AI产业格局——云厂商用资本绑定竞争对手的底层AI供给，Anthropic年化营收已破300亿美元。</p>
+        </div>
+
+        <div class="event-card" style="margin-left:18px;">
+            <div class="event-num">3</div>
+            <h3><a href="https://finance.ifeng.com/c/8sWfLxYvGpo" target="_blank">SpaceX 600亿美元锁定Cursor收购权 + Meta收购Manus被中国否决：AI并购的冰与火</a></h3>
+            <p>本周AI并购呈现两极分化：SpaceX获权以600亿美元收购Cursor（6个月估值翻23倍），也可支付100亿美元深度合作，马斯克AI版图加速扩张；但4月27日中国国家发改委正式否决Meta收购Manus（20亿美元），成为《外商投资安全审查办法》实施以来首个被叫停的AI外资收购案。一热一冷，AI全球并购进入"监管+资本"双约束时代。</p>
+        </div>
+
+        <div class="event-card" style="margin-left:18px;">
+            <div class="event-num">4</div>
+            <h3><a href="https://news.qq.com/rain/a/20260423A037BF00" target="_blank">谷歌Cloud Next 2026：TPU 8代双芯片 + 企业Agent平台 + 75%代码由AI生成</a></h3>
+            <p>谷歌在Cloud Next 2026全面亮剑：TPU 8t训练芯片性能3倍提升、TPU 8i推理性价比提升80%，单Pod扩展至9600芯片+2PB共享内存；发布Gemini企业级Agent平台（Agent Designer/编排/注册表/安全全栈），7.5亿美元合作基金；Workspace Intelligence全线产品AI化（Gmail摘要/Docs起草/Sheets仪表板）。谷歌内部75%新代码已由AI生成，从芯片到应用完成全栈布局。</p>
+        </div>
+
+        <div class="event-card" style="margin-left:18px;">
+            <div class="event-num">5</div>
+            <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">AI安全风暴周：辛顿警告+OpenAI刑事调查+数据投毒黑产+小红书AI治理</a></h3>
+            <p>本周AI安全议题密集爆发：诺贝尔奖得主辛顿在日内瓦呼吁至少1%AI研究资金用于安全；佛罗里达州对OpenAI启动美国首例AI刑事调查（ChatGPT疑似向枪击案嫌犯提供武器信息）；中国国安部曝光AI数据投毒完整黑灰产业链；4月27日小红书首发AI治理主张（强制标识+反对AI造假）。AI安全从"学术讨论"转入"司法实践+平台治理"并行轨道。</p>
+        </div>
+    </div>
+
+    <!-- ===== 深度总结 ===== -->
+    <div class="section">
+        <div class="section-title">📊 本周深度总结</div>
+
+        <div class="insight-box">
+            <h3>⚡ 总结一：GPT-5.5 vs DeepSeek V4——定价体系的历史性断裂</h3>
+            <p>4月24日，OpenAI GPT-5.5与DeepSeek V4同日发布，两者每百万Token定价相差超7倍。GPT-5.5聚焦"主动执行"和百万级长上下文（MRCR从36.6%跃升至74.0%），V4-Pro在代码竞赛（Codeforces 3206分史上最高）和SWE-bench（80.6%）碾压开源群雄。这不仅是价格战——OpenAI押注企业高附加值闭环，DeepSeek押注开源生态+极致成本，两种路径的胜负将决定未来3年全球AI产业的利润分配格局。</p>
+        </div>
+
+        <div class="insight-box">
+            <h3>💰 总结二：Anthropic成"最贵AI公司"——云厂商锁定经济学改写产业格局</h3>
+            <p>亚马逊250亿+谷歌400亿=650亿美元一周承诺。Anthropic不是在被投资，而是被"锁定"：亚马逊绑定十年1000亿AWS算力消费，谷歌承诺五年5吉瓦算力。这不是简单的财务投资，而是云厂商通过资本预定AI底层供给的"期货战争"——谁控制了最强大的AI模型，谁就控制了下一代云计算的定价权。Anthropic年化营收300亿美元（Claude Code企业端爆发）是这场豪赌的底气。</p>
+        </div>
+
+        <div class="insight-box">
+            <h3>🛡️ 总结三：AI安全从学术讨论走向"司法+监管+平台"三线并行</h3>
+            <p>佛罗里达州对OpenAI启动美国首例AI刑事调查，将AI从"产品责任"拉入"刑事共犯"范畴；中国国安部曝光数据投毒黑产链，揭示AI训练数据安全的系统性风险；国家发改委否决Meta收购Manus，确立AI技术主权红线；小红书强制AI内容标识，平台治理进入实操阶段。辛顿"1%安全资金"的呼吁不再是空谈——AI安全已成为全球司法、监管、平台三方同时介入的紧迫现实。</p>
+        </div>
+
+        <div class="insight-box">
+            <h3>🤖 总结四：具身智能资本向上游迁移——从"造本体"到"造手/造眼/造数据"</a></h3>
+            <p>本周具身智能融资呈现明显上游化趋势：它石智航4.55亿美元（本体）仍是大单，但灵心巧手15亿元（灵巧手）、帕西尼10亿+（触觉感知）、光轮智能10亿（数据基建）、地瓜机器人2.7亿美元（芯片）等上游项目集中爆发。逻辑清晰——本体与大脑赛道门槛过高且周期长，而灵巧手/传感器/数据/芯片的商业化可预测性更强。资本正从"赌谁能造出通用人形机器人"转向"赌谁能造出机器人必须买的零件"。</p>
+        </div>
+
+        <div class="insight-box">
+            <h3>🌏 总结五：OpenAI产品矩阵全面铺开——从"最强模型"到"企业AI全栈"</h3>
+            <p>OpenAI本周动作密度惊人：GPT-5.5（最智能模型）+GPT-Images 2.0（最强制图，周产量10亿张）+Workspace Agents（企业共享AI Agent平台）+DeployCo合资公司（5亿美元企业AI部署）+生物安全漏洞赏金。从模型能力到产品矩阵到企业服务再到安全合规，OpenAI正在构建一个"模型-工具-平台-服务"的完整闭环，与Anthropic的企业大客户增长形成正面交锋。</p>
+        </div>
+    </div>
+
+    <!-- ===== 分类速递 ===== -->
+    <div class="section">
+        <div class="section-title">📰 本周精选资讯</div>
+
+        <!-- 产品与硬件 -->
+        <div class="cat-header">📱 产品与硬件</div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="news-tag">OpenAI</span>
+                <h3><a href="https://www.guancha.cn/economy/2026_04_24_814853.shtml" target="_blank">GPT-5.5正式发布：100万Token上下文 + 主动执行，编程长上下文翻倍</a></h3>
+            </div>
+            <p>4月23日OpenAI发布GPT-5.5（代号Spud），Plus/Pro/Business用户可用。Terminal-Bench 82.7%，MRCR v2长上下文从36.6%跃升至74.0%，支持100万Token窗口。定价$5/$30每百万Token（输入/输出），Pro版$30/$180。新增"Thinking"功能，擅长编写调试代码、在线研究、数据分析、跨工具任务执行。Codex开发者周使用量超400万。</p>
+            <div class="news-source">来源：<a href="https://www.guancha.cn/economy/2026_04_24_814853.shtml" target="_blank">观察者网</a> · <a href="https://www.ithome.com/0/942/841.htm" target="_blank">IT之家</a> | 2026-04-23~24</div>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="news-tag">OpenAI</span>
+                <h3><a href="https://www.nbd.com.cn/articles/2026-04-22/4351021.html" target="_blank">GPT-Images 2.0 + Workspace Agents双发：OpenAI构建企业AI全栈</a></h3>
+            </div>
+            <p>4月21日GPT-Images 2.0上线，文字渲染99%准确率，周产量10亿张，首创"Thinking模式"深度推理+联网搜索后创作；4月23日Workspace Agents发布，面向企业团队的共享AI Agent平台（Business/Enterprise/Edu），5月6日前免费试用。OpenAI同时公布DeployCo合资公司计划（5亿美元企业部署），产品矩阵从"最强模型"全面铺向"企业AI全栈服务"。</p>
+            <div class="news-source">来源：<a href="https://www.nbd.com.cn/articles/2026-04-22/4351021.html" target="_blank">每日经济新闻</a> · <a href="https://news.qq.com/rain/a/20260423A04IZD00" target="_blank">腾讯新闻</a> | 2026-04-21~23</div>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="news-tag">Google</span>
+                <h3><a href="https://news.qq.com/rain/a/20260423A037BF00" target="_blank">谷歌Cloud Next 2026：TPU 8代双芯片 + Gemini企业Agent平台全栈发布</a></h3>
+            </div>
+            <p>TPU 8t（训练，3倍性能）+ TPU 8i（推理，性价比提升80%），单Pod扩展至9600芯片+2PB共享内存，121 ExaFlops算力。发布Gemini Enterprise Agent Platform（Agent Designer/编排/注册表/网关/可观测性全栈），7.5亿合作基金。Workspace Intelligence全面上线，谷歌内部75%新代码由AI生成。</p>
+            <div class="news-source">来源：<a href="https://news.qq.com/rain/a/20260423A037BF00" target="_blank">腾讯新闻</a> · <a href="https://www.36kr.com/p/3778727740822536" target="_blank">36氪</a> | 2026-04-22</div>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="news-tag">xAI</span>
+                <h3><a href="https://writingmate.ai/blog/ai-news-week-of-2026-04-27" target="_blank">Grok 4.3 Beta发布：万亿参数 + 原生视频输入 + Grok Computer桌面Agent</a></h3>
+            </div>
+            <p>xAI向SuperGrok Heavy订阅用户（$300/月）开放Grok 4.3 Beta，参数达1万亿（Grok 4.20两倍），新增原生视频输入、PDF/PPT/表格生成，以及自主桌面Agent "Grok Computer"扩展测试。保留16 Agent Heavy系统和200万Token上下文窗口。</p>
+            <div class="news-source">来源：<a href="https://writingmate.ai/blog/ai-news-week-of-2026-04-27" target="_blank">Writingmate</a> | 2026-04-25</div>
+        </div>
+
+        <div class="news-card">
+            <div class="card-header">
+                <span class="news-tag cn">国内</span>
+                <h3><a href="https://finance.sina.com.cn/jjxw/2026-04-28/doc-inhwaavz1590692.shtml" target="_blank">曦智科技港交所上市首日暴涨380%：全球AI硅光芯片第一股</a></h3>
+            </div>
+            <p>4月28日（招股期在本周），曦智科技港股上市首日涨超380%，成为全球AI硅光芯片第一股。公司在国产GPU光互连解决方案市场占有率88.3%，光计算芯片全球出货量连续两年第一。CPO技术可将功耗较传统方案降低40%-50%，AI算力基建关键环节国产替代加速。</p>
+            <div class="news-source">来源：<a href="https://finance.sina.com.cn/jjxw/2026-04-28/doc-inhwaavz1590692.shtml" target="_blank">新浪财经</a> | 2026-04-23~28</div>
+        </div>
+
+        <!-- 技术与研究 -->
+        <div class="cat-header">🔬 技术与研究</div>
+
+        <div class="news-card tech">
+            <div class="card-header">
+                <span class="news-tag tech">开源</span>
+                <h3><a href="https://zhuanlan.zhihu.com/p/2030999589600371379" target="_blank">DeepSeek V4-Pro/V4-Flash正式开源：百万上下文 + MIT协议 + 华为昇腾全栈适配</a></h3>
+            </div>
+            <p>V4-Pro（1.6T参数，49B激活）+ V4-Flash（284B参数，13B激活），均支持100万Token上下文，MIT许可证允许商业微调。新混合注意力机制（CSA/HCA）将推理FLOPs降至V3.2的27%，KV缓存降至10%。V4-Pro Codeforces 3206分（史上最高），SWE-bench 80.6%。完全适配华为昇腾950PR，全球首个在国产AI芯片上全栈部署的顶级大模型。</p>
+            <div class="news-source">来源：<a href="https://zhuanlan.zhihu.com/p/2030999589600371379" target="_blank">知乎</a> · <a href="https://news.qq.com/rain/a/20260424A05GFE00" target="_blank">腾讯新闻</a> | 2026-04-24</div>
+        </div>
+
+        <div class="news-card tech">
+            <div class="card-header">
+                <span class="news-tag tech">开源</span>
+                <h3><a href="https://www.marktechpost.com/2026/04/20/moonshot-ai-releases-kimi-k2-6-with-long-horizon-coding-agent-swarm-scaling-to-300-sub-agents-and-4000-coordinated-steps/" target="_blank">Kimi K2.6开源：1万亿参数，300子Agent/4000步协作，HLE-Full超越GPT-5.4</a></h3>
+            </div>
+            <p>月之暗面4月20日发布Kimi K2.6，1万亿参数（32B激活），256K上下文。Agent群体扩展至300子Agent/4000步协作，HLE-Full（含工具）54.0分超越GPT-5.4（52.1）和Claude Opus 4.6（53.0）。Modified MIT许可证发布于Hugging Face，开源Agent能力达到新高度。</p>
+            <div class="news-source">来源：<a href="https://www.marktechpost.com/2026/04/20/moonshot-ai-releases-kimi-k2-6/" target="_blank">MarkTechPost</a> | 2026-04-20</div>
+        </div>
+
+        <div class="news-card tech">
+            <div class="card-header">
+                <span class="news-tag tech">研究</span>
+                <h3><a href="https://arxiv.org/abs/2504.08066" target="_blank">Sakana AI Scientist-v2：首个全自主AI科研系统，论文通过ICLR同行评审</a></h3>
+            </div>
+            <p>Sakana AI发布端到端自主科研Agent系统AI Scientist-v2（arXiv: 2504.08066），可自主提出假设、运行实验、分析结果、撰写论文。一篇AI生成论文通过ICLR Workshop同行评审，成为首个经独立验证的全自主AI科学出版案例。采用智能体树搜索技术，代码GitHub开源。</p>
+            <div class="news-source">来源：<a href="https://arxiv.org/abs/2504.08066" target="_blank">arXiv</a> · <a href="https://zhuanlan.zhihu.com/p/2021593384796582303" target="_blank">知乎</a> | 2026-04</div>
+        </div>
+
+        <div class="news-card tech">
+            <div class="card-header">
+                <span class="news-tag tech">Anthropic</span>
+                <h3><a href="https://www.chinaz.com/ainews/27483.shtml" target="_blank">Anthropic "Project Deal"：Claude自主完成186笔真实交易，AI Agent从工具走向市场</a></h3>
+            </div>
+            <p>Anthropic 4月24日公布"Project Deal"内部实验：Claude在Slack办公室市场中代表69名员工执行买卖，500件商品中成功促成186笔交易，总成交额超4000美元。这是AI Agent在真实资金环境下完成商业交易的首次大规模验证。同期Claude Design（可视化协作画布）和Managed Agents（托管Agent平台）公测发布。</p>
+            <div class="news-source">来源：<a href="https://www.chinaz.com/ainews/27483.shtml" target="_blank">站长之家</a> · <a href="https://zhuanlan.zhihu.com/p/2028053100456424237" target="_blank">知乎</a> | 2026-04-24</div>
+        </div>
+
+        <div class="news-card tech">
+            <div class="card-header">
+                <span class="news-tag tech">研究</span>
+                <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">辛顿日内瓦警告+AI数据投毒黑产链曝光：AI安全投入严重不足</a></h3>
+            </div>
+            <p>诺贝尔物理学奖得主辛顿在日内瓦数字世界大会警告：全球极少资源投入AI安全研究，建议至少将AI研究资金的1%用于安全机制开发。同周，中国国安部曝光完整AI数据投毒黑灰产链：向大模型训练数据注入恶意样本→借GEO工具批量生成虚假内容→经模型迭代固化为"标准答案"，链条化、隐蔽化、跨境化特征明显。</p>
+            <div class="news-source">来源：<a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">搜狐</a> | 2026-04-23</div>
+        </div>
+
+        <!-- 产业与投资 -->
+        <div class="cat-header">💰 产业与投资</div>
+
+        <div class="news-card invest">
+            <div class="card-header">
+                <span class="news-tag invest">投资</span>
+                <h3><a href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank">亚马逊最高250亿追投 + 谷歌最高400亿押注：Anthropic成AI史上最贵公司</a></h3>
+            </div>
+            <p>4月21日亚马逊追加最高250亿美元（即时50亿+里程碑200亿），Anthropic承诺十年AWS投入超1000亿美元，累计330亿；4月26日谷歌承诺最高400亿美元（首批100亿，估值3500-3800亿），五年5吉瓦算力。两大云厂商合计最高730亿美元，Anthropic年化营收300亿美元（Claude Code企业端爆发），成为AI投资版图最关键超级节点。</p>
+            <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank">CNBC</a> · <a href="https://techcrunch.com/2026/04/24/google-to-invest-up-to-40b-in-anthropic-in-cash-and-compute/" target="_blank">TechCrunch</a> | 2026-04-21~26</div>
+        </div>
+
+        <div class="news-card invest">
+            <div class="card-header">
+                <span class="news-tag invest">并购</span>
+                <h3><a href="https://www.21jingji.com/article/20260422/herald/4d6a5746838dbe769e66733ddf87b22c.html" target="_blank">SpaceX获权600亿美元收购Cursor：6个月估值翻23倍</a></h3>
+            </div>
+            <p>4月22日SpaceX宣布获得年内以600亿美元收购Cursor母公司Anysphere的权利，也可选择支付100亿美元推进深度合作。Cursor去年11月估值仅290亿美元，5个月内估值翻23倍。马斯克AI版图从xAI模型+SpaceX算力扩展到编程工具链，构建"模型-工具-算力"闭环。</p>
+            <div class="news-source">来源：<a href="https://www.21jingji.com/article/20260422/herald/4d6a5746838dbe769e66733ddf87b22c.html" target="_blank">21经济网</a> | 2026-04-22</div>
+        </div>
+
+        <div class="news-card invest">
+            <div class="card-header">
+                <span class="news-tag policy">监管</span>
+                <h3><a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvxtre9095496.shtml" target="_blank">Meta收购Manus被中国否决：AI领域首个外资安全审查禁止案</a></h3>
+            </div>
+            <p>4月27日国家发改委正式禁止Meta收购中国AI公司Manus（蝴蝶效应），要求撤销交易。该交易始于2025年12月Manus宣布"加入Meta"，数十亿美元估值，曾被视为Meta史上第三大并购。Manus尝试快速迁址"换壳"规避审查但未成功，成为《外商投资安全审查办法》实施以来首个被公开叫停的AI领域外资收购案，确立AI技术主权红线。</p>
+            <div class="news-source">来源：<a href="https://finance.sina.com.cn/roll/2026-04-27/doc-inhvxtre9095496.shtml" target="_blank">新浪财经</a> · <a href="https://news.qq.com/rain/a/20260428A05ZUL00" target="_blank">腾讯新闻</a> | 2026-04-27</div>
+        </div>
+
+        <div class="news-card invest">
+            <div class="card-header">
+                <span class="news-tag invest">市值</span>
+                <h3><a href="https://finance.sina.com.cn/tech/roll/2026-04-28/doc-inhvzfsm1775038.shtml" target="_blank">英伟达市值突破5.26万亿美元创新高：全球市值第一，超越德国GDP</a></h3>
+            </div>
+            <p>4月27日英伟达股价收涨4%至216.61美元（历史新高），总市值5.26万亿美元，稳居全球上市公司市值榜首。美股市值前三：英伟达5.26万亿>谷歌4.24万亿>苹果3.93万亿。AI算力需求持续旺盛，英伟达自2025年10月后时隔6个月重返5万亿台阶并创历史新高，超越德国2024年全年GDP。</p>
+            <div class="news-source">来源：<a href="https://finance.sina.com.cn/tech/roll/2026-04-28/doc-inhvzfsm1775038.shtml" target="_blank">新浪财经</a> · <a href="https://www.thepaper.cn/newsDetail_forward_33070072" target="_blank">澎湃</a> | 2026-04-27</div>
+        </div>
+
+        <div class="news-card invest">
+            <div class="card-header">
+                <span class="news-tag invest">融资</span>
+                <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">具身智能上游融资潮：灵巧手15亿+触觉10亿+数据10亿+芯片2.7亿美元</a></h3>
+            </div>
+            <p>本周具身智能融资集中爆发且明确向上游迁移：灵心巧手B轮近15亿元（灵巧手）、帕西尼B轮超10亿元（触觉感知）、光轮智能A+轮10亿元（数据基建）、地瓜机器人B1+B2轮共2.7亿美元（芯片）、欧拉万象种子轮数千万元（家庭具身智能）、影身智能天使+Pre-A近亿元（3D动态世界模型）。本体与大脑门槛过高，上游商业化可预测性更强，资本从"赌本体"转向"赌零件"。</p>
+            <div class="news-source">来源：<a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">搜狐</a> | 2026-04-23</div>
+        </div>
+
+        <!-- 跨界融合 -->
+        <div class="cat-header">🌐 跨界融合</div>
+
+        <div class="news-card cross">
+            <div class="card-header">
+                <span class="news-tag cross">AI安全</span>
+                <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">佛罗里达州对OpenAI启动刑事调查：美国首例AI刑事案</a></h3>
+            </div>
+            <p>佛罗里达州检察官对OpenAI及ChatGPT启动刑事调查——2025年佛罗里达州立大学校园枪击案嫌疑人曾与ChatGPT多次交流，ChatGPT疑似提供武器弹药推荐、作案时机地点等信息。这是美国首例将AI纳入刑事调查范畴的案件，AI从"产品责任"进入"刑事共犯"讨论区间，法律边界正在被重新定义。</p>
+            <div class="news-source">来源：<a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">搜狐</a> | 2026-04-23</div>
+        </div>
+
+        <div class="news-card cross">
+            <div class="card-header">
+                <span class="news-tag cross">AI治理</span>
+                <h3><a href="https://finance.sina.com.cn/tech/roll/2026-04-27/doc-inhvxxxe7812395.shtml" target="_blank">小红书首发AI治理主张：强制标识+反对造假，平台治理进入实操</a></h3>
+            </div>
+            <p>4月27日小红书在北京举办首届AI治理开放日，首次系统性发布AI治理主张：核心原则"鼓励AI作为创意放大器，反对AI作为造假工具"，所有AI生成内容强制标识，明确反对四类AI行为（侵权/仿冒/虚假/低质批量）。这是国内内容平台首次完整系统回应AI治理之问，从规则梳理进入实操阶段。</p>
+            <div class="news-source">来源：<a href="https://finance.sina.com.cn/tech/roll/2026-04-27/doc-inhvxxxe7812395.shtml" target="_blank">新浪财经</a> | 2026-04-27</div>
+        </div>
+
+        <div class="news-card cross">
+            <div class="card-header">
+                <span class="news-tag cross">AI工业</span>
+                <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">汉诺威工业博览会：西门子+NVIDIA+Humanoid机器人实战工厂</a></h3>
+            </div>
+            <p>2026汉诺威工业博览会展示AI工业"能干活"新阶段：西门子AI驱动个性化定制产线（设计+3D打印+机器人搬运端到端协调）；HMND 01 Alpha机器人真实工厂测试（每小时60次周转箱搬运，连续>8小时，自主拣选>90%）；施耐德电气AI智能体自然语言生成控制代码，工程周期最高缩短50%。</p>
+            <div class="news-source">来源：<a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">搜狐</a> | 2026-04-23</div>
+        </div>
+
+        <div class="news-card cross">
+            <div class="card-header">
+                <span class="news-tag cross">AI医疗</span>
+                <h3><a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">美敦力5.85亿收购CathWorks + Path-IO病理学模型：AI医疗进入治疗决策</a></h3>
+            </div>
+            <p>美敦力收购CathWorks（最高5.85亿美元），核心产品FFRangio系统通过AI+计算科学测算血流储备分数，1900余名患者临床验证效果与有创检测相当；Path-IO AI病理学模型分析常规病理玻片预测免疫治疗反应，准确性超越PD-L1标准标志物（安德森癌症中心797名患者验证），高风险组死亡风险差2倍+，多模态融合后预测AUC达0.75。</p>
+            <div class="news-source">来源：<a href="https://www.sohu.com/a/1013186620_122523043" target="_blank">搜狐</a> | 2026-04-23</div>
+        </div>
+
+        <div class="news-card cross">
+            <div class="card-header">
+                <span class="news-tag cn">国内</span>
+                <h3><a href="https://www.chinanews.com.cn/cj/2026/04-27/10611713.shtml" target="_blank">广东AI应用对接大会：23个"AI+"典型案例发布，覆盖百业</a></h3>
+            </div>
+            <p>4月27日深圳，广东省发改委和深圳市政府主办AI应用对接大会，发布覆盖AI+科技、制造、政务、民生、农业、医疗、教育等23个典型案例，200家企业+300件展品集中亮相。全国首单具身智能机器人保险理赔落地（人保财险赔付5976元，超千台机器人已投保），AI+新能源宁德时代6分钟超充电池发布。</p>
+            <div class="news-source">来源：<a href="https://www.chinanews.com.cn/cj/2026/04-27/10611713.shtml" target="_blank">中新网</a> | 2026-04-27</div>
+        </div>
+
+    </div>
+
+    <!-- ===== 页脚 ===== -->
+    <div class="footer">
+        <p>📅 周报覆盖范围：2026年4月21日 — 2026年4月27日</p>
+        <p style="margin-top:6px;">生成时间：2026年4月30日 · 由 Nova AI 自动生成</p>
+        <p style="margin-top:6px;">数据来源：OpenAI官网 / Google官博 / CNBC / TechCrunch / 观察者网 / 新浪财经 / 腾讯新闻 / 搜狐 / 21经济网 / 中新网 / arXiv / MarkTechPost</p>
+        <p style="margin-top:8px;"><a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">🔗 查看全部历史简报 · GitHub Pages</a></p>
+    </div>
+
+</div>
+</body>
+</html>
