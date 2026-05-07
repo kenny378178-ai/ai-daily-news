@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -18,13 +18,13 @@
             color: #e8e8e8;
             line-height: 1.7;
         }
-
+        
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 30px 20px;
         }
-
+        
         .header {
             text-align: center;
             padding: 40px 20px;
@@ -34,7 +34,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .header h1 {
             font-size: 2.2em;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -43,13 +43,13 @@
             background-clip: text;
             margin-bottom: 10px;
         }
-
+        
         .header .date {
             color: #a0a0a0;
             font-size: 1.1em;
             margin-bottom: 20px;
         }
-
+        
         .header .meta {
             display: flex;
             justify-content: center;
@@ -57,7 +57,7 @@
             flex-wrap: wrap;
             margin-top: 15px;
         }
-
+        
         .header .meta span {
             background: rgba(102, 126, 234, 0.2);
             padding: 6px 16px;
@@ -65,7 +65,7 @@
             font-size: 0.9em;
             color: #a0b4f8;
         }
-
+        
         .summary {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
             border-radius: 16px;
@@ -73,350 +73,411 @@
             margin-bottom: 30px;
             border-left: 4px solid #667eea;
         }
-
+        
         .summary h2 {
             font-size: 1.3em;
             color: #a0b4f8;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
+        
         .summary p {
-            color: #c8c8d8;
+            color: #d0d0d0;
             font-size: 1.05em;
+            line-height: 1.8;
         }
-
-        .highlight-bar {
+        
+        .highlight-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-bottom: 30px;
         }
-
+        
         .highlight-card {
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 14px;
-            padding: 20px 16px;
-            text-align: center;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.15));
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-
-        .highlight-card:hover {
-            transform: translateY(-3px);
+        
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
         }
-
-        .highlight-card .num {
-            font-size: 2em;
-            font-weight: 800;
-            margin-bottom: 5px;
+        
+        .highlight-card h3 {
+            font-size: 1.1em;
+            color: #e8e8e8;
+            margin-bottom: 10px;
         }
-
-        .highlight-card .label {
-            font-size: 0.85em;
-            color: #9090b0;
+        
+        .highlight-card p {
+            color: #a0a0a0;
+            font-size: 0.95em;
         }
-
+        
         .section {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
-
+        
         .section-title {
+            font-size: 1.4em;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.5);
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.25em;
-            color: #a0b4f8;
-            margin-bottom: 18px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        .section-title .icon {
-            font-size: 1.3em;
+        
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
-
+        
+        .badge-product { background: rgba(255, 107, 107, 0.2); color: #ff9a9a; }
+        .badge-tech { background: rgba(78, 205, 196, 0.2); color: #4ecdc4; }
+        .badge-industry { background: rgba(255, 184, 77, 0.2); color: #ffb74d; }
+        .badge-cross { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+        
         .news-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 14px;
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            transition: all 0.3s ease;
-        }
-
-        .news-card:hover {
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(102, 126, 234, 0.3);
-            transform: translateX(4px);
-        }
-
-        .news-card .tag {
-            display: inline-block;
-            padding: 3px 10px;
             border-radius: 12px;
-            font-size: 0.78em;
-            margin-bottom: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-
-        .tag-intl {
-            background: rgba(255, 107, 107, 0.2);
-            color: #ff8a8a;
+        
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(102, 126, 234, 0.3);
         }
-
-        .tag-cn {
-            background: rgba(78, 204, 197, 0.2);
-            color: #4ecca5;
-        }
-
+        
         .news-card h3 {
-            font-size: 1.08em;
-            color: #e0e0f0;
-            margin-bottom: 8px;
-            line-height: 1.5;
+            font-size: 1.15em;
+            color: #e8e8e8;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
-
-        .news-card p {
-            color: #8888a8;
-            font-size: 0.92em;
+        
+        .news-card h3 a {
+            color: #a0b4f8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .news-card h3 a:hover {
+            color: #667eea;
+        }
+        
+        .news-card .source {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            color: #8b9aef;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.85em;
             margin-bottom: 10px;
         }
-
-        .news-card a {
-            color: #a0b4f8;
+        
+        .news-card p {
+            color: #b0b0b0;
+            font-size: 0.98em;
+            line-height: 1.7;
+        }
+        
+        .news-card .tags {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: #888;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8em;
+        }
+        
+        .source-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
             text-decoration: none;
             font-size: 0.88em;
             transition: color 0.2s;
         }
-
-        .news-card a:hover {
-            color: #c0d0ff;
+        
+        .source-link:hover {
+            color: #a0b4f8;
             text-decoration: underline;
         }
-
-        .source-tag {
-            font-size: 0.78em;
-            color: #606080;
-            margin-left: 8px;
-        }
-
+        
         .footer {
             text-align: center;
-            padding: 30px 20px;
-            color: #505070;
-            font-size: 0.85em;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 20px;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
         }
-
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
         @media (max-width: 600px) {
-            .highlight-bar {
-                grid-template-columns: 1fr;
-            }
-
-            .header h1 {
-                font-size: 1.7em;
-            }
+            .header h1 { font-size: 1.6em; }
+            .container { padding: 15px 10px; }
+            .highlight-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤖 AI每日全球资讯简报</h1>
-            <div class="date">📅 2026年5月7日 · 周四 · 第71期</div>
+            <h1>AI 每日全球资讯简报</h1>
+            <div class="date">2026年5月7日 · 星期四</div>
             <div class="meta">
-                <span>🔍 实时搜索驱动</span>
-                <span>📰 国际+国内双视角</span>
-                <span>⚡ 每日10:00自动推送</span>
+                <span>📅 每日更新</span>
+                <span>🌍 全球视野</span>
+                <span>⚡ AI驱动</span>
             </div>
         </div>
 
         <div class="summary">
-            <h2>📌 今日3大要点</h2>
-            <p>
-                <strong>① GPT-5.5 Ultra 发布，算力成本骤降至1/35：</strong>OpenAI于5月5日正式推出GPT-5.5 Ultra，在编码与推理能力上大幅超越GPT-5.4，同时推出专攻网络安全的GPT-5.5-Cyber变体。更关键的是，每百万Token费用从175美元降至5美元，降幅达97%，AI应用成本正式进入"大众化时代"。
-                <br><br>
-                <strong>② 中国封禁Meta收购Manus：</strong>国家发改委依据《外商投资安全审查工作机制》，正式否决Meta以20亿美元收购华人AI Agent创业公司Manus的交易，成为中国AI领域首例被公开叫停的外资收购案。这标志着中国对"关键AI资产"的跨境资本管控进入实质性阶段。
-                <br><br>
-                <strong>③ IBM Think 2026：AI运营模式正式落地：</strong>IBM在波士顿Think大会上推出"AI运营模型"（AI Operating Model），同期宣布以110亿美元收购数据流平台Confluent，旨在帮助企业从AI试点阶段走向规模化部署，标志着AI to B市场进入"落地竞赛"阶段。
-            </p>
+            <h2>🚀 今日3大要点</h2>
+            <p><strong>① Anthropic与Alphabet达成史上最大云订单。</strong> Anthropic承诺5年内向Google Cloud投入2000亿美元（约占Google未来云收入40%+），换算力基础设施与芯片供应，Alphabet股价盘后一度超越英伟达。同时SpaceX宣布向Anthropic开放Colossus 1数据中心300MW新增算力，算力军备竞赛进入白热化阶段。</p>
+            <br>
+            <p><strong>② 国内大模型资本热潮持续升温。</strong> Kimi（月之暗面）获美团龙珠领投20亿美元，半年内累计融资39亿美元，估值破200亿美元居国内创业公司之首；DeepSeek首轮VC融资谈判中估值已从200亿飙升至450亿美元，低成本推理路线持续获资本追捧。</p>
+            <br>
+            <p><strong>③ OpenAI与Anthropic同步发力模型可靠性。</strong> OpenAI将GPT-5.5 Instant设为默认模型，幻觉率大幅降低52.5%；Anthropic CEO发出警告——不拥抱AI的软件公司将面临倒闭风险；AI聊天记录正式纳入美国法庭可传票调取范围，监管与合规压力同步上升。</p>
         </div>
 
-        <div class="highlight-bar">
+        <div class="highlight-cards">
             <div class="highlight-card">
-                <div class="num" style="background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">12</div>
-                <div class="label">精选资讯</div>
+                <h3>💰 今日融资王</h3>
+                <p>Anthropic承诺5年向Google Cloud投入2000亿美元，成为史上最大单一云服务订单</p>
             </div>
             <div class="highlight-card">
-                <div class="num" style="color:#4ecca5;">4</div>
-                <div class="label">分类覆盖</div>
+                <h3>🇨🇳 国内最热</h3>
+                <p>Kimi再融20亿美元，半年估值翻4倍破200亿；DeepSeek首轮VC估值450亿</p>
             </div>
             <div class="highlight-card">
-                <div class="num" style="color:#ff8a8a;">3</div>
-                <div class="label">重大独家</div>
+                <h3>🤖 模型进化</h3>
+                <p>GPT-5.5 Instant取代默认模型，幻觉降52.5%；Claude Opus 4.7聚焦软件开发</p>
             </div>
         </div>
 
+        <!-- 产品与硬件 -->
         <div class="section">
-            <div class="section-title">
-                <span class="icon">🖥️</span> 产品与硬件
-            </div>
-
+            <div class="section-title">📱 产品与硬件</div>
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>OpenAI发布GPT-5.5 Ultra：史上最强模型，算力成本降至1/35</h3>
-                <p>
-                    5月5日，OpenAI正式推出GPT-5.5 Ultra，较GPT-5.4在复杂推理和长程编码任务上有显著提升，尤其在Agent场景下能坚持更长时间不中断。同期发布GPT-5.5-Cyber，专为网络安全任务优化。更具颠覆性的是API定价：输入从每百万Token 175美元降至5美元，降幅97%；Pro版30美元/百万Token，OpenAI称其每分钟可处理4亿Token量级算力。
-                </p>
-                <a href="https://www.ithome.com/0/942/841.htm" target="_blank">IT之家报道 ↗</a>
-                <span class="source-tag">来源：IT之家 / ifanr</span>
+                <span class="source">OpenAI · IT之家</span>
+                <h3><a href="https://www.ithome.com/0/946/615.htm" target="_blank">GPT-5.5 Instant 取代 ChatGPT 默认模型：幻觉率降低 52.5%</a></h3>
+                <p>OpenAI 宣布将 GPT-5.5 Instant 升级为 ChatGPT 聊天机器人的默认 AI 模型，聚焦准确性与简洁性。更新后，用户回复中的"不必要表情符号"被大幅削减，幻觉率（hallucination rate）最高减少 52.5%，这是 OpenAI 持续优化模型可靠性、降低错误信息风险的重要里程碑。</p>
+                <a href="https://www.ithome.com/0/946/615.htm" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">GPT-5.5</span><span class="tag">OpenAI</span><span class="tag">模型优化</span><span class="tag">幻觉率</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>谷歌同日三连发：Nano Banana 2、Lyria 3、Gemini 3.1</h3>
-                <p>
-                    谷歌在极短时间内集中发布了三款AI产品：Nano Banana 2（轻量高效模型）、Lyria 3（音乐与音频生成模型）、Gemini 3.1（旗舰多模态模型），展现出全面覆盖从端侧到云端的AI产品矩阵意图，在与OpenAI、Anthropic的竞争中加快节奏。
-                </p>
-                <a href="https://blog.google/innovation-and-ai/products/google-ai-updates-february-2026/" target="_blank">Google AI Blog ↗</a>
-                <span class="source-tag">来源：Google Blog</span>
+                <span class="source">Anthropic · toolscompare.ai</span>
+                <h3><a href="https://toolscompare.ai/news/may-2026" target="_blank">Claude Opus 4.7 正式发布：聚焦高级软件开发任务</a></h3>
+                <p>Anthropic 发布 Claude Opus 4.7，在前代 4.6 版本基础上实现显著提升，尤其在高级软件工程任务中表现突出。新版本现已全面可用，专为复杂代码生成、调试及架构设计等高强度开发场景优化，进一步巩固 Claude 在企业级编程辅助领域的领先地位。</p>
+                <a href="https://toolscompare.ai/news/may-2026" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Claude Opus 4.7</span><span class="tag">Anthropic</span><span class="tag">软件开发</span><span class="tag">模型发布</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>Anthropic Claude Opus 4.7登场：软件开发能力大幅提升</h3>
-                <p>
-                    Anthropic发布Claude Opus 4.7，相较4.6版本在高级软件开发任务（代码生成、调试、重构）方面有明显改进，现已全面向用户开放。该版本继续强化Claude在企业级软件工程场景中的领先地位。
-                </p>
-                <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank">Anthropic官方公告 ↗</a>
-                <span class="source-tag">来源：Anthropic</span>
+                <span class="source">36氪 · Google I/O</span>
+                <h3><a href="https://www.36kr.com/p/3784243425565953" target="_blank">谷歌内测 AI 智能体 Remy：全面对标 OpenClaw 个人助手</a></h3>
+                <p>谷歌正在内部测试全新 AI 个人智能体产品"Remy"，定位为"工作、学业和日常生活中全天候的个人智能体"，能够代表用户自主执行多步骤操作，目前已与多项谷歌服务深度整合。Remy 被视为对标 OpenClaw 的战略产品，预计将在2026年5月19日至20日的 Google I/O 开发者大会上正式亮相。</p>
+                <a href="https://www.36kr.com/p/3784243425565953" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Google</span><span class="tag">Remy</span><span class="tag">AI智能体</span><span class="tag">Google I/O</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">移动云大会 · 新浪科技</span>
+                <h3><a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank">中国移动发布全球首款 AI-eSIM：内置"九天"大模型，毫秒级响应</a></h3>
+                <p>中国移动在苏州2026移动云大会上发布全球首款 AI-eSIM 产品，内置轻量化 AI 模型构建"微型 AI 大脑"，可实时调用"九天"大模型，实现毫秒级响应。待机功耗不足1mW，较传统方案降低80%，应用场景涵盖 AI 玩具、智慧穿戴、工业传感器等，预计带动上游 AI 芯片市场规模增长300%。</p>
+                <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">中国移动</span><span class="tag">AI-eSIM</span><span class="tag">物联网</span><span class="tag">端侧AI</span>
+                </div>
             </div>
         </div>
 
+        <!-- 技术与研究 -->
         <div class="section">
-            <div class="section-title">
-                <span class="icon">⚙️</span> 技术与研究
-            </div>
-
+            <div class="section-title">🔬 技术与研究</div>
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>里程碑判决：AI对话记录可作为法庭合法证据</h3>
-                <p>
-                    美国律师界发出警告：用户与ChatGPT、Claude、Gemini等AI助手的对话记录，现已可被律师依法传唤（subpoena）并用于诉讼。法律依据在于AI聊天记录符合"商业记录"的定义，意味着用户的战略规划、财务分析等敏感对话，在法律程序中不再保密，引发企业对AI使用合规性的高度关注。
-                </p>
-                <a href="https://toolscompare.ai/news/may-2026" target="_blank">ToolsCompare AI News ↗</a>
-                <span class="source-tag">来源：ToolsCompare.AI</span>
+                <span class="source">The Information · Engadget</span>
+                <h3><a href="https://www.theinformation.com/articles/anthropic-commits-spending-200-billion-googles-cloud-chips" target="_blank">Anthropic 承诺5年向 Google Cloud 投入 2000 亿美元：Alphabet 市值一度超越英伟达</a></h3>
+                <p>Anthropic 已承诺未来5年向 Google Cloud 投入约2000亿美元，换取算力基础设施与 TPU 芯片供应，该订单规模占 Google 未来 contracted cloud revenue 的40%以上，成为 Google 历史上最大的单一云服务合同。消息发布后，Alphabet 股价盘后交易中一度短暂超越英伟达，标志着 AI 算力投资规模已迈入万亿级时代。</p>
+                <a href="https://www.theinformation.com/articles/anthropic-commits-spending-200-billion-googles-cloud-chips" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Anthropic</span><span class="tag">Google Cloud</span><span class="tag">2000亿美元</span><span class="tag">算力基础设施</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>斯坦福HAI发布《2026年AI指数报告》：全球AI投资再翻倍</h3>
-                <p>
-                    斯坦福大学HAI发布2026 AI指数报告，揭示关键趋势：2025年全球企业AI投资同比增长超过100%，其中私募投资增速最快（+127.5%），已占总投资的60%；生成式AI投资更是增长超过200%。报告还指出，中美AI能力差距从2023年的3.1倍缩小至2.7倍。
-                </p>
-                <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" target="_blank">Stanford HAI 2026 AI Index ↗</a>
-                <span class="source-tag">来源：Stanford HAI</span>
+                <span class="source">X · AI 科技媒体</span>
+                <h3><a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank">SpaceX 向 Anthropic 开放 Colossus 1 全部算力：新增 300MW 容量</a></h3>
+                <p>SpaceX 宣布向 Anthropic 开放其位于孟菲斯的 Colossus 1 数据中心全部算力，1个月内新增超过300兆瓦电力容量，相当于约22万张英伟达 H100 GPU 的总算力。Anthropic 即日起将 Claude Code、Claude Opus 的 API 速率限制提高一倍，双方还探讨合作开发数吉瓦级轨道 AI 算力基础设施，AI 算力军备竞赛迈入新阶段。</p>
+                <a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">SpaceX</span><span class="tag">Anthropic</span><span class="tag">Colossus 1</span><span class="tag">算力合作</span><span class="tag">300MW</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">aiproducthub · Khosla Ventures</span>
+                <h3><a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank">Genesis AI 发布 GENE-26.5 机器人基础模型：获 1.05 亿美元种子轮融资</a></h3>
+                <p>机器人初创公司 Genesis AI 发布首个全栈机器人基础 AI 模型 GENE-26.5，展示机器人双手执行精细复杂任务的演示视频，在灵巧操作方面表现突出。公司同时宣布获得 Khosla Ventures 领投的1.05亿美元种子轮融资，致力于构建机器人领域的基础 AI 模型，推动具身智能（Embodied AI）技术商业化落地。</p>
+                <a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Genesis AI</span><span class="tag">具身智能</span><span class="tag">机器人</span><span class="tag">GENE-26.5</span><span class="tag">种子轮融资</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">科技媒体 · 法庭记录</span>
+                <h3><a href="https://www.smartaiforbiz.com" target="_blank">AI 聊天记录正式纳入法庭可传票调取范围：企业合规风险骤增</a></h3>
+                <p>美国法律界发出警告：AI 聊天记录（ChatGPT、Claude、Gemini 等）现已正式被认定为商业记录（Business Records），可在诉讼中被传票调取作为证据。这意味着企业在使用 AI 进行战略规划、财务分析、合同谈判等敏感场景时，AI 对话内容可能被对方律师或监管机构获取，合规与隐私管理成为刚需。</p>
+                <a href="https://www.smartaiforbiz.com" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">法律合规</span><span class="tag">AI隐私</span><span class="tag">数据安全</span><span class="tag">商业记录</span>
+                </div>
             </div>
         </div>
 
+        <!-- 产业与投资 -->
         <div class="section">
-            <div class="section-title">
-                <span class="icon">💰</span> 产业与投资
-            </div>
-
+            <div class="section-title">💰 产业与投资</div>
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>中国首例AI外资收购被叫停：发改委否决Meta收购Manus</h3>
-                <p>
-                    国家发改委依据《外商投资安全审查工作机制》，正式对Meta收购华人AI Agent创业公司Manus一案作出禁止投资决定，要求撤销这笔约20亿美元的交易。这是中国首例被公开叫停的AI领域外资收购案。Manus由中国人创立、总部位新加坡，被视为全球最具潜力的AI Agent平台之一，中国监管机构认为该交易涉及"关键技术"的外资控制风险。
-                </p>
-                <a href="https://theaiinsider.tech/2026/04/28/china-blocks-metas-2b-acquisition-of-ai-agent-startup-manus/" target="_blank">The AI Insider ↗</a>
-                <span class="source-tag">来源：The AI Insider / 第一财经</span>
+                <span class="source">晚点 LatePost · IT之家</span>
+                <h3><a href="https://www.ithome.com/0/946/896.htm" target="_blank">Kimi 再融 20 亿美元破 200 亿美元估值：半年四轮融资居国内之首</a></h3>
+                <p>月之暗面（Kimi）即将完成新一轮约20亿美元融资，投后估值突破200亿美元。本轮由美团龙珠领投，中国移动、CPE（中信产业基金）等参投，其中龙珠一家出资超2亿美元。不到半年内 Kimi 累计融资超39亿美元，ARR（年度经常性收入）从3月的1亿美元翻倍至4月的2亿美元以上，付费订阅与 API 调用双轮驱动，战略聚焦编程与 Agent 能力。</p>
+                <a href="https://www.ithome.com/0/946/896.htm" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Kimi</span><span class="tag">月之暗面</span><span class="tag">20亿美元融资</span><span class="tag">美团龙珠</span><span class="tag">大模型</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>IBM Think 2026：AI运营模型正式落地，110亿美元收购Confluent</h3>
-                <p>
-                    IBM在波士顿Think 2026大会上发布"AI运营模型"（AI Operating Model），旨在帮助企业跨越AI试点陷阱、实现规模化部署，核心框架围绕数据、智能体、自动化和混合云四大支柱。同时宣布以110亿美元收购企业级数据流平台Confluent，增强其AI数据管道能力。
-                </p>
-                <a href="https://newsroom.ibm.com/2026-05-05-think-2026-ibm-delivers-the-blueprint-for-the-ai-operating-model-as-the-ai-divide-widens" target="_blank">IBM Newsroom ↗</a>
-                <span class="source-tag">来源：IBM / MSN</span>
+                <span class="source">aiproducthub · AI 产品库</span>
+                <h3><a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank">DeepSeek 首轮 VC 融资估值 450 亿美元：数周内从 200 亿翻倍</a></h3>
+                <p>DeepSeek（深度求索）正在进行首轮风险融资谈判，估值已从约200亿美元飙升至450亿美元，数周内翻倍有余。其 DeepSeek-V4 支持百万级上下文，采用 MoE 架构与 DSA 稀疏注意力机制，推理成本仅为 OpenAI 同类产品的几十分之一，在开源领域保持技术领先。低成本高性能路线持续吸引顶级 VC 争相入局。</p>
+                <a href="https://aiproducthub.cn/newsflash/2026-05-07/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">DeepSeek</span><span class="tag">首轮融资</span><span class="tag">450亿美元估值</span><span class="tag">开源模型</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>Meta 2026年AI支出预测提升至1450亿美元</h3>
-                <p>
-                    Meta将2026年AI支出预测从1150亿美元大幅提升至1250-1450亿美元，增幅超25%，凸显科技巨头对AI基础设施的"军备竞赛"仍在加速。该支出涵盖数据中心扩建、自研芯片及大模型训练，是当前全球AI领域规模最大的单家资本支出计划。
-                </p>
-                <a href="https://markmcneilly.substack.com/p/the-new-news-in-ai-5126-edition" target="_blank">Mark McNeilly Substack ↗</a>
-                <span class="source-tag">来源：Mark McNeilly / Commercial Appeal</span>
+                <span class="source">Reuters · U.S. News</span>
+                <h3><a href="https://www.usnews.com/news/top-news/articles/2026-05-05/anthropic-commits-to-spending-200-billion-on-googles-cloud-and-chips-the-information-reports" target="_blank">SpaceX 拟自建 2nm 芯片工厂 Terafab：总投资最高 1190 亿美元</a></h3>
+                <p>SpaceX 计划在美国德克萨斯州建设半导体工厂"Terafab"，采用2纳米先进制程，为 xAI 等业务提供自主 AI 算力芯片。初期投资550亿美元，总计最高1190亿美元。xAI 目前拥有约55万张英伟达 GPU，但利用率仅11%，马斯克希望通过自建芯片降低对外部供应商的战略依赖，打造从模型训练到硬件部署的垂直整合闭环。</p>
+                <a href="https://www.usnews.com/news/top-news/articles/2026-05-05/anthropic-commits-to-spending-200-billion-on-googles-cloud-and-chips-the-information-reports" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">SpaceX</span><span class="tag">Terafab</span><span class="tag">2nm芯片</span><span class="tag">xAI</span><span class="tag">半导体</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-cn">🇨🇳 国内</span>
-                <h3>十部门联合印发《人工智能科技伦理审查办法》</h3>
-                <p>
-                    工信部、国家发改委等十部门联合发布《人工智能科技伦理审查与服务办法（试行）》，这是中国首个系统性AI伦理监管框架，明确要求涉及生命健康、公共安全等重点领域的AI应用必须通过伦理审查，并建立AI伦理审查服务体系，对AI研发和应用全流程进行规范。
-                </p>
-                <a href="https://www.gov.cn/zhengce/zhengceku/202604/content_7064646.htm" target="_blank">中国政府网原文 ↗</a>
-                <span class="source-tag">来源：国务院 / 工信部</span>
+                <span class="source">Yahoo Finance · TechCrunch</span>
+                <h3><a href="https://toolscompare.ai/news/may-2026" target="_blank">AI 创业公司 Q1 融资 596 亿美元创纪录：55 家美国 AI 公司单轮破 1 亿美元</a></h3>
+                <p>2025年Q1全球 AI 创业公司融资总额达596亿美元，同比增长35%。其中55家美国 AI 公司单轮融资超过1亿美元，包括语音 AI 公司 Sesame（2.5亿美元B轮）、医疗 AI 公司 OpenEvidence（2亿美元C轮）、编码智能体 Cognition Devin（4亿美元）。Meta 同时将2026年资本支出预测上调至1250-1450亿美元，反映 AI 基础设施投入持续加速。</p>
+                <a href="https://toolscompare.ai/news/may-2026" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">融资数据</span><span class="tag">596亿美元</span><span class="tag">Q1</span><span class="tag">Meta</span><span class="tag">1450亿美元资本支出</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>Meta收购机器人初创Assured Robot Intelligence</h3>
-                <p>
-                    Meta于5月1日宣布收购人形机器人初创公司Assured Robot Intelligence，以强化其在人形AI领域的布局。这是Meta过去一年达成的第6个AI相关收购交易，创始人曾表示该交易"契合Meta的长期AI战略"，但具体金额未披露。
-                </p>
-                <a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank">TechCrunch ↗</a>
-                <span class="source-tag">来源：TechCrunch</span>
-            </div>
-
-            <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>AMD MI400系列AI加速器下半年发布，数据中心收入预计增73%</h3>
-                <p>
-                    据S&P Global市场情报，AMD将于2026年下半年推出MI400系列AI加速器，直面英伟达Blackwell系列的竞争。分析师预测，得益于AI推理需求激增，AMD数据中心业务收入有望在2026年同比增长73%，AI芯片市场呈现"英伟达+AMD"双寡头格局。
-                </p>
-                <a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/03/amd-s-next-generation-ai-chips-set-to-power-2026-data-center-growth" target="_blank">S&P Global ↗</a>
-                <span class="source-tag">来源：S&P Global Market Intelligence</span>
+                <span class="source">Yahoo Finance · AI 科技媒体</span>
+                <h3><a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank">Anthropic CEO 发出警告：不拥抱 AI 的软件公司将被淘汰</a></h3>
+                <p>Anthropic CEO 发出口头警告：软件公司若不积极集成 AI 能力，将面临倒闭风险。随着 Claude 等 AI 编程工具日益成熟，企业能用更少的人力完成更多工作，传统 SaaS 模式正受到严重冲击。投资者已开始大规模抛售不具备 AI 能力的软件公司股票，相关企业市值蒸发数十亿美元，软件行业的 AI 转型已从"可选项"变为"生死线"。</p>
+                <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Anthropic</span><span class="tag">CEO警告</span><span class="tag">SaaS</span><span class="tag">AI转型</span>
+                </div>
             </div>
         </div>
 
+        <!-- 跨界融合 -->
         <div class="section">
-            <div class="section-title">
-                <span class="icon">🌐</span> 跨界融合
-            </div>
-
+            <div class="section-title">🌐 跨界融合</div>
+            
             <div class="news-card">
-                <span class="tag tag-intl">🌐 国际</span>
-                <h3>OpenAI×高通联合研发AI手机芯片，2028年量产目标公布</h3>
-                <p>
-                    OpenAI与高通在5月2日宣布达成战略合作，共同研发专用于手机的AI芯片，目标是在手机端本地运行百亿参数大模型，并实现极低功耗。这是AI芯片首次从数据中心向消费电子端侧的大规模渗透，预计2028年实现量产。
-                </p>
-                <a href="https://blog.csdn.net/2401_84289488/article/details/160737064" target="_blank">CSDN报道 ↗</a>
-                <span class="source-tag">来源：CSDN</span>
+                <span class="source">深圳新闻网 · 广东省政府</span>
+                <h3><a href="https://www.sznews.com/news/content/2026-04/28/content_32030637.htm" target="_blank">2026 广东省人工智能应用对接大会在深举办：华为昇腾、腾讯智能体集体亮相</a></h3>
+                <p>2026广东省人工智能应用对接大会在深圳举行，大会按照"1+5"形式，设置政策宣介、案例分享、平台发布、产品推介等核心环节。华为发布昇腾系列最新 AI 计算产品，腾讯展示智能体平台最新能力，晶泰科技等 AI 药物研发企业也携最新成果亮相，集中展现广东人工智能产学研用全链条创新生态。</p>
+                <a href="https://www.sznews.com/news/content/2026-04/28/content_32030637.htm" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">广东省</span><span class="tag">AI应用大会</span><span class="tag">华为昇腾</span><span class="tag">腾讯智能体</span><span class="tag">产业落地</span>
+                </div>
             </div>
-
+            
             <div class="news-card">
-                <span class="tag tag-cn">🇨🇳 国内</span>
-                <h3>2026移动云大会苏州开幕，共探AI算力新空间</h3>
-                <p>
-                    以"移动云 智能新空间"为主题的2026移动云大会于5月7日至9日在苏州金鸡湖国际会议中心举办，汇聚产学研用各方精英，共同探讨AI时代算力基础设施的创新路径与产业应用场景，涵盖AI算力调度、边缘计算、大模型部署等核心议题。
-                </p>
-                <a href="https://www.msn.cn/zh-cn/news/other/2026%E7%A7%BB%E5%8A%A8%E4%BA%91%E5%A4%A7%E4%BC%9A%E4%B8%BB%E8%AE%BA%E5%9D%9B%E5%B0%86%E5%90%AF-%E5%85%B1%E6%8E%A2ai%E7%AE%97%E5%8A%9B%E6%96%B0%E7%AF%87-%E6%90%BA%E6%89%8B%E8%BF%88%E8%BF%9B%E6%99%BA%E8%83%BD%E6%96%B0%E6%97%B6%E4%BB%A3/ar-AA22sEY2" target="_blank">MSN中国报道 ↗</a>
-                <span class="source-tag">来源：MSN中国 / 移动云大会</span>
+                <span class="source">工信部 · 国家数据局</span>
+                <h3><a href="https://www.aibars.net/zh/library/ai-news/list" target="_blank">工信部与国家数据局联合启动"模数共振"行动：AI 赋能 20 个重点制造业</a></h3>
+                <p>工业和信息化部与国家数据局联合发布2026年"模数共振"行动计划，面向制造业20个重点行业，探索场景、模型、智能体、数据集等关键技术成果产出路径。该行动旨在解决数据孤岛、模型泛化不足、场景适配低效等行业痼疾，推动 AI 高水平赋能新型工业化，加速制造业数字化转型从试点走向规模化推广。</p>
+                <a href="https://www.aibars.net/zh/library/ai-news/list" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">工信部</span><span class="tag">模数共振</span><span class="tag">制造业AI</span><span class="tag">国家政策</span><span class="tag">新型工业化</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">新浪财经 · 法庭记录</span>
+                <h3><a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank">苹果支付 2.5 亿美元和解 Siri AI 功能延迟诉讼</a></h3>
+                <p>苹果同意支付2.5亿美元和解一起集体诉讼，原告指控苹果对 Siri 的 AI 功能过度承诺且多次延迟交付，新一代 Siri 的发布时间一推再推，引发用户和投资者不满。苹果 CEO 库克在和解协议中承认，AI 研发需要更多时间以确保质量与安全，但外界普遍认为此次和解将对苹果 AI 战略推进形成舆论压力。</p>
+                <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-06/doc-inhwxaet3545937.shtml" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">苹果</span><span class="tag">Siri</span><span class="tag">诉讼和解</span><span class="tag">AI语音助手</span>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>📡 数据来源：IT之家 / Anthropic / TechCrunch / Stanford HAI / IBM Newsroom / S&P Global / CSDN / 新浪财经 / 政府官网</p>
-            <p>🤖 由 AI 实时搜索生成 · 禁止缓存历史数据</p>
-            <p>📬 订阅：GitHub Pages · 钉钉群推送</p>
+            <p>由 <strong>WorkBuddy AI</strong> 自动搜索生成 | 2026-05-07</p>
+            <p style="margin-top: 10px;">
+                <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">📖 历史简报</a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/kenny378178-ai/ai-daily-news" target="_blank">⭐ GitHub</a>
+            </p>
         </div>
     </div>
 </body>
