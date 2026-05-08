@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每日全球资讯简报 - 2026年5月8日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .header .date {
+            color: #a0a0a0;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .header .meta span {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #a0b4f8;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .summary h2 {
+            font-size: 1.3em;
+            color: #a0b4f8;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .summary p {
+            color: #d0d0d0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .highlight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.15));
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.1em;
+            color: #e8e8e8;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-card p {
+            color: #a0a0a0;
+            font-size: 0.95em;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .badge-product { background: rgba(255, 107, 107, 0.2); color: #ff9a9a; }
+        .badge-tech { background: rgba(78, 205, 196, 0.2); color: #4ecdc4; }
+        .badge-industry { background: rgba(255, 184, 77, 0.2); color: #ffb74d; }
+        .badge-cross { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+        
+        .news-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .news-card h3 {
+            font-size: 1.15em;
+            color: #e8e8e8;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .news-card h3 a {
+            color: #a0b4f8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .news-card h3 a:hover {
+            color: #667eea;
+        }
+        
+        .news-card .source {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            color: #8b9aef;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        
+        .news-card p {
+            color: #b0b0b0;
+            font-size: 0.98em;
+            line-height: 1.7;
+        }
+        
+        .news-card .tags {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: #888;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8em;
+        }
+        
+        .source-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.88em;
+            transition: color 0.2s;
+        }
+        
+        .source-link:hover {
+            color: #a0b4f8;
+            text-decoration: underline;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .container { padding: 15px 10px; }
+            .highlight-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI 每日全球资讯简报</h1>
+            <div class="date">2026年5月8日 · 星期五</div>
+            <div class="meta">
+                <span>📅 每日更新</span>
+                <span>🌍 全球视野</span>
+                <span>⚡ AI驱动</span>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>🚀 今日3大要点</h2>
+            <p><strong>① AI竞争格局深度洗牌：Anthropic与OpenAI同日成立企业合资公司，Anthropic估值突破1.2万亿美元反超OpenAI。</strong> Anthropic联合黑石、高盛、Hellman & Friedman成立15亿美元企业AI服务合资公司；OpenAI则联手TPG、贝恩等成立约40亿美元合资企业。五角大楼同日与8家AI公司签署机密军事合同，Anthropic因拒绝修改安全限制条款被排除在外，成为两大阵营分化标志事件。</p>
+            <br>
+            <p><strong>② Google I/O前哨战：Gemini 3.2 Flash意外泄露，Claude Orbit主动助手曝光。</strong> Google Gemini 3.2 Flash在iOS应用和AI Studio中意外现身，性能超越Gemini 3.1 Flash，定价$0.25/$2.00/百万Token；Anthropic Claude Cowork隐藏功能Orbit被testingcatalog提前48小时曝光，支持Gmail/Slack/GitHub/Calendar/Figma全平台主动服务，成为AI从"被动回答"迈向"主动服务"的分水岭。</p>
+            <br>
+            <p><strong>③ Perplexity Mac端AI助手正式上线，具身智能进入"灵巧操作"阶段。</strong> Perplexity推出Mac原生"Personal Computer"智能体，全面开放给所有Mac用户，可深度整合本地文件；Genesis AI发布GENE-26.5机器人基础模型，展示打蛋、解魔方等精细操作；宇树科技UniStore平台全面开放，全球首个机器人任务动作应用商店落地。</p>
+        </div>
+
+        <div class="highlight-cards">
+            <div class="highlight-card">
+                <h3>💰 估值王</h3>
+                <p>Anthropic估值突破1.2万亿美元，同日与OpenAI各自成立企业服务合资公司，军备竞赛升级</p>
+            </div>
+            <div class="highlight-card">
+                <h3>🤖 主动AI</h3>
+                <p>Claude Orbit泄露：Gmail/Slack/GitHub全平台主动服务；Gemini 3.2 Flash I/O前意外曝光</p>
+            </div>
+            <div class="highlight-card">
+                <h3>🦾 具身智能</h3>
+                <p>Genesis GENE-26.5精细操作+宇树UniStore开放，人形机器人生态加速商业化</p>
+            </div>
+        </div>
+
+        <!-- 产品与硬件 -->
+        <div class="section">
+            <div class="section-title">📱 产品与硬件</div>
+            
+            <div class="news-card">
+                <span class="source">TechCrunch · 9to5Mac</span>
+                <h3><a href="https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/" target="_blank">Perplexity Mac端"Personal Computer"智能体正式上线</a></h3>
+                <p>Perplexity于5月7日宣布，其本地AI智能体应用"Personal Computer"现已向所有Mac用户开放，标志着Perplexity从AI搜索向桌面AI助手的战略转型。该应用深度整合Mac本地文件系统、浏览器、代码编辑器等，支持跨应用协作和文件内容理解，是OpenClaw在Mac平台的有力竞争对手。Perplexity称其已从纯搜索工具进化为真正的本地AI工作站。</p>
+                <a href="https://techcrunch.com/2026/05/07/perplexitys-personal-computer-is-now-available-everyone-on-mac/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Perplexity</span><span class="tag">Mac</span><span class="tag">Personal Computer</span><span class="tag">AI Agent</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">MSN · Build Fast With AI</span>
+                <h3><a href="https://www.msn.com/en-us/news/other/gemini-32-flash-quietly-leaks-ahead-of-google-io-2026/gm-GM76BA32DD" target="_blank">Gemini 3.2 Flash I/O大会前夕意外泄露：性能逼近Gemini 3.1 Pro</a></h3>
+                <p>Google尚未正式发布的Gemini 3.2 Flash于5月5日意外出现在iOS Gemini应用和Google AI Studio中，提前两周泄露。定价显示输入$0.25/百万Token、输出$2.00/百万Token，性能据称超越Gemini 3.1 Flash并接近3.1 Pro水平。泄露发生在Google I/O 2026大会（5月19-20日）前夕，预计将在大会上正式发布，成为Google应对GPT-5.5和Claude Opus 4.7的重要产品。</p>
+                <a href="https://www.msn.com/en-us/news/other/gemini-32-flash-quietly-leaks-ahead-of-google-io-2026/gm-GM76BA32DD" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Google</span><span class="tag">Gemini 3.2 Flash</span><span class="tag">Google I/O</span><span class="tag">模型发布</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">新浪财经 · 智能纪元AGI</span>
+                <h3><a href="https://finance.sina.com.cn/wm/2026-05-03/doc-inhwsist0957775.shtml" target="_blank">字节豆包推出首款付费会员：国内AI应用正式进入付费时代</a></h3>
+                <p>字节跳动旗下豆包App即将于5月中下旬推出首款付费包月产品——豆包会员，分标准版、加强版、专业版三档，价格每月50元人民币起，iOS内购最低68元起，最高年费达9488元。会员权益包括Seeddance 2.0生视频额度、优先API调用等。此举标志着国内AI应用正式告别"免费补贴"时代，大模型变现路径从B端向C端延伸，引发行业对AI应用商业化新范式的广泛讨论。</p>
+                <a href="https://finance.sina.com.cn/wm/2026-05-03/doc-inhwsist0957775.shtml" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">字节跳动</span><span class="tag">豆包</span><span class="tag">付费会员</span><span class="tag">商业化</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">80AJ科技 · ChooseAI</span>
+                <h3><a href="https://www.80aj.com/2026/05/06/claude-desktop-blocks-third-party-models/" target="_blank">Claude桌面端封锁第三方模型：DeepSeek V4等已无法直接接入</a></h3>
+                <p>Anthropic于5月6日推送Claude for Mac最新版本（1.6259.1），通过底层配置强制限制用户接入第三方模型。系统现已拒绝识别"deepseek-v4-flash"等外部模型，并强制要求使用Anthropic官方接口。此举被视为Anthropic强化订阅变现、封堵API分流的重要举措，与此前Claude Code Desktop支持第三方模型形成政策矛盾，引发开发者社区强烈反弹。</p>
+                <a href="https://www.80aj.com/2026/05/06/claude-desktop-blocks-third-party-models/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Claude</span><span class="tag">Anthropic</span><span class="tag">第三方模型</span><span class="tag">开发者</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技术与研究 -->
+        <div class="section">
+            <div class="section-title">🔬 技术与研究</div>
+            
+            <div class="news-card">
+                <span class="source">TechCrunch · Blackstone</span>
+                <h3><a href="https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/" target="_blank">OpenAI与Anthropic同日成立企业服务合资公司：AI巨头开启"驻场工程师"模式</a></h3>
+                <p>5月4日，OpenAI宣布与TPG、贝恩资本等成立约40亿美元合资企业，提供类似Palantir的驻场AI服务；数小时后，Anthropic联合黑石集团、Hellman & Friedman、高盛成立15亿美元合资公司，专注于向中型企业部署Claude。两大AI巨头同日"复制"对方战略，标志着AI应用落地正式进入"驻场工程师"模式，私募资本深度参与AI商业化浪潮。</p>
+                <a href="https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">OpenAI</span><span class="tag">Anthropic</span><span class="tag">企业合资</span><span class="tag">黑石</span><span class="tag">高盛</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">Defense Scoop · Pentagon</span>
+                <h3><a href="https://defensescoop.com/2026/05/01/dod-expands-classified-ai-work-with-8-companies-excluding-anthropic/" target="_blank">五角大楼签署8家AI机密合同排除Anthropic：安全限制条款分歧公开化</a></h3>
+                <p>美国国防部于5月1日与8家科技公司（OpenAI、Google、微软、AWS、NVIDIA、SpaceX、甲骨文、Reflection AI）签署机密军事AI合作协议，将AI部署至最高机密等级军事网络。Anthropic因拒绝修改其安全限制政策（特别是自主武器和监控用途限制）被正式排除。这是去年夏天各签2亿美元合同后的重大升级，Anthropic坚守"AI不用于致命决策"底线导致与军方合作破裂。</p>
+                <a href="https://defensescoop.com/2026/05/01/dod-expands-classified-ai-work-with-8-companies-excluding-anthropic/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">五角大楼</span><span class="tag">Anthropic</span><span class="tag">军事AI</span><span class="tag">AI安全</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · TestingCatalog</span>
+                <h3><a href="https://www.chooseai.net/news/3644/" target="_blank">Claude Orbit主动助手泄露：无需指令自动管理Gmail/Slack/GitHub/Figma</a></h3>
+                <p>Anthropic Claude Cowork隐藏功能"Orbit"被testingcatalog于5月4日提前曝光，曝光时间距Code with Claude大会仅48小时。Orbit为跨平台主动工作助手，可7×24小时在后台整合Gmail、Slack、GitHub、Calendar、Drive、Figma等工具，自动生成每日工作简报并提供可执行建议。与OpenAI Pulse和Google Gemini Proactive直接竞争，差异化在于深度集成开发者工具GitHub与创意工具Figma。</p>
+                <a href="https://www.chooseai.net/news/3644/" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Claude Orbit</span><span class="tag">Anthropic</span><span class="tag">主动AI</span><span class="tag">Cowork</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 搜狐科技</span>
+                <h3><a href="https://www.sohu.com/a/1018831544_473283" target="_blank">Claude学会"睡觉"：任务成功率暴涨6倍背后的记忆优化机制</a></h3>
+                <p>Anthropic Claude引入类似人类睡眠的"离线优化"机制，AI在任务处理间隙进入"梦境"状态，通过类REM周期方式整理和优化内部记忆库，实现任务完成率6倍提升。该机制解决了大模型长期任务中记忆混乱、上下文衰减的核心痛点，被视为AI智能体实用化的关键技术突破。</p>
+                <a href="https://www.sohu.com/a/1018831544_473283" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Claude</span><span class="tag">Anthropic</span><span class="tag">AI记忆</span><span class="tag">智能体</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产业与投资 -->
+        <div class="section">
+            <div class="section-title">💰 产业与投资</div>
+            
+            <div class="news-card">
+                <span class="source">PR Newswire · Robotics Tomorrow</span>
+                <h3><a href="https://www.prnewswire.com/news-releases/genesis-ai-unveils-gene-26-5--the-first-ai-brain-to-enable-robots-with-human-level-physical-manipulation-capabilities-302763638.html" target="_blank">Genesis AI发布GENE-26.5机器人基础模型：打蛋解魔方突破灵巧操作极限</a></h3>
+                <p>Genesis AI于5月6日发布首个全栈机器人基础AI模型GENE-26.5，配合高度接近人手的实体机械手，展示打蛋、解魔方、精细组装等复杂操作。公司同时发布配套数据采集与训练系统，目标是让机器人真正像人类一样完成精细物理操作。该技术填补了具身智能"最后一块拼图"——手部操作的空白，被认为是人形机器人商业化落地的关键里程碑。</p>
+                <a href="https://www.prnewswire.com/news-releases/genesis-ai-unveils-gene-26-5--the-first-ai-brain-to-enable-robots-with-human-level-physical-manipulation-capabilities-302763638.html" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Genesis AI</span><span class="tag">GENE-26.5</span><span class="tag">具身智能</span><span class="tag">机器人</span><span class="tag">灵巧操作</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 纽约时报</span>
+                <h3><a href="https://www.aibase.com/zh/news" target="_blank">SpaceX Terafab芯片帝国细节曝光：德克萨斯州550亿美元2nm工厂</a></h3>
+                <p>SpaceX向德克萨斯州奥斯汀市提交Terafab半导体工厂税收优惠申请，披露更多细节：初期投资550亿美元（最高1190亿美元），采用2纳米制程，为xAI等业务提供自主AI算力芯片。目前xAI拥有约55万张英伟达H100 GPU，但利用率仅11%。马斯克希望通过Terafab实现从模型训练到硬件部署的垂直整合，降低对外部芯片供应商的战略依赖，同时挑战英伟达在AI芯片领域的主导地位。</p>
+                <a href="https://www.aibase.com/zh/news" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">SpaceX</span><span class="tag">Terafab</span><span class="tag">2nm芯片</span><span class="tag">xAI</span><span class="tag">半导体</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · Blockchain News</span>
+                <h3><a href="https://blockchain.news/ainews/anthropic-and-openai-dominate-2026-ai-race" target="_blank">Anthropic估值破1.2万亿美元反超OpenAI：AI算力需求进入万亿时代</a></h3>
+                <p>据分析师Ethan Mollick引用Jessica Lessin数据，OpenAI和Anthropic在模型能力、企业服务、算力合同三个维度均已大幅领先，Google和Meta沦为挑战者。微软、Oracle、Google、亚马逊云服务积压中，约50%来自OpenAI和Anthropic的需求。Anthropic凭借Google Cloud 2000亿美元云订单和Claude在开发者群体的高渗透率，估值正式突破1.2万亿美元，超越OpenAI约20%。</p>
+                <a href="https://blockchain.news/ainews/anthropic-and-openai-dominate-2026-ai-race" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">Anthropic</span><span class="tag">1.2万亿美元</span><span class="tag">OpenAI</span><span class="tag">估值</span><span class="tag">AI竞争</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 36氪研究院</span>
+                <h3><a href="https://www.36kr.com/p/3660312420180864" target="_blank">中国具身智能市场规模2026年突破万亿元：人形机器人进入10万级量产元年</a></h3>
+                <p>据36氪研究院测算，中国具身智能市场规模已从2018年的2133亿元迅速增至2025年的9150亿元，2026年有望突破万亿元关口。工信部具身智能标准化技术委员会于2025年末正式成立，预计2026年将发布首批行业标准。宇树科技等头部企业已进入10万级量产准备阶段，工业制造、特种巡检、民生服务三大商业化场景同步推进，中国人形机器人产业正式开启规模化元年。</p>
+                <a href="https://www.36kr.com/p/3660312420180864" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">具身智能</span><span class="tag">人形机器人</span><span class="tag">万亿市场</span><span class="tag">宇树科技</span><span class="tag">政策</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 跨界融合 -->
+        <div class="section">
+            <div class="section-title">🌐 跨界融合</div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · TechCrunch</span>
+                <h3><a href="https://www.aibase.com/zh/news" target="_blank">Google DeepMind 1.2亿美元入股EVE Online开发商：虚拟世界成AGI训练沙箱</a></h3>
+                <p>Google DeepMind收购CCP Games（《EVE Online》开发商）少数股权，交易金额1.2亿美元。DeepMind计划将这个拥有数百万玩家、复杂经济系统和星际战争模拟的虚拟世界，作为AGI系统的测试沙箱。EVE的动态经济、玩家行为数据和多智能体交互场景，为AGI研究提供了独特的现实世界代理训练环境，标志着AI研究从虚拟环境向大型商业游戏IP延伸的新趋势。</p>
+                <a href="https://www.aibase.com/zh/news" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">DeepMind</span><span class="tag">EVE Online</span><span class="tag">AGI</span><span class="tag">游戏AI</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 凤凰科技</span>
+                <h3><a href="https://tech.ifeng.com/c/8su7E4dng92" target="_blank">宇树科技UniStore平台全面开放：全球首个机器人应用商店落地</a></h3>
+                <p>宇树科技宣布UniStore机器人任务动作应用商店正式全面开放，这是全球首个面向人形机器人的第三方任务动作应用分发平台。开发者可为宇树机器人开发和销售专业技能包（捡取、医疗辅助、工业操作等），用户可下载安装扩展机器人能力。该平台标志着人形机器人产业正式进入"硬件+软件+生态"三位一体协同发展的新阶段。</p>
+                <a href="https://tech.ifeng.com/c/8su7E4dng92" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">宇树科技</span><span class="tag">UniStore</span><span class="tag">机器人应用商店</span><span class="tag">生态</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 新浪财经</span>
+                <h3><a href="https://www.aibase.com/zh/news" target="_blank">欧盟AI法案初步协议达成：合规时间延至2027年，深度伪造色情内容全面禁止</a></h3>
+                <p>欧盟成员国和议会谈判代表就AI法案修订版达成初步协议，将企业全面合规截止日期从原定的2026年8月延后至2027年12月，为企业留出更多准备时间。协议同时增加了更严格的深度伪造色情内容禁令，要求所有生成式AI内容必须标注水印。合规时间表的调整反映了欧盟在AI监管力度与企业适应能力之间的平衡考量。</p>
+                <a href="https://www.aibase.com/zh/news" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">欧盟AI法案</span><span class="tag">AI监管</span><span class="tag">深度伪造</span><span class="tag">合规</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <span class="source">AIbase · 腾讯新闻</span>
+                <h3><a href="https://news.qq.com/rain/a/20260507A06HM000" target="_blank">高科智库AI价值榜发布：DeepSeek、豆包、文心、通义千问、元宝五强一致认可</a></h3>
+                <p>高科智库于5月5日发布《2026年价值创造100指数》和《2026年研发强效50指数》，腾讯元宝、DeepSeek、字节豆包、百度文心、阿里通义千问五大国内AI模型一致对两份指数作出正面研判，认可其行业顶尖价值发现力。该研判结果反映国产大模型在资本市场的影响力和话语权持续提升，中国AI生态正从"单点突破"向"全面竞争"演进。</p>
+                <a href="https://news.qq.com/rain/a/20260507A06HM000" target="_blank" class="source-link">查看原文 →</a>
+                <div class="tags">
+                    <span class="tag">DeepSeek</span><span class="tag">豆包</span><span class="tag">文心</span><span class="tag">通义千问</span><span class="tag">资本市场</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>由 <strong>WorkBuddy AI</strong> 自动搜索生成 | 2026-05-08</p>
+            <p style="margin-top: 10px;">
+                <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">📖 历史简报</a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/kenny378178-ai/ai-daily-news" target="_blank">⭐ GitHub</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
