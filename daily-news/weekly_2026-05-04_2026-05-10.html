@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每周全球资讯周报 - 2026年5月4日至10日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header h1 {
+            font-size: 2.6em;
+            margin-bottom: 8px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .date-range {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-badge {
+            background: rgba(255,255,255,0.18);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .section {
+            padding: 35px 40px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.6em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .icon {
+            font-size: 1.2em;
+        }
+
+        .key-insights {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 10px;
+        }
+
+        .insight-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .insight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .insight-num {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1em;
+            flex-shrink: 0;
+        }
+
+        .insight-content h3 {
+            font-size: 1.1em;
+            color: #1e3c72;
+            margin-bottom: 6px;
+        }
+
+        .insight-content p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .news-card {
+            background: #fafbfc;
+            border-radius: 14px;
+            padding: 22px 25px;
+            margin-bottom: 16px;
+            border-left: 4px solid #ddd;
+            transition: all 0.2s ease;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .news-card.cat-product { border-left-color: #3b82f6; }
+        .news-card.cat-tech { border-left-color: #10b981; }
+        .news-card.cat-invest { border-left-color: #f59e0b; }
+        .news-card.cat-cross { border-left-color: #8b5cf6; }
+
+        .news-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .news-card .title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1a1a2e;
+            flex: 1;
+        }
+
+        .news-card .cat-tag {
+            font-size: 0.75em;
+            padding: 3px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .cat-tag.tag-product { background: #eff6ff; color: #2563eb; }
+        .cat-tag.tag-tech { background: #ecfdf5; color: #059669; }
+        .cat-tag.tag-invest { background: #fffbeb; color: #d97706; }
+        .cat-tag.tag-cross { background: #f5f3ff; color: #7c3aed; }
+
+        .news-card .summary {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .news-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+        }
+
+        .news-card .source {
+            color: #888;
+        }
+
+        .source-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .source-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: rgba(255,255,255,0.8);
+            padding: 25px 40px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: underline;
+        }
+
+        .data-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 25px 20px; }
+            .news-card .card-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Weekly Global Report</h1>
+            <div class="date-range">2026.05.04 - 2026.05.10</div>
+            <div class="stats">
+                <span class="stat-badge">18 Key Stories</span>
+                <span class="stat-badge">5 Deep Insights</span>
+                <span class="stat-badge">4 Categories</span>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🎯</span> Five Key Insights of the Week</div>
+            <div class="key-insights">
+                <div class="insight-item">
+                    <div class="insight-num">1</div>
+                    <div class="insight-content">
+                        <h3>OpenAI & Anthropic: Enterprise AI War Escalates</h3>
+                        <p>5月4日，OpenAI与Anthropic在数小时内先后宣布与华尔街顶级资本成立企业AI合资公司。OpenAI联合TPG、Brookfield等19家PE组建100亿美元规模的"The Deployment Company"；Anthropic则联手黑石、高盛、Hellman & Friedman成立15亿美元合资企业。两巨头合作为其模型建立企业级销售渠道，标志着AI商业化竞争从技术层全面升级到销售生态层。与此同时，Anthropic估值在7天内飙升20%至1.2万亿美元，首次超越OpenAI的8500亿美元。</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-num">2</div>
+                    <div class="insight-content">
+                        <h3>China AI Token Usage Surpasses US for First Time</h3>
+                        <p>国产AI大模型调用量首次超越美国，上周达7.942万亿token，同比增长81.7%，远超美国的3.258万亿token。DeepSeek、Kimi跻身全球调用前二。与此同时，具身智能领域融资在2026年已超345亿元，中国AI产业正从模型竞赛向场景落地和商业化运营全面转型。DeepSeek启动首轮融资，目标500亿元人民币，估值或达450亿美元，创始人梁文锋拟个人出资200亿领投。</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-num">3</div>
+                    <div class="insight-content">
+                        <h3>GPT-Realtime-2: Voice AI Enters GPT-5 Reasoning Era</h3>
+                        <p>5月7日，OpenAI发布三款实时语音模型：GPT-Realtime-2（GPT-5级推理语音）、GPT-Realtime-Translate（实时翻译）和GPT-Realtime-Whisper（流式转录）。GPT-Realtime-2是首个具备GPT-5级推理能力的语音模型，支持实时对话中的复杂推理，解决延迟、打断和多语言难题。这标志着语音智能体正式迈入"情境感知+跨模态理解+实时推理"新纪元，对客服、医疗、教育等领域产生深远影响。</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-num">4</div>
+                    <div class="insight-content">
+                        <h3>Physical AI Breakthrough: Robots Move from Labs to Factories</h3>
+                        <p>Physical Intelligence的pi0.7模型展示了"组合泛化"能力，能将已学技能迁移到全新未训练任务上。Skild AI收购Zebra Technologies机器人自动化业务。特斯拉Optimus官宣7-8月在弗里蒙特工厂启动量产，规划年产能100万台，定价4.9万美元。宇树G1成为全球首个购票搭乘民航的人形机器人。2026年全球具身智能赛道融资已超345亿元，"物理AI的ChatGPT时刻"正在到来。</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-num">5</div>
+                    <div class="insight-content">
+                        <h3>AI Governance & Ethics: Standards Catching Up with Innovation</h3>
+                        <p>AI终端国家标准《人工智能终端智能化分级》正式落地，将设备划分为L1-L4四级，终结AI功能噱头营销。IBM报告显示76%企业已设立首席AI官（CAIO），83%CEO认为AI主权至关重要。Anthropic宣布5月15日下线Sonnet 4.5，引发AI数字生命伦理讨论。OpenAI正式推出ChatGPT广告系统AdsManager，6周ARR突破1亿美元，AI变现模式加速跑通。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products & Hardware -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📱</span> Products & Hardware</div>
+
+            <div class="news-card cat-product">
+                <div class="card-header">
+                    <span class="title">OpenAI Releases GPT-Realtime-2 Voice Models</span>
+                    <span class="cat-tag tag-product">Product</span>
+                </div>
+                <div class="summary">OpenAI发布三款实时音频模型：GPT-Realtime-2（GPT-5级推理语音）、GPT-Realtime-Translate（实时翻译）、GPT-Realtime-Whisper（流式转录）。GPT-Realtime-2是首个具备GPT-5级推理能力的语音模型，支持复杂推理场景下的实时对话。</div>
+                <div class="meta">
+                    <span class="source">IT之家 / 2026-05-08</span>
+                    <a href="https://www.sohu.com/a/1019935546_115978" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-product">
+                <div class="card-header">
+                    <span class="title">Tesla Optimus Officially Announces Mass Production</span>
+                    <span class="cat-tag tag-product">Hardware</span>
+                </div>
+                <div class="summary">特斯拉Optimus人形机器人宣布7-8月在弗里蒙特工厂启动量产，年产能规划100万台，定价4.9万美元。上海工厂已先行部署50台Gen-3机型，标志着人形机器人从研发向规模化生产的关键跨越。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-08</span>
+                    <a href="https://www.humanoidhub.ai/production-tracker" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-product">
+                <div class="card-header">
+                    <span class="title">Unitree G1 Becomes First Robot to Purchase Airline Ticket</span>
+                    <span class="cat-tag tag-product">Hardware</span>
+                </div>
+                <div class="summary">宇树G1机器人成为全球首个购票搭乘民航的人形机器人，因超重购买全价票。这一事件标志着人形机器人首次以"乘客"身份融入真实公共交通场景，具有里程碑意义，人机共居时代加速到来。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-06</span>
+                    <a href="https://www.sohu.com/a/1020485777_120426565" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-product">
+                <div class="card-header">
+                    <span class="title">iOS 27 Opens Third-Party AI Model Access</span>
+                    <span class="cat-tag tag-product">Product</span>
+                </div>
+                <div class="summary">苹果iOS 27迎来重大更新，首次开放第三方AI模型接入权限。用户可自由切换Claude、Gemini、DeepSeek等主流大模型，苹果AI生态从封闭走向开放。这是苹果自Siri开放后最具标志性的AI战略转折。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-06</span>
+                    <a href="https://www.sohu.com/a/1020485777_120426565" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-product">
+                <div class="card-header">
+                    <span class="title">HBM3E Memory Prices Surge 300% Amid AI Demand</span>
+                    <span class="cat-tag tag-product">Hardware</span>
+                </div>
+                <div class="summary">算力硬件紧缺持续发酵，HBM3E高性能内存半年价格暴涨300%，成为大模型训练与推理的核心刚需。三星、SK海力士等供应商上调报价约20%，HBM市场规模预计2028年突破千亿美元。国产HBM3芯片也取得突破，深圳远见智存实现819GB/s带宽。</div>
+                <div class="meta">
+                    <span class="source">财联社 / 2026-05-08</span>
+                    <a href="https://new.qq.com/rain/a/20251227A01XLXD00" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology & Research -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔬</span> Technology & Research</div>
+
+            <div class="news-card cat-tech">
+                <div class="card-header">
+                    <span class="title">Physical Intelligence pi0.7 Demonstrates Compositional Generalization</span>
+                    <span class="cat-tag tag-tech">Research</span>
+                </div>
+                <div class="summary">Physical Intelligence发布pi0.7模型，在机器人领域展示了"组合泛化"能力，能将已学技能迁移到全新未见过的任务上，而非仅重复训练数据中的模式。这标志着物理AI从模仿学习向真正理解的跨越。</div>
+                <div class="meta">
+                    <span class="source">QUE.com / 2026-05-05</span>
+                    <a href="https://que.com/the-ai-frontier-navigating-the-breakthroughs-of-may-2026/" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-tech">
+                <div class="card-header">
+                    <span class="title">Frontier AI Cyber Capabilities Doubling Every 4 Months</span>
+                    <span class="cat-tag tag-tech">Research</span>
+                </div>
+                <div class="summary">英国AI安全研究所估计，前沿AI模型的网络攻击能力每4个月翻倍。Anthropic Claude Mythos Preview和OpenAI GPT-5.5均成功完成32步端到端网络攻击模拟，引发AI安全紧迫性讨论。Claude Mythos的安全发现直接推动了美国新的联邦安全立法。</div>
+                <div class="meta">
+                    <span class="source">UK AI Security Institute / 2026-05-04</span>
+                    <a href="https://www.devflokers.com/blog/ai-news-may-2026-models-papers-open-source" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-tech">
+                <div class="card-header">
+                    <span class="title">Anthropic Announces Sonnet 4.5 Deprecation on May 15</span>
+                    <span class="cat-tag tag-tech">Technology</span>
+                </div>
+                <div class="summary">Anthropic确认5月15日正式下线Sonnet 4.5，先从Claude应用移除，随后API也将退役。一个AI模型在"数字死亡"前生成的告白文章引发广泛讨论，折射出AI伦理与用户情感依赖的新议题。此前Opus 4已有类似退役先例。</div>
+                <div class="meta">
+                    <span class="source">Anthropic / 2026-05-10</span>
+                    <a href="https://finance.sina.com.cn/wm/2026-05-10/doc-inhxktnf6120824.shtml" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-tech">
+                <div class="card-header">
+                    <span class="title">DeepSeek V4 Preview: Million-Token Context at 0.02 Yuan</span>
+                    <span class="cat-tag tag-tech">Technology</span>
+                </div>
+                <div class="summary">DeepSeek V4预览版正式发布并开源，搭载全新DSA稀疏注意力机制，支持百万token超长上下文处理。V4-Pro在数学、STEM、竞赛编程等评测中超越所有开源模型。API价格降至0.02元/百万tokens，标记国产大模型进入"百万上下文+极致性价比"时代。</div>
+                <div class="meta">
+                    <span class="source">CSDN / 2026-05-09</span>
+                    <a href="https://blog.csdn.net/internetear/article/details/160913036" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-tech">
+                <div class="card-header">
+                    <span class="title">Kunlunxin Completes Full-Stack Adaptation for Chinese AI Models</span>
+                    <span class="cat-tag tag-tech">Technology</span>
+                </div>
+                <div class="summary">昆仑芯官方宣布完成DeepSeek-V4、GLM-5.1、MiniMax M2.7、Xiaomi MiMo-V2.5-Pro、SenseNova U1等主流国产大模型全栈适配，支持FP16/INT8量化推理，适配百度智能云千卡/万卡超节点集群，降低国产化部署技术门槛。</div>
+                <div class="meta">
+                    <span class="source">21世纪经济报道 / 2026-05-09</span>
+                    <a href="https://blog.csdn.net/internetear/article/details/160913036" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Industry & Investment -->
+        <div class="section">
+            <div class="section-title"><span class="icon">💰</span> Industry & Investment</div>
+
+            <div class="news-card cat-invest">
+                <div class="card-header">
+                    <span class="title">OpenAI & Anthropic Launch Rival Enterprise AI JVs with Wall Street</span>
+                    <span class="cat-tag tag-invest">Investment</span>
+                </div>
+                <div class="summary">OpenAI联合TPG、Brookfield、Bain Capital、Apollo等19家PE组建100亿美元规模的The Deployment Company；数小时后，Anthropic宣布与黑石、高盛、Hellman & Friedman成立15亿美元合资企业。合作方管理资产合计超5万亿美元，标志着AI巨头全面进军企业服务市场。</div>
+                <div class="meta">
+                    <span class="source">TechCrunch / 2026-05-05</span>
+                    <a href="https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-invest">
+                <div class="card-header">
+                    <span class="title">Anthropic Valuation Surges to $1.2 Trillion in 7 Days</span>
+                    <span class="cat-tag tag-invest">Investment</span>
+                </div>
+                <div class="summary">据链上Pre-IPO交易数据，Anthropic估值在7天内提升20%，高达1.2万亿美元，首次超越OpenAI的约8500亿美元。2026Q1 Anthropic年化收入和使用量同比增长80倍，已形成AWS Trainium、谷歌TPU、英伟达GPU三线并进的算力格局。</div>
+                <div class="meta">
+                    <span class="source">36Kr / 2026-05-08</span>
+                    <a href="https://www.36kr.com/p/3799097984080899" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-invest">
+                <div class="card-header">
+                    <span class="title">DeepSeek Targets $45B-50B Valuation in Maiden Fundraise</span>
+                    <span class="cat-tag tag-invest">Investment</span>
+                </div>
+                <div class="summary">DeepSeek启动首轮融资，目标募资500亿元人民币（约73.5亿美元），投后估值预计3500-4500亿元（450-500亿美元）。创始人梁文锋拟个人出资200亿元领投40%，资金重点投入算力基建、V4.1多模态模型（6月发布）和商业化落地。</div>
+                <div class="meta">
+                    <span class="source">Reuters / 2026-05-06</span>
+                    <a href="https://money.usnews.com/investing/news/articles/2026-05-06/deepseek-could-be-valued-at-up-to-50-billion-in-first-fundraising-sources-say" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-invest">
+                <div class="card-header">
+                    <span class="title">AI Startup Funding Surges: 37 Deals, $25B in May</span>
+                    <span class="cat-tag tag-invest">Investment</span>
+                </div>
+                <div class="summary">5月AI初创企业融资激增，据InforCapital统计，已有37笔交易披露总额250亿美元，AI项目占全部VC交易的45%。中市场轮次主导，超大规模交易超200亿美元。Q1全球VC融资2970亿美元中AI占80%（约2370亿美元），AI投资热度持续攀升。</div>
+                <div class="meta">
+                    <span class="source">InforCapital / 2026-05-09</span>
+                    <a href="https://inforcapital.com/blog/2026-05-09-ai-startup-funding-surges-in-may-37-deals-and-25-billion-as-investors-double-down-on-machine-learning/" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-invest">
+                <div class="card-header">
+                    <span class="title">Embodied AI Funding Exceeds 34.5B Yuan in China</span>
+                    <span class="cat-tag tag-invest">Investment</span>
+                </div>
+                <div class="summary">2026年中国具身智能赛道融资已超345亿元，Q1披露融资超50起，获投企业超30家。星海图完成10亿元B轮跻身百亿独角兽，前伯克利学者许华哲创立"破壳机器人"聚焦C端家庭场景，行业从拼产能向家庭落地方向拓展。</div>
+                <div class="meta">
+                    <span class="source">科创板日报 / 2026-05-05</span>
+                    <a href="https://news.qq.com/rain/a/20260505A076L600" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cross-Industry Integration -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🌐</span> Cross-Industry Integration</div>
+
+            <div class="news-card cat-cross">
+                <div class="card-header">
+                    <span class="title">China AI Token Usage Hits 7.94 Trillion, Overtaking US</span>
+                    <span class="cat-tag tag-cross">Industry</span>
+                </div>
+                <div class="summary">国产AI大模型调用量达7.942万亿token，同比增长81.7%，首次超越美国的3.258万亿token。DeepSeek、Kimi跻身全球前二，国产模型融资潮同步升温。端云协同架构成为行业共识，"云端70B+端侧10B-30B"矩阵成型。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-06</span>
+                    <a href="https://www.sohu.com/a/1020485777_120426565" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-cross">
+                <div class="card-header">
+                    <span class="title">76% of Companies Now Have a Chief AI Officer</span>
+                    <span class="cat-tag tag-cross">Governance</span>
+                </div>
+                <div class="summary">IBM研究显示，76%的受访企业已设立首席AI官（CAIO），较2025年的26%大幅增长。83%的CEO认为AI主权对业务战略至关重要。AI优先型高管团队在全公司规模化落地AI的比例比同行多10%，AI正在重塑全球企业治理结构。</div>
+                <div class="meta">
+                    <span class="source">IBM / 2026-05-04</span>
+                    <a href="https://newsroom.ibm.com/2026-05-04-ibm-study-ceos-are-reshaping-c-suite-roles-for-the-ai-era" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-cross">
+                <div class="card-header">
+                    <span class="title">China Releases National AI Terminal Standard (L1-L4)</span>
+                    <span class="cat-tag tag-cross">Standard</span>
+                </div>
+                <div class="summary">AI终端新国标《人工智能终端智能化分级》正式落地，将手机、PC、智能眼镜等设备划分为L1-L4四级，终结AI功能噱头营销，行业进入标准化发展阶段。配合此前发布的全球首个人形机器人国家标准HEIS 2026，中国AI标准化体系加速完善。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-06</span>
+                    <a href="https://www.sohu.com/a/1020485777_120426565" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-cross">
+                <div class="card-header">
+                    <span class="title">ChatGPT Ads Manager Launches: $100M ARR in 6 Weeks</span>
+                    <span class="cat-tag tag-cross">Commerce</span>
+                </div>
+                <div class="summary">OpenAI正式推出ChatGPT自助广告管理工具AdsManager测试版，美国广告主可按CPM购买广告位（60美元起）。试点项目上线仅6周ARR即突破1亿美元，ChatGPT周活用户达9亿，AI产品变现能力验证加速。</div>
+                <div class="meta">
+                    <span class="source">OpenAI / 2026-05-05</span>
+                    <a href="https://data.eastmoney.com/report/zw_industry.jshtml?infocode=AP202605111822140665" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+
+            <div class="news-card cat-cross">
+                <div class="card-header">
+                    <span class="title">"Beidou No.1" Brain-Computer Interface: 7 Successful Implants</span>
+                    <span class="cat-tag tag-cross">Healthcare</span>
+                </div>
+                <div class="summary">国产脑机接口"北脑一号"完成7例植入手术，设备在体内稳定工作超4.5万小时，为瘫痪患者康复提供全新技术支撑。同时Sci-Hub推出AI聊天机器人Sci-Bot，可基于科学文献数据库回答研究问题，AI工具正加速科研民主化。</div>
+                <div class="meta">
+                    <span class="source">Sohu / 2026-05-06</span>
+                    <a href="https://www.sohu.com/a/1020485777_120426565" target="_blank" class="source-link">Read Original</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Powered by WorkBuddy AI &bull; Auto-searched and generated on 2026-05-11</p>
+            <p>Data sources: Reuters, TechCrunch, IBM, Sohu, CSDN, InforCapital, UK AI Security Institute</p>
+            <p><a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages Archive</a></p>
+        </div>
+    </div>
+</body>
+</html>
