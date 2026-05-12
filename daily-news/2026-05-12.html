@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年5月12日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* 今日要点样式 */
+        .highlight {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 0 12px 12px 0;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+
+        .highlight h2 {
+            color: #1e3c72;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .highlight-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #764ba2;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-item h3 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 6px;
+        }
+
+        .highlight-item p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* 新闻卡片 */
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tag-product { background: #e3f2fd; color: #1565c0; }
+        .tag-tech { background: #f3e5f5; color: #7b1fa2; }
+        .tag-industry { background: #fff3e0; color: #e65100; }
+        .tag-cross { background: #e8f5e9; color: #2e7d32; }
+
+        .news-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #888;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .source-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .header { padding: 25px 20px; }
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            .section-title { font-size: 1.4em; }
+            .stats { gap: 15px; }
+        }
+
+        .powered-by {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 每日AI全球资讯简报</h1>
+            <div class="date">📅 2026年5月12日 · 星期二</div>
+            <div class="stats">
+                <div class="stat-item">📰 14条精选资讯</div>
+                <div class="stat-item">🌍 覆盖全球AI动态</div>
+                <div class="stat-item">⚡ 每日10:00更新</div>
+            </div>
+        </div>
+
+        <!-- 今日要点 -->
+        <div class="section">
+            <div class="highlight">
+                <h2>🔥 今日3大要点</h2>
+
+                <div class="highlight-item">
+                    <h3>1. 具身AI赛道爆发：Vbot融资7300万美元 + Meta收购人形机器人公司</h3>
+                    <p>中国具身AI初创公司Vbot完成约7300万美元Pre-A轮融资，东方财富资本、华泰紫金领投，500台机器狗已出货，6月月产能剑指2500台。Meta同期收购Assured Robot Intelligence，5万亿美元人形机器人市场争夺战全面开打。具身AI正从实验室加速走向商业化量产阶段。</p>
+                </div>
+
+                <div class="highlight-item">
+                    <h3>2. 三部门联合发文：智能体首次上升为国家战略</h3>
+                    <p>国家网信办、国家发展改革委、工信部5月8日联合发布《智能体规范应用与创新发展实施意见》，从技术探索升级为经济发展战略议题。涵盖4大举措、19个典型应用场景，基本原则为安全可控、规范有序、创新驱动、应用牵引。这是中国AI治理正式步入"标准化时代"的里程碑。</p>
+                </div>
+
+                <div class="highlight-item">
+                    <h3>3. 中国AI大模型融资狂潮：DeepSeek 500亿 + Kimi 136亿 + 阶跃星辰175亿</h3>
+                    <p>5月上旬中国AI大模型迎来史无前例的资本盛宴：DeepSeek首轮融资500亿元估值3500亿元（大基金领投），Kimi完成136亿元D轮融资创国内单笔最高纪录，阶跃星辰获近175亿元融资剑指港股IPO。三大头部企业合计融资超70亿美元，国家大基金首次入场标志着AI已被列为国家战略级赛道。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品与硬件 -->
+        <div class="section">
+            <div class="section-title">📱 产品与硬件</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国内</span>
+                <div class="news-title">百度文心大模型5.1发布：预训练成本骤降至同规模模型的6%</div>
+                <div class="news-desc">百度发布文心大模型5.1，采用"多维弹性预训练"技术，参数压缩至约1/3，预训练成本仅为同规模模型的6%。在LMArena搜索榜拿下全球第四、中国第一（1223分），首次超越GPT-5.1搜索能力。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://www.36kr.com/p/3799097625926917" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国内</span>
+                <div class="news-title">蚂蚁百灵发布Ring-2.6-1T：万亿级旗舰思考模型，专为AI Agent而生</div>
+                <div class="news-desc">蚂蚁百灵推出Ring-2.6-1T万亿级旗舰思考模型，专为AI Agent和工程开发场景设计，支持可调节推理强度。核心亮点在于长程推理与实时决策的平衡，已在内测场景中展现显著优势。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国内</span>
+                <div class="news-title">商汤SenseNova 6.7 Flash-Lite开源：轻量化多模态，推理Token消耗降低60%</div>
+                <div class="news-desc">商汤科技发布SenseNova 6.7 Flash-Lite轻量化多模态智能体，采用原生多模态架构，推理Token消耗降低60%。已同步开源办公技能组件，推动轻量化模型在端侧设备上的普及。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国际</span>
+                <div class="news-title">Perplexity Copilot全面升级：AI从研究助手迈向全栈YouTube制作团队</div>
+                <div class="news-desc">截至2026年5月，Perplexity、微软Copilot和ChatGPT的功能边界已大幅扩展。Perplexity已接入GPT-5.5实现自主计算机编排，用户只需提出主题，AI可自动完成从研究到视频内容生成的完整流程，AI与内容创作的壁垒正在消失。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://www.msn.com/en-us/news/other/may-2026-ai-update-how-perplexity-copilot-and-chatgpt-are-now-your-full-stack-youtube-production-team/gm-GM1432D2FF" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技术与研究 -->
+        <div class="section">
+            <div class="section-title">🔬 技术与研究</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国内</span>
+                <div class="news-title">全球首款人形机器人动作大模型发布：MotionMaster + UniAct全行业开源</div>
+                <div class="news-desc">湖北人形机器人创新中心联合北京大学发布全球首款人形机器人动作大模型，由MotionMaster（动作生成器）与UniAct（真机执行引擎）双模块构成，已全行业开源。该模型让人形机器人实现从"视觉感知"到"精准执行"的端到端控制，LIBERO基准全球第一。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国际</span>
+                <div class="news-title">OpenAI MRC协议发布：联合五大芯片厂推出多路径可靠连接协议，全行业开源</div>
+                <div class="news-desc">OpenAI联合AMD、博通、英特尔、微软、英伟达五大厂商发布多路径可靠连接（MRC）协议，基于RoCE+SRv6技术，全行业开源。该协议旨在标准化AI基础设施的网络通信标准，降低大规模AI集群的通信瓶颈。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国际</span>
+                <div class="news-title">SWE-Bench新难题：0%完成率，Claude/GPT/Gemini全灭</div>
+                <div class="news-desc">SWE-Bench作者推出全新评测基准ProgramBench，首次将问题推进至真实软件工程层面——仅给AI功能描述和文档，能否像真正工程师一样从零构建真实可执行系统（如ffmpeg、SQLite、ripgrep）。结果显示Claude、GPT、Gemini三大模型在ProgramBench上均获0%完成率，引发业界对AI编程能力天花板的重新审视。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://www.36kr.com/p/3798593895930888" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产业与投资 -->
+        <div class="section">
+            <div class="section-title">💰 产业与投资</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国内</span>
+                <div class="news-title">DeepSeek首轮融资500亿元：大基金领投，估值3500亿元冲刺IPO</div>
+                <div class="news-desc">DeepSeek正式启动首轮外部股权融资，目标500亿元人民币，创始人梁文锋个人出资200亿元（占本轮40%）。投后估值约3500亿元（约515亿美元），较4月初的100亿美元估值翻了超5倍。国家集成电路产业投资基金（大基金）领投，腾讯、阿里参与洽谈，加速推进IPO进程。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月7日</span>
+                    <a href="https://www.eet-china.com/mp/a493204.html" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国内</span>
+                <div class="news-title">Kimi完成136亿元D轮融资：创中国大模型单笔最高纪录，ARR超2亿美元</div>
+                <div class="news-desc">月之暗面（Kimi）5月7日官宣完成约136.22亿元D轮融资，创下中国大模型领域单笔融资最高纪录，投后估值突破200亿美元。中国移动、美团龙珠、CPE领投。Kimi年度经常性收入（ARR）已于4月超2亿美元，K2.5发布后全球付费用户增长4倍，K2.6拿下全球开源模型第一。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月7日</span>
+                    <a href="https://www.eet-china.com/mp/a493204.html" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国内</span>
+                <div class="news-title">Vbot具身AI融资7300万美元：500台机器狗已出货，6月月产能剑指2500台</div>
+                <div class="news-desc">中国具身AI初创公司Vbot完成约7300万美元Pre-A轮融资，东方财富资本、华泰紫金投资、复星锐正领投，SAIC Motor旗下上汽资本参投。公司成立于2024年底，首款商业产品机器狗已出货500台，目标6月月产能超2500台，并计划建设离线零售体验店，同步开发全尺寸人形机器人和AI世界模型。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月11日</span>
+                    <a href="https://theaiinsider.tech/2026/05/11/report-chinese-humanoid-robot-startup-vbot-raises-usd-73m-in-pre-a-funding/" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国际</span>
+                <div class="news-title">Meta收购人形机器人初创公司：Assured Robot Intelligence强化物理AI布局</div>
+                <div class="news-desc">Meta收购人形机器人初创公司Assured Robot Intelligence（ARI），以增强其Superintelligence Labs的AI模型在机器人领域的物理能力。ARI专注于通用移动和操控的AI世界模型，Meta借此正式进军5万亿美元人形机器人市场，与特斯拉Optimus、Figure AI等正面竞争。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月1-2日</span>
+                    <a href="https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国际</span>
+                <div class="news-title">5月AI融资热潮：37笔交易狂揽250亿美元，中美双线爆发</div>
+                <div class="news-desc">2026年5月AI融资持续火热：全月已披露82笔交易，其中AI相关37笔，合计融资250亿美元。AI相关交易占比45%，中位数融资规模约3000万美元，超亿美元交易6笔，超5亿美元3笔。中国Vbot、DeepSeek、Kimi，美国Lambda（10亿美元AI算力基础设施）等均获大额融资。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://inforcapital.com/blog/2026-05-09-ai-startup-funding-surges-in-may-37-deals-and-25-billion-as-investors-double-down-on-machine-learning/" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 跨界融合 -->
+        <div class="section">
+            <div class="section-title">🌐 跨界融合</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国内</span>
+                <div class="news-title">字节豆包月活3.45亿登顶国内第一，开启付费化：最高5088元/年</div>
+                <div class="news-desc">字节跳动豆包登顶国内AI原生APP第一，月活突破3.45亿。付费模式正式上线：标准版68元/月、加强版200元/月、专业版500元/月（最高5088元/年），涵盖PPT生成、数据分析、影视制作等复杂生产力场景。豆包日均Token消耗突破120万亿，两年增长超1000倍。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国际</span>
+                <div class="news-title">OpenAI向欧盟开放GPT-5.5-Cyber：Anthropic拒绝，AI监管竞争格局分化</div>
+                <div class="news-desc">OpenAI于5月11日宣布向欧盟开放其GPT-5.5-Cyber网络模型，允许欧盟企业、政府和机构使用，同时公布"OpenAI EU Cyber Action Plan"，支持欧洲公共安全。Anthropic的Mythos（约4月发布）则仍拒绝向欧盟提供预览访问，双方在监管合作态度上形成鲜明对比，或将成为欧盟AI法案执行中的重要变量。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月11日</span>
+                    <a href="https://www.cnbc.com/2026/05/11/openai-eu-cyber-model-anthropic-mythos-gpt.html" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国内</span>
+                <div class="news-title">Gartner预测2026全球IT支出6.31万亿美元：数据中心暴增55.8%，AI算力瓶颈从芯片转向电力</div>
+                <div class="news-desc">Gartner预测2026年全球IT支出达6.31万亿美元（同比+13.5%），其中数据中心支出增长55.8%超7880亿美元。国内日均Token调用量从2024年初1000亿增至2026年3月超140万亿，两年增长超千倍。黄仁勋预判：智能体算力需求将比生成式AI暴涨1000倍，产业瓶颈已从芯片转向电力供应。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国内</span>
+                <div class="news-title">腾讯云算力价格暴涨463%：智谱、阿里云、百度云全面跟进涨价</div>
+                <div class="news-desc">在Token调用量爆发式增长推动下，国内云厂商全面上调大模型API价格。腾讯云模型价格最高上调463%，智谱、阿里云、百度智能云先后跟进涨价。算力供给紧张与需求井喷形成剪刀差，推动AI基础设施进入"卖方市场"阶段。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://cloud.tencent.com/developer/article/2667498" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="powered-by">
+            由 <strong>WorkBuddy AI</strong> 自动搜索生成 · 2026-05-12 · 数据来源：36氪、IT之家、TechCrunch、CNBC、The AI Track等
+        </div>
+    </div>
+</body>
+</html>
