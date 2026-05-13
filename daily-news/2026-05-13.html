@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年5月13日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .section {
+            padding: 30px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+            border-left: 5px solid #667eea;
+            border-radius: 0 12px 12px 0;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+
+        .highlight h2 {
+            color: #1e3c72;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .highlight-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #764ba2;
+        }
+
+        .highlight-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-item h3 {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 6px;
+        }
+
+        .highlight-item p {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .news-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tag-product { background: #e3f2fd; color: #1565c0; }
+        .tag-tech { background: #f3e5f5; color: #7b1fa2; }
+        .tag-industry { background: #fff3e0; color: #e65100; }
+        .tag-cross { background: #e8f5e9; color: #2e7d32; }
+
+        .news-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #888;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .source-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .header { padding: 25px 20px; }
+            .header h1 { font-size: 1.8em; }
+            .section { padding: 20px; }
+            .section-title { font-size: 1.4em; }
+            .stats { gap: 15px; }
+        }
+
+        .powered-by {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 每日AI全球资讯简报</h1>
+            <div class="date">📅 2026年5月13日 · 星期三</div>
+            <div class="stats">
+                <div class="stat-item">📰 16条精选资讯</div>
+                <div class="stat-item">🌍 覆盖全球AI动态</div>
+                <div class="stat-item">⚡ 每日10:00更新</div>
+            </div>
+        </div>
+
+        <!-- 今日要点 -->
+        <div class="section">
+            <div class="highlight">
+                <h2>🔥 今日3大要点</h2>
+
+                <div class="highlight-item">
+                    <h3>1. AI基础设施军备竞赛升级：谷歌TPU Gen 8 + Thinking Machines微回合交互</h3>
+                    <p>谷歌发布第八代TPU，首次将训练(TPU 8t)与推理(TPU 8i)拆分为专用芯片，专为AI Agent时代设计。同期Thinking Machines推出"微回合"(Micro-Turn)实时交互架构，将对话从离散回合制升级为连续协作模式，标志着AI交互范式从"问答"向"协同"的根本性转变。</p>
+                </div>
+
+                <div class="highlight-item">
+                    <h3>2. NVIDIA 2026年豪掷400亿美元：300亿押注OpenAI，AI算力军火商地位稳固</h3>
+                    <p>NVIDIA 2026年已向AI公司投入超400亿美元股权资金，其中最大单笔（300亿美元）投向OpenAI，成为AI"军火商"核心角色。Anthropic估值达1.2万亿美元首超OpenAI，谷歌400亿美元锁定Anthropic，"两强对垒"(Anthropic vs OpenAI)格局正式形成。</p>
+                </div>
+
+                <div class="highlight-item">
+                    <h3>3. 企业AI落地加速：OpenAI 40亿合资 + Claude Code Agent View + Uber成本危机警示</h3>
+                    <p>OpenAI与TPG、贝恩等成立40亿美元合资公司"The Development Company"，150名前沿工程师入驻企业推动AI核心流程落地。Anthropic Claude Code推出"Agent View"可视化并行任务调度，编程从单线程对话升级为工程执行集群。Uber 4个月烧完全年AI预算(Claude Code)，暴露企业级AI成本治理真空。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品与硬件 -->
+        <div class="section">
+            <div class="section-title">📱 产品与硬件</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国际</span>
+                <div class="news-title">Claude Code"Agent View"发布：编程从单线程对话升级为可视化并行工程集群</div>
+                <div class="news-desc">Anthropic为Claude Code推出"Agent View"功能，实现可视化并行任务调度。开发者可同时监控多个AI Agent协同执行复杂工程任务，标志着AI编程工具从对话助手向完整工程执行平台的质的飞跃。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月13日</span>
+                    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank" class="source-link">AI内参</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国际</span>
+                <div class="news-title">OURA智能戒指估值110亿美元：AI可穿戴从健康追踪迈向职业体育</div>
+                <div class="news-desc">AI可穿戴公司OURA与美国公开赛(网球)达成深度合作，估值飙升至110亿美元。智能戒指从大众健康追踪器升级为职业运动性能工具和数据资产，标志着AI可穿戴设备正式进入高端专业市场。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月13日</span>
+                    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank" class="source-link">AI内参</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国内</span>
+                <div class="news-title">OpenBMB开源MiniCPM-V 4.6：1.3B参数端侧多模态，仅需6GB内存</div>
+                <div class="news-desc">OpenBMB(清华&模型超市)开源MiniCPM-V 4.6端侧多模态模型，LLM参数量仅1.3B，总体积约1.6GB。最低仅需6GB内存即可流畅运行，支持本地离线部署于iOS、Android和HarmonyOS NEXT，完整支持图像理解、OCR和视频理解。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月12日</span>
+                    <a href="https://github.com/OpenBMB/MiniCPM-V" target="_blank" class="source-link">GitHub</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-product">国内</span>
+                <div class="news-title">商汤办公小浣熊桌面版2.0：AI从桌面入口升级为执行助手</div>
+                <div class="news-desc">商汤科技升级办公小浣熊桌面版2.0，新增支持20+本地文件格式读取、一句话浏览器控制、全局快捷键、飞书/企微/钉钉集成、本地跨会话记忆和定时自动执行。Mac版首批内测免费，Windows版预计5月中下旬上线。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月12日</span>
+                    <a href="https://mp.weixin.qq.com/s/c25rG1tbuF8BDk0xu751PQ" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 技术与研究 -->
+        <div class="section">
+            <div class="section-title">🔬 技术与研究</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国际</span>
+                <div class="news-title">谷歌第八代TPU发布：史上首次拆分训练与推理，为Agent时代量身定制</div>
+                <div class="news-desc">谷歌在Cloud Next 2026大会上正式发布第八代TPU，拆分为训练专用TPU 8t和推理专用TPU 8i。TPU 8i针对Agent长时运行、多步推理场景优化，采用解耦设计大幅提升效率，为AI Agent提供专属硬件基础设施。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年4月22日</span>
+                    <a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/tpus-8t-8i-cloud-next/" target="_blank" class="source-link">Google Blog</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国际</span>
+                <div class="news-title">Thinking Machines推出"微回合"实时交互：AI对话从回合制进入连续协作时代</div>
+                <div class="news-desc">Thinking Machines(Mira Murati创业公司)发布"微回合"(Micro-Turn)实时交互架构，将多模态感知与推理原生集成。AI对话从离散"回合制"升级为连续协作模式，响应时间缩短至0.40秒，重新定义人机交互范式。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月13日</span>
+                    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank" class="source-link">AI内参</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国际</span>
+                <div class="news-title">软件价值从"订阅制"向"Skills"迁移：AI Agent正在重构SaaS底层逻辑</div>
+                <div class="news-desc">随着AI Agent自主调用后端服务，软件价值正从"界面订阅"向能否将业务逻辑封装为可靠"Skills"转移。企业开始按AI调用技能的可靠性付费，传统SaaS订阅模式面临根本性挑战，行业重构浪潮来袭。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月13日</span>
+                    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank" class="source-link">AI内参</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-tech">国内</span>
+                <div class="news-title">千问6.9.1与淘宝全面打通：AI购物从辅助搜索进入自主决策时代</div>
+                <div class="news-desc">阿里千问App升级至6.9.1，实现与淘宝的全面对接。用户可直接在千问内浏览、对比和购买商品，AI支持复杂条件筛选、模糊意图理解、场景化产品推荐，甚至可识别"智商税"产品理性劝退，实现全链路AI购物体验("Agentic Commerce")。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月12日</span>
+                    <a href="https://mp.weixin.qq.com/s/-2Il_yefQVnmdM0ZHC0nUg" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产业与投资 -->
+        <div class="section">
+            <div class="section-title">💰 产业与投资</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国际</span>
+                <div class="news-title">NVIDIA 2026年已投入400亿美元：300亿豪赌OpenAI，算力帝国地位稳固</div>
+                <div class="news-desc">NVIDIA 2026年已向AI公司承诺超400亿美元股权资金，最大单笔300亿美元投向OpenAI。NVIDIA一年内参与约24轮私人融资(2025年67轮)，AI"军火商"地位持续强化，同时也引发市场对算力垄断的担忧。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月11日</span>
+                    <a href="https://theaiinsider.tech/2026/05/11/nvidia-commits-over-40b-to-ai-equity-deals-in-2026-led-by-30b-openai-investment/" target="_blank" class="source-link">The AI Insider</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国际</span>
+                <div class="news-title">Anthropic估值1.2万亿美元首超OpenAI：谷歌400亿美元锁定，硅谷两强格局成型</div>
+                <div class="news-desc">Anthropic估值正式突破1.2万亿美元，首次超越OpenAI。谷歌最高400亿美元重仓锁定Anthropic，彻底终结AI"御三家"时代。ASIC(Goggle)与GPU(NVIDIA)算力路线底层暗战，集齐四大云厂商的Anthropic成为最大受益者。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://www.36kr.com/p/3799097984080899" target="_blank" class="source-link">36氪</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国际</span>
+                <div class="news-title">OpenAI 40亿美元成立"The Development Company"：150名工程师驻场企业核心流程</div>
+                <div class="news-desc">OpenAI与TPG、贝恩资本等成立40亿美元合资企业"The Development Company"，收购英国AI咨询公司Tomoro，150名前沿部署工程师入驻企业，帮助将AI嵌入销售、法务等核心业务流程，并同步推出Daybreak网络安全工具集成GPT-5.5和Codex Security。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月12日</span>
+                    <a href="https://mp.weixin.qq.com/s/0NL2sdsv9Ge3MzotCOTUgQ" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-industry">国内</span>
+                <div class="news-title">码上飞全面升级：从"做APP"进化为一站式AI做生意平台</div>
+                <div class="news-desc">CodeFlying码上飞宣布重大升级，一句话中文即可生成微信小程序、APP和网站。新版为每个应用自动分配专属AI员工负责内容创作、客服回复和数据分析，并自动生成管理后台用于订单和经营数据管理，全面AI化运营。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月12日</span>
+                    <a href="https://mp.weixin.qq.com/s/ge52GqAlLzPA2IxEn-9UWA" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 跨界融合 -->
+        <div class="section">
+            <div class="section-title">🌐 跨界融合</div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国际</span>
+                <div class="news-title">Uber 4个月烧完全年AI预算：Claude Code企业级成本治理危机警示</div>
+                <div class="news-desc">Uber在2026年12月全员推广Claude Code后，4个月内烧完全年AI编程预算。95%工程师每月使用AI工具，人均API成本500-2000美元。暴露"无限使用"政策下企业级AI成本失控问题，为所有部署AI编程工具的企业敲响警钟。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月</span>
+                    <a href="https://chuhaidev.com/articles/uber-ai-budget-claude-code-2026" target="_blank" class="source-link">原文链接</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国际</span>
+                <div class="news-title">"复古技术"成为AI Agent新宠：CLI/HTML等轻量化协议正在回归</div>
+                <div class="news-desc">开发者社区正在掀起一股"复古技术"潮流——采用CLI、HTML等轻量化"复古"技术来提升AI Agent执行效率。剥离沉重的现代软件抽象层，转向更确定性的一手协议，优化AI Agent的任务执行速度和可靠性。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月13日</span>
+                    <a href="https://www.neican.ai/morningnews/2026-05-13-ai-2026-05-13-/" target="_blank" class="source-link">AI内参</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国内</span>
+                <div class="news-title">2026世界数字教育大会杭州开幕：82国参与，首提"超越AI思维能力培养"</div>
+                <div class="news-desc">2026世界数字教育大会5月11-13日在杭州举办，教育部与浙江省政府联合主办。82个国家和地区参与(从72个扩展)，首次将"超越人工智能的思维能力培养"纳入指数研究，深化"AI+教育"洞察。发布《中国智慧教育发展报告》等8项成果。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月11-13日</span>
+                    <a href="https://news.youth.cn/jsxw/202605/t20260507_16646277.htm" target="_blank" class="source-link">中国青年报</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <span class="news-tag tag-cross">国内</span>
+                <div class="news-title">人工智能终端系列国家标准发布：手机/眼镜/耳机等7大品类有标可依</div>
+                <div class="news-desc">中国发布人工智能终端系列国家标准，明确智能化概念、等级划分和测试方法。首批涵盖手机、电脑、电视、眼镜、汽车座舱、音箱、耳机7大品类。智能眼镜作为新兴品类获专项规范，为AI终端行业规范化发展奠定基础。</div>
+                <div class="news-meta">
+                    <span>🕐 2026年5月8日</span>
+                    <a href="https://www.chinanews.com.cn/cj/2026/05-08/10617706.shtml" target="_blank" class="source-link">中国新闻网</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 未来关注 -->
+        <div class="section">
+            <div class="highlight" style="border-left-color: #ff9800;">
+                <h2>👀 未来关注</h2>
+                <div class="highlight-item" style="border-left-color: #ff9800;">
+                    <h3>Google I/O 2026（5月19-20日）：Gemini大幅升级 + Android XR</h3>
+                    <p>谷歌年度开发者大会I/O 2026将于5月19-20日举行，预期发布更强Gemini模型更新、展示Android XR智慧眼镜、全新Aluminum OS操作系统，并将Gemini AI深度嵌入ChromeOS。距今仅剩6天，敬请关注。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📊 数据来源：AI内参、36氪、IT之家、The AI Insider、新浪科技等</p>
+            <p>🔗 GitHub Pages: <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">https://kenny378178-ai.github.io/ai-daily-news/</a></p>
+        </div>
+
+        <div class="powered-by">
+            <strong>WorkBuddy AI</strong> 每日自动生成 · 2026年5月13日
+        </div>
+    </div>
+</body>
+</html>
