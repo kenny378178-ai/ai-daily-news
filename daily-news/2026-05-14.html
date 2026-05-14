@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年5月14日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .date {
+            font-size: 16px;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .summary-section {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: #fff;
+            padding: 25px 30px;
+            margin: 25px 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(238,90,36,0.3);
+        }
+
+        .summary-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-content {
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .summary-content p {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            padding: 20px 25px;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 18px;
+            padding-left: 14px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 14px;
+            border: 1px solid #e8ecf1;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.15);
+            border-color: #667eea;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 650;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            padding-left: 12px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            padding-left: 12px;
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 8px;
+            margin-left: 12px;
+            font-size: 13px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .tag-product { background: #e8f5e9; color: #2e7d32; }
+        .tag-tech { background: #e3f2fd; color: #1565c0; }
+        .tag-invest { background: #fff3e0; color: #e65100; }
+        .tag-cross { background: #fce4ec; color: #c62828; }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 12px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fb;
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .highlight-num {
+            color: #ffd700;
+            font-weight: 800;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header { padding: 30px 20px; }
+            .header h1 { font-size: 22px; }
+            .section { padding: 15px 16px; }
+            .card { padding: 14px 16px; }
+            .summary-section { margin: 15px 12px; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🌍 每日AI全球资讯简报</h1>
+        <div class="date">2026年5月14日（周三）| 覆盖 5/12-5/14</div>
+        <div class="badge">🔥 本期精选 15 条 | AI安全军备竞赛全面升级</div>
+    </div>
+
+    <!-- 今日要点 -->
+    <div class="summary-section">
+        <div class="summary-title">⚡ 今日三大核心要点</div>
+        <div class="summary-content">
+<p><strong>1. Cerebras创AI芯片史上最大IPO：定价$185超预期，募资55.5亿美元，估值564亿。</strong>AI算力独角兽Cerebras Systems以远超预期区间的$185/股完成IPO（原区间$150-160），发行3000万股募资55.5亿美元，完全稀释估值达564亿美元，成为2026年迄今最大规模的科技IPO。华尔街普遍看好其晶圆级AI芯片在推理市场的爆发潜力。与此同时，特斯拉被曝正考虑将下一代AI6.5芯片代工从台积电转向英特尔，芯片供应链地缘博弈加剧。</p>
+<p><strong>2. OpenAI发布Daybreak网络安全计划，Anthropic Mythos首破AISI双靶场。</strong>OpenAI推出Daybreak项目整合GPT-5.5-Cyber安全模型入日常开发流程，已帮助修复超3000个漏洞；另一边，英国AISI确认Claude Mythos Preview成为首个完成两个端到端网络攻击靶场的AI模型（GPT-5.5仅完成一个）。AI攻防军备竞赛进入全新阶段：OpenAI主攻防御工具化，Anthropic则在攻防基准上持续领先。</p>
+<p><strong>3. 微软正洽谈收购LLM初创Inception，OpenAI与微软修订380亿美元收益分成上限。</strong>微软正寻求收购斯坦福团队创立的LLM开发商Inception（估值超10亿美元），同时与OpenAI将收益分成上限从1350亿压缩至380亿美元，预计为OpenAI节省约970亿美元。叠加此前GitLab宣布以AI为由大规模裁员重组（"软件由机器构建、人类指导"），企业级AI战略正从实验走向全面重构。</p>
+        </div>
+    </div>
+
+    <!-- 产品与硬件 -->
+    <div class="section">
+        <div class="section-title">📱 产品与硬件（新模型 / 产品 / 设备）</div>
+
+        <div class="card">
+            <div class="card-title">Cerebras IPO定价$185超预期：募资55.5亿美元，估值564亿创今年之最
+                <span class="tag tag-product">芯片</span></div>
+            <div class="card-desc">AI算力芯片公司Cerebras Systems公布IPO定价为每股$185，远超此前预期的$150-160区间。公司发行3000万股A类普通股，募资55.5亿美元，完全稀释估值达564亿美元。华尔街预计其晶圆级WSE-3芯片将在AI推理市场获得爆发式增长，多家机构给予"跑赢大盘"评级。这是2026年迄今规模最大的科技IPO。</div>
+            <a href="https://www.cnbc.com/2026/05/13/cerebras-prices-ipo-above-expected-range-wall-street-expects-ai-flood.html" target="_blank" class="card-link">🔗 CNBC报道</a>
+            <a href="https://money.usnews.com/investing/news/articles/2026-05-13/cerebras-prices-ipo-at-185-per-share-to-raise-5-55-billion-sources-say" target="_blank" class="card-link">🔗 US News</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Claude Code推出Agent View：一个屏幕调度多个AI编程会话
+                <span class="tag tag-product">产品</span></div>
+            <div class="card-desc">Anthropic为Claude Code上线"Agent View"功能，支持在总览界面以行级颗粒度展示所有AI会话状态（等待回复/运行中/已完成），可直接在列表中"插话"继续推进任务。新增<code>/bg</code>指令支持后台运行。已面向Claude Pro、Max、Team、Enterprise及API用户全面开放，标志着AI编程工具从单线程交互迈向多任务并行"矩阵管理"时代。</div>
+            <a href="https://claude.com/blog/agent-view-in-claude-code" target="_blank" class="card-link">🔗 Anthropic官方博客</a>
+            <a href="https://news.qq.com/rain/a/20260512A05QBQ00" target="_blank" class="card-link">🔗 智东西报道</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">宇树科技发布全球首款量产载人变形机甲GD01，390万元起
+                <span class="tag tag-product">机器人</span></div>
+            <div class="card-desc">宇树科技正式发布全球首款量产版载人变形机甲GD01，起售价390万元人民币。支持双足直立行走与四足行进两种模式无缝切换，载人后总重约500kg，实测能击倒砖墙。CEO王兴兴亲自驾驶演示。被行业视为迈向"现实版高达"的重要里程碑，引发军民用场景的广泛讨论。</div>
+            <a href="https://auto.gasgoo.com/news/202605/12I70457449C601.shtml" target="_blank" class="card-link">🔗 盖世汽车</a>
+            <a href="https://zhuanlan.zhihu.com/p/2037572909045118365" target="_blank" class="card-link">🔗 知乎热议</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Notion推出AI Agent开发者平台：工作空间变身智能体中枢
+                <span class="tag tag-product">产品</span></div>
+            <div class="card-desc">Notion发布全新开发者平台，允许团队将AI Agent、外部数据源和自定义代码直接接入Notion工作空间。这是Notion向"Agentic生产力软件"深水区迈进的关键一步，开发者可构建自动化工作流、自定义AI助手，并将其嵌入文档、数据库和项目管理系统。Notion正从笔记工具进化为企业AI协作操作系统。</div>
+            <a href="https://techcrunch.com/2026/05/13/notion-just-turned-its-workspace-into-a-hub-for-ai-agents/" target="_blank" class="card-link">🔗 TechCrunch</a>
+        </div>
+    </div>
+
+    <!-- 技术与研究 -->
+    <div class="section">
+        <div class="section-title">🔬 技术与研究（算法 / 论文 / 开源）</div>
+
+        <div class="card">
+            <div class="card-title">OpenAI推出Daybreak计划：GPT-5.5-Cyber自动发现高风险漏洞
+                <span class="tag tag-tech">安全</span></div>
+            <div class="card-desc">OpenAI正式推出Daybreak网络安全计划，基于GPT-5.5-Cyber安全模型和Codex Security AI智能体构建，将安全检查整合进日常代码开发流程。推出三种专用模型：GPT-5.5、GPT-5.5 Trusted Access for Cyber和GPT-5.5-Cyber，已帮助修复超过3000个漏洞。苹果、微软、谷歌和亚马逊已采用Anthropic的Glasswing项目，网络安全AI工具市场竞争白热化。</div>
+            <a href="https://www.ithome.com/0/949/054.htm" target="_blank" class="card-link">🔗 IT之家</a>
+            <a href="https://zhuanlan.zhihu.com/p/2037432581608756722" target="_blank" class="card-link">🔗 知乎详细解读</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Claude Mythos Preview首破AISI双靶场：GPT-5.5仅完成一个
+                <span class="tag tag-tech">安全</span></div>
+            <div class="card-desc">英国AI安全研究所（AISI）确认，Anthropic的Claude Mythos Preview成为首个完成AISI两个端到端网络攻击靶场的AI模型。其中一个靶场为32步企业网络攻击模拟场景，人类专家约需20小时完成。作为对比，OpenAI的GPT-5.5仅成功完成其中一个靶场。此项结果进一步加剧了AI安全能力评估的紧迫性。</div>
+            <a href="https://blockchain.news/ainews/claude-mythos-preview-conquers-aisi-cyber-ranges" target="_blank" class="card-link">🔗 Blockchain News</a>
+            <a href="https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities" target="_blank" class="card-link">🔗 AISI官方评估报告</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Anthropic恢复OpenClaw等第三方Agent使用，6月15日起实行积分制
+                <span class="tag tag-tech">技术</span></div>
+            <div class="card-desc">Anthropic宣布自6月15日起，Claude Pro/Max订阅用户将获得独立的Agent SDK积分额度，可用于编程调用第三方Agent（如OpenClaw、Claude Code等），不再占用日常对话限额。这是Anthropic对4月初全面禁令的大幅反转，但在"交互"与"编程"之间建立了明确的计费边界。VentureBeat称此举为"开发者社区的及时纠偏"。</div>
+            <a href="https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan" target="_blank" class="card-link">🔗 Anthropic官方说明</a>
+            <a href="https://venturebeat.com/technology/anthropic-reinstates-openclaw-and-third-party-agent-usage-on-claude-subscriptions-with-a-catch/" target="_blank" class="card-link">🔗 VentureBeat</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">AMD发布vLLM-ATOM插件：国产大模型在AMD GPU上推理提升30-35%
+                <span class="tag tag-tech">开源</span></div>
+            <div class="card-desc">AMD推出vLLM-ATOM插件，在不改变现有vLLM命令、API和工作流的前提下，通过低比特量化技术显著优化DeepSeek-R1、Kimi-K2等国产大模型在AMD Instinct系列GPU上的推理性能。实测显示吞吐量提升30%-35%、延迟降低22%-28%，大幅降低国产大模型厂商从英伟达向AMD迁移的技术门槛。</div>
+            <a href="https://www.ithome.com/0/949/168.htm" target="_blank" class="card-link">🔗 IT之家</a>
+            <a href="https://www.tmtpost.com/agent/ai-article/16035" target="_blank" class="card-link">🔗 钛媒体</a>
+        </div>
+    </div>
+
+    <!-- 产业与投资 -->
+    <div class="section">
+        <div class="section-title">💰 产业与投资（融资 / 并购 / 政策）</div>
+
+        <div class="card">
+            <div class="card-title">微软正洽谈收购LLM初创Inception，估值超10亿美元
+                <span class="tag tag-invest">并购</span></div>
+            <div class="card-desc">微软正与斯坦福团队创立的LLM开发商Inception洽谈收购事宜，Inception寻求超10亿美元估值。SpaceX此前也曾接洽该公司。微软此举被视为降低对OpenAI依赖、推动内部AI模型研发的关键布局。今年春天微软还曾考虑收购代码生成工具Cursor，但因其与GitHub Copilot的竞品关系而搁置。</div>
+            <a href="https://money.usnews.com/investing/news/articles/2026-05-13/exclusive-microsoft-eyeing-startup-deals-for-life-after-openai" target="_blank" class="card-link">🔗 US News独家</a>
+            <a href="https://www.gate.com/zh/news/detail/microsoft-seeks-ai-startups-to-break-openai-reliance-eyes-inception-talks-21086040" target="_blank" class="card-link">🔗 Gate.io深度分析</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">OpenAI与微软修订协议：收益分成上限从1350亿降至380亿美元
+                <span class="tag tag-invest">投资</span></div>
+            <div class="card-desc">据The Information报道，OpenAI与微软达成新协议，将双方总收益分成款项上限从1350亿美元大幅压缩至380亿美元。该调整预计到2030年为OpenAI节省约970亿美元，为其上市铺平道路。OpenAI将继续借助Azure算力支持，但可将更多资源投入前沿AI研发。这笔交易被视作微软与OpenAI复杂关系的重要"解绑"信号。</div>
+            <a href="https://www.outlookbusiness.com/corporate/openai-microsoft-deal-gets-38-bn-revenue-cap-amid-ipo-talks" target="_blank" class="card-link">🔗 Outlook Business</a>
+            <a href="https://aiproducthub.cn/newsflash/openai-microsoft-38-billion-revenue-sharing-cap/" target="_blank" class="card-link">🔗 AI产品观察</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">快手拟分拆可灵AI独立融资：估值200亿美元，ARR达5亿
+                <span class="tag tag-invest">融资</span></div>
+            <div class="card-desc">快手计划分拆旗下视频生成大模型业务"可灵AI"（Kling），以约200亿美元估值启动Pre-IPO轮融资，拟融资20亿美元，正与腾讯等投资方洽谈。可灵当前年化收入（ARR）已达5亿美元，较春节前翻倍。若交易完成，可灵将成为全球估值最高的视频生成大模型独立产品。快手整体港股市值约290亿美元，可灵单业务估值已达母公司近70%。</div>
+            <a href="https://view.inews.qq.com/a/20260511A08OTZ00" target="_blank" class="card-link">🔗 晚点LatePost独家</a>
+            <a href="https://finance.sina.com.cn/stock/aigcy/2026-05-12/doc-inhxqzkr8454072.shtml" target="_blank" class="card-link">🔗 新浪深度分析</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">GitLab宣布"Act 2"大重组：以AI为由裁减30%国家团队
+                <span class="tag tag-invest">产业</span></div>
+            <div class="card-desc">代码托管平台GitLab宣布代号为"Act 2"的大规模重组计划：将业务所在国家数量最多削减30%（从近60国缩减），部分职能部门精简最多三层管理层级，研发部门拆分为约60个更小、更高权限的团队。CEO Bill Staples表示"未来软件由机器构建、人类指导"。消息公布后股价盘后下跌8.2%。</div>
+            <a href="https://blog.csdn.net/techforward/article/details/161023414" target="_blank" class="card-link">🔗 CSDN详细解读</a>
+            <a href="https://www.edgen.tech/zh/news/post/gitlab-restructures-for-ai-era-reinvesting-savings-from-cuts" target="_blank" class="card-link">🔗 Edgen.tech</a>
+        </div>
+    </div>
+
+    <!-- 跨界融合 -->
+    <div class="section">
+        <div class="section-title">🌐 跨界融合（AI × 其他行业）</div>
+
+        <div class="card">
+            <div class="card-title">谷歌与SpaceX洽谈在轨数据中心：太空AI算力的"疯狂想法"
+                <span class="tag tag-cross">航天</span></div>
+            <div class="card-desc">谷歌Project Suncatcher正与SpaceX及多家企业就在轨数据中心展开初步洽谈。星链网络已部署超5000颗低轨卫星，传输延迟约25-35毫秒（低于光纤的140毫秒）。近地轨道的天然低温环境可大幅降低冷却能耗，但载荷有限、太空辐射防护和在轨维护成本等仍是巨大挑战。这标志着AI算力需求已推动基础设施设想突破地球边界。</div>
+            <a href="https://techcrunch.com/2026/05/12/report-google-and-spacex-in-talks-to-put-data-centers-into-orbit/" target="_blank" class="card-link">🔗 TechCrunch</a>
+            <a href="https://money.usnews.com/investing/news/articles/2026-05-12/google-spacex-in-talks-to-explore-data-centers-in-orbit-wsj-reports" target="_blank" class="card-link">🔗 WSJ/US News</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Waymo召回3791辆无人车：自动驾驶最大规模召回
+                <span class="tag tag-cross">自动驾驶</span></div>
+            <div class="card-desc">Waymo向美国NHTSA提交自愿召回，覆盖3791辆搭载第五代和第六代系统的自动驾驶车辆（占车队54%）。起因为一辆无人车在圣安东尼奥识别到不可通行积水路面后仍降速驶入。将通过OTA远程软件更新修复，无需实体召回。这是2021年以来自动驾驶领域最大规模召回，Waymo目前在美国十余个城市运营。</div>
+            <a href="https://electrek.co/2026/05/12/waymo-recalls-3791-robotaxis-flooded-road-ota-software-fix/" target="_blank" class="card-link">🔗 Electrek</a>
+            <a href="https://techcrunch.com/2026/05/12/waymo-issues-recall-to-deal-with-a-flooding-problem/" target="_blank" class="card-link">🔗 TechCrunch</a>
+        </div>
+
+        <div class="card">
+            <div class="card-title">中央网信办发布短视频标注新规：AI生成内容必须打标签
+                <span class="tag tag-cross">政策</span></div>
+            <div class="card-desc">中央网信办部署指导网站平台规范短视频内容标注，明确发布者上传视频时必须从六类必选标签（包括"含有AI生成内容"和"含有虚构演绎内容"等）中选择其一，否则无法完成发布。新规还要求平台对存量视频进行回溯补标。今年1月以来已查处超52万个违规视频及6.8万个违规账号。</div>
+            <a href="https://news.cctv.com/2026/05/12/ARTILwWrbjnWICzUIj8VTHqS260512.shtml" target="_blank" class="card-link">🔗 央视网</a>
+            <a href="https://www.cac.gov.cn/2026-05/12/c_1780328273038196.htm" target="_blank" class="card-link">🔗 网信办原文</a>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <p>📡 AI每日全球资讯简报 | 2026年5月14日（周三）</p>
+        <p>数据来源：CNBC / TechCrunch / The Information / AITOP100 / IT之家 / 晚点LatePost / 新浪财经 / 钛媒体 / AISI / Anthropic 等</p>
+        <p style="margin-top:8px;">⚠️ 本简报由AI自动生成，内容仅供参考 | <a href="https://kenny378178-ai.github.io/ai-daily-news/">GitHub Pages存档</a></p>
+    </div>
+</div>
+</body>
+</html>
