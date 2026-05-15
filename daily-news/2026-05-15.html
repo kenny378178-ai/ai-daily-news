@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI全球资讯简报 - 2026年5月15日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header .date {
+            font-size: 14px;
+            letter-spacing: 3px;
+            opacity: 0.85;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .highlights {
+            padding: 30px;
+            background: #f8f5ff;
+        }
+
+        .highlights h2 {
+            font-size: 18px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #764ba2;
+        }
+
+        .highlight-card h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .highlight-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .highlight-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .section-title.product .icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .section-title.tech .icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .section-title.industry .icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .section-title.cross .icon { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 12px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .news-card h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .news-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .news-card .source {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .news-card .source a {
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .news-card .source a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #f8f5ff;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer .footer-links a {
+            font-size: 13px;
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        .footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .count-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="date">2026年5月15日 星期四</div>
+            <h1>每日AI全球资讯简报</h1>
+            <div class="subtitle">全球AI资讯精选 | 每日10:00更新</div>
+        </div>
+
+        <div class="highlights">
+            <h2>&#9733; 今日三大要点</h2>
+
+            <div class="highlight-card">
+                <span class="highlight-tag">重磅发布</span>
+                <h3>谷歌I/O 2026进入倒计时，Gemini Omni即将登场</h3>
+                <p>谷歌年度开发者大会将于5月19-20日举行，Gemini Omni已在前夕泄露完整信息。据悉这是谷歌首个真正原生多模态大模型，具备图像、视频、音频、代码的深度理解能力。业界认为这将是Gemini系列真正意义上追赶GPT-5的关键一步，也是谷歌向投资者证明AI商业化能力的关键节点。</p>
+            </div>
+
+            <div class="highlight-card">
+                <span class="highlight-tag">产品升级</span>
+                <h3>MiniMax更名Mavis并推出Agent Teams，AI智能体协作时代开启</h3>
+                <p>MiniMax于5月13日宣布旗下Agent产品全面升级更名为Mavis，核心功能Agent Teams支持多角色AI智能体并行协作，解决单一Agent功能分散、成本偏高的痛点。同日Anthropic宣布Claude Code额度提升50%，OpenAI反手推出Codex迁移补贴，开发者生态争夺战白热化。</p>
+            </div>
+
+            <div class="highlight-card">
+                <span class="highlight-tag">战略布局</span>
+                <h3>Meta收购Assured Robot Intelligence，中国具身智能加速落地</h3>
+                <p>Meta于5月1日完成对初创公司Assured Robot Intelligence的收购，强化机器人生态布局。与此同时，2026全球人工智能终端展在深圳开幕（400余家企业），杭州人形机器人展同期举办（100+企业、1000+人形机器人），中国具身智能进入规模化落地元年。湖北省率先为机器人办理"数字身份证"，实现一机一码全程可溯。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title product">
+                <span class="icon">&#128241;</span>
+                产品与硬件
+                <span class="count-badge">5条</span>
+            </div>
+
+            <div class="news-card">
+                <h4>丰田发布AI篮球机器人CUE7：身高2.18米，首实现运球能力</h4>
+                <p>丰田第七代AI篮球机器人CUE7在东京丰田竞技场正式首秀。身高2.18米、体重74公斤，估计售价约15万美元。相比前代只能定点投篮，CUE7实现了运球与移动能力，完成从"定点投手"到"全能选手"的关键跨越，展示了AI在精细运动控制领域的突破。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/toyota-releases-ai-basketball-robot-cue7-218m-height/" target="_blank">AI产品库</a> | <a href="https://k.sina.com.cn/article_7857201856_1d45362c001905ha34.html" target="_blank">新浪科技</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>谷歌Android系统AI全面升级：Gemini Intelligence将实现跨应用自动化</h4>
+                <p>谷歌在I/O大会前提前披露Android系统大量AI新特性，将在Gemini Intelligence品牌下推出更多智能手机AI功能。Gemini智能体能够自动化处理复杂任务、实现跨应用协同操作，直接对标苹果iOS 27的AI能力。分析师预计这将成为Android 2026最核心的差异化卖点。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/google-android-ai-upgrade-gemini-intelligence-automation/" target="_blank">AI产品库</a> | <a href="https://news.qq.com/rain/a/20260514A03ITM00" target="_blank">腾讯新闻</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>2026全球人工智能终端展深圳开幕：400余家企业展示数千款AI新品</h4>
+                <p>2026全球人工智能终端展暨第七届深圳国际人工智能展览会在深圳会展中心盛大开幕，展览面积30000平方米，华为、荣耀、TCL、腾讯等400余家企业参展，集中展示AI手机、AI PC、人形机器人、AI眼镜、AI玩具等数千款前沿产品，展会持续至5月16日。</p>
+                <div class="source">来源：<a href="http://www.sohu.com/a/1022675215_121384255" target="_blank">搜狐</a> | <a href="https://aiproducthub.cn/newsflash/2026-global-ai-terminal-exhibition-opens-shenzhen/" target="_blank">AI产品库</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>小米发布Xuanjiao 3芯片旗舰手机，AI能力深度集成</h4>
+                <p>小米在最新发布会上推出搭载自研Xuanjiao 3芯片的旗舰智能手机，将AI能力深度集成到硬件层面。该芯片针对本地大模型推理进行了专项优化，可离线运行70亿参数模型，AI拍照、语音助手响应速度大幅提升，标志着手机端侧AI进入实用化阶段。</p>
+                <div class="source">来源：<a href="https://www.163.com/dy/article/KM1JQ6GQ0511BLFD.html" target="_blank">网易科技</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>字节跳动Doubao-Seed 2.5-Ultra发布：多模态理解能力大幅升级</h4>
+                <p>字节跳动发布Doubao-Seed 2.5-Ultra模型，在多模态理解能力上实现显著升级。新增音画同步推理能力，支持同时理解和生成图像、视频、音频内容，并具备更强的GUI操作能力。该模型已在豆包APP全量上线，用户可通过自然语言控制手机操作各类应用。</p>
+                <div class="source">来源：<a href="https://www.ai-insight.org/reports/global-models-2026" target="_blank">AI Insight</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title tech">
+                <span class="icon">&#9881;</span>
+                技术与研究
+                <span class="count-badge">3条</span>
+            </div>
+
+            <div class="news-card">
+                <h4>谷歌DeepMind发布震撼预言：2026年AI"持续学习"将实现突破</h4>
+                <p>谷歌DeepMind研究员发布重磅预测：2026年将成为AI"持续学习"之年，清华姚班校友的研究将剑指AI"灾难性遗忘"难题。持续学习使AI能够在不遗忘已有知识的同时不断获取新技能。Anthropic CEO Dario Amodei也预测，持续学习将在2026年实现实用化，届时Claude将真正成为永不遗忘的"永生"智能体。</p>
+                <div class="source">来源：<a href="https://cloud.tencent.com/developer/article/2616693" target="_blank">腾讯云开发者社区</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>Figure AI发布双机器人协作演示：无需中心控制，自主配合铺床</h4>
+                <p>Figure AI发布了最新演示视频：两台人形机器人无需中心控制器或显式通信，仅通过观察对方动作自行推测下一步，共同完成铺床任务。整个过程流畅协调，每一个动作都像人类在互相配合。这是具身智能领域在柔性物体操作上的重大突破，展示了AI从"单打独斗"向"团队协作"演进的可能。</p>
+                <div class="source">来源：<a href="https://finance.sina.com.cn/stock/t/2026-05-09/doc-inhxhkfp3591283.shtml" target="_blank">新浪财经</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>OpenAI研究员预测：2030年AI将实现ASI飞跃，25%概率一年内达成</h4>
+                <p>OpenAI前研究员Daniel Kokotajlo团队利用自主开发的AI Futures Model做出惊人预测：2030年不仅可能实现完全自动化编程，更有约25%的概率在一年内实现向ASI（超级人工智能）的飞跃。前OpenAI研究员Hieu Pham也预测，2026年将见证AI破解一个千禧年数学难题。</p>
+                <div class="source">来源：<a href="https://cloud.tencent.com/developer/article/2616693" target="_blank">腾讯云开发者社区</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title industry">
+                <span class="icon">&#128200;</span>
+                产业与投资
+                <span class="count-badge">4条</span>
+            </div>
+
+            <div class="news-card">
+                <h4>OpenAI与Anthropic补贴大战升级：GPT-5.6内测、开发者争夺白热化</h4>
+                <p>GPT-5.6开发代号曝光（ember-alpha/beacon-alpha），下月有望正式亮相。同时OpenAI即将在Codex上线ultrafast模式，响应速度提升2-3倍。Anthropic宣布Claude Code付费用户编程额度提升50%，OpenAI反手推出迁移补贴——30天内从其他平台迁移至Codex的企业可获赠2个月免费使用（价值约400美元），3小时内吸引2000名开发者联系。</p>
+                <div class="source">来源：<a href="https://www.aitop100.cn/ai-daily-2026-05-14" target="_blank">AITOP100</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>月之暗面Kimi完成136亿元D轮融资，估值突破200亿美元</h4>
+                <p>月之暗面完成约20亿美元（约136亿元人民币）D轮融资，由美团龙珠领投，投后估值突破200亿美元，创中国大模型领域单笔融资最高纪录。Kimi K2.5上线后ARR一月破1亿美元、第二月翻番至2亿美元，估值从2025年11月的43亿美元不到半年增长约4倍。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/moonshot-kimi-20-billion-dollars-funding-200-billion-valuation/" target="_blank">AI产品库</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>DeepSeek正式启动500亿元首轮融资，创始人梁文锋个人出资200亿</h4>
+                <p>DeepSeek正式启动成立以来首次外部融资，计划募集500亿元人民币，创始人梁文锋个人出资200亿元领投（占40%）。投后估值预计达450亿美元，三周内从100亿美元飙升4.5倍。国家大基金正深入谈判参与，腾讯拟出资60亿元。V4.1模型定档6月发布，将首次集成图像与音频理解能力。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/deepseek-first-funding-50-billion-yuan-45-billion-valuation/" target="_blank">AI产品库</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>台积电预测2030年全球芯片市场将达1.5万亿美元，AI需求驱动增长</h4>
+                <p>台积电最新预测，到2030年全球半导体市场规模将突破1.5万亿美元，约为2025年的两倍，超过此前1万亿美元的预测。从2022年到2026年，AI加速器晶圆需求预计增长11倍。公司计划2026年建设九期晶圆厂和先进封装设施，以应对AI驱动的芯片需求爆发。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/tsmc-predicts-2030-global-chip-market-reach-15-trillion-usd/" target="_blank">AI产品库</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title cross">
+                <span class="icon">&#127758;</span>
+                跨界融合
+                <span class="count-badge">4条</span>
+            </div>
+
+            <div class="news-card">
+                <h4>我国发布AI终端智能化分级国家标准：L1至L4四级体系正式落地</h4>
+                <p>工信部、国家市场监管总局、商务部三部门联合发布《人工智能终端智能化分级》(GB/Z 177-2026)国家标准，将终端智能化分为L1响应级、L2工具级、L3辅助级、L4协同级四个等级，首批覆盖手机、电脑、电视、眼镜、汽车座舱、音箱、耳机等7大品类，并将在2026年"以旧换新"政策中落地实施。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/china-releases-ai-terminal-intelligence-grading-national-standard-l1-to-l4/" target="_blank">AI产品库</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>湖北率先为机器人办理"数字身份证"，全国具身智能标准化加速</h4>
+                <p>湖北人形机器人创新中心在全国率先启动人形机器人"数字身份证"登记工作，为每台机器人配发专属唯一身份标识，实现一机一码、全程可溯、权责可究的管理机制。数字身份证由国家码、企业码、产品型号码、序列号四部分组成，可追溯运维记录、使用场景等动态信息，四川也在积极推进相关标准制定。</p>
+                <div class="source">来源：<a href="https://aiproducthub.cn/newsflash/hubei-pioneers-digital-id-card-for-humanoid-robots-one-code-one-robot/" target="_blank">AI产品库</a> | <a href="https://k.sina.com.cn/article_7857201856_1d45362c001905hd10.html" target="_blank">新浪新闻</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>腾讯宣布微信小程序全面接入AI智能体，打通数百万生态</h4>
+                <p>腾讯在业绩发布会上透露，将在微信平台内打造全新AI智能体，目标是打通微信中数百万个小程序。AI智能体可理解用户意图，自动调用合适小程序完成任务（如直接下单咖啡），结合微信社交关系链和私域数据实现精准服务。数据隐私问题仍需妥善处理，但被视为微信生态的重大升级。</p>
+                <div class="source">来源：<a href="https://www.aitop100.cn/ai-daily-2026-05-14" target="_blank">AITOP100</a></div>
+            </div>
+
+            <div class="news-card">
+                <h4>Meta监控员工训练AI引争议，全球AI伦理讨论持续升温</h4>
+                <p>据《纽约时报》报道，Meta上月告知美国员工，公司将追踪员工电脑输入内容、鼠标移动轨迹、点击位置及屏幕浏览内容，用于训练AI模型学习"人们如何用电脑完成工作"。众多员工强烈反对。Anthropic CEO Dario Amodei也警告高级AI存在巨大风险，呼吁加强监管，全球AI伦理讨论持续升温。</p>
+                <div class="source">来源：<a href="https://finance.sina.com.cn/tech/digi/2026-05-11/doc-inhxmqsi1054723.shtml" target="_blank">新浪科技</a></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>数据来源：AI产品库 | AITOP100 | 腾讯科技 | 新浪财经 | 36氪 | 腾讯云 | The AI Track</p>
+            <div class="footer-links">
+                <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages</a>
+                <a href="https://github.com/kenny378178-ai/ai-daily-news" target="_blank">项目仓库</a>
+            </div>
+            <p style="margin-top: 15px; color: #aaa; font-size: 12px;">Powered by Nova AI | WorkBuddy自动化</p>
+        </div>
+    </div>
+</body>
+</html>
