@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日AI资讯简报 - 2026年5月18日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0a0a2e 0%, #1a1a4e 30%, #2d1b69 60%, #1a1a4e 100%);
+            min-height: 100vh;
+            color: #e8e8f0;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(120,80,255,0.15) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        .header-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e0d4ff, #a78bfa, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .header .date {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            position: relative;
+        }
+        .header .weekday {
+            color: #a78bfa;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .highlights {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(168,85,247,0.15));
+            border: 1px solid rgba(168,85,247,0.3);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .highlight-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc);
+        }
+        .highlight-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #a78bfa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .highlight-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f0e8ff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .highlight-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+        .highlight-tag {
+            display: inline-block;
+            background: rgba(168,85,247,0.2);
+            border: 1px solid rgba(168,85,247,0.4);
+            color: #c084fc;
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .summary-section {
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .summary-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #c084fc;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .summary-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: linear-gradient(180deg, #7c3aed, #a855f7);
+            border-radius: 2px;
+        }
+        .summary-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.9;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e0d4ff;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-icon {
+            font-size: 20px;
+        }
+        .news-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .news-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(168,85,247,0.3);
+            transform: translateY(-2px);
+        }
+        .news-card-hot {
+            border-color: rgba(239,68,68,0.4);
+            background: rgba(239,68,68,0.05);
+        }
+        .news-card-hot::before {
+            content: 'HOT';
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: linear-gradient(135deg, #ef4444, #f97316);
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .category-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+        }
+        .badge-purple { background: rgba(124,58,237,0.3); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.4); }
+        .badge-blue { background: rgba(59,130,246,0.3); color: #93c5fd; border: 1px solid rgba(59,130,246,0.4); }
+        .badge-green { background: rgba(16,185,129,0.3); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.4); }
+        .badge-orange { background: rgba(249,115,22,0.3); color: #fdba74; border: 1px solid rgba(249,115,22,0.4); }
+        .badge-red { background: rgba(239,68,68,0.3); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+        .source-tag {
+            font-size: 11px;
+            color: rgba(255,255,255,0.35);
+            margin-left: auto;
+        }
+        .news-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #f0ebff;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .news-desc {
+            font-size: 13.5px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #a78bfa;
+            font-size: 13px;
+            text-decoration: none;
+            padding: 6px 14px;
+            background: rgba(124,58,237,0.15);
+            border: 1px solid rgba(124,58,237,0.3);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .news-link:hover {
+            background: rgba(124,58,237,0.3);
+            color: #c4b5fd;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(168,85,247,0.3), transparent);
+            margin: 24px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.3);
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        .footer a { color: rgba(168,85,247,0.6); text-decoration: none; }
+        .emoji { font-size: 16px; margin-right: 4px; }
+        @media (min-width: 768px) {
+            .news-grid { grid-template-columns: 1fr 1fr; }
+            .highlights { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-badge">&#9670; AI DAILY NEWS</div>
+            <h1>每日AI资讯简报</h1>
+            <p class="date">2026年5月18日<span class="weekday">&#12539;&#12539;&#12539; 周一</span></p>
+            <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-top:8px;position:relative;">覆盖周期：5月15日 - 5月18日 | 共14条精选资讯</p>
+        </div>
+
+        <!-- Highlights -->
+        <div class="highlights">
+            <div class="highlight-card">
+                <div class="highlight-label">&#9670; 产业与投资</div>
+                <div class="highlight-title">Anthropic 融资300亿美元估值9000亿，ARR同比暴涨80倍</div>
+                <div class="highlight-desc">Anthropic正洽谈至少300亿美元新融资，估值突破9000亿美元超越OpenAI。Q1营收同比增长80倍，ARR超440亿美元，百万元客户从500家增至1000+家仅用两个月。PwC向数十万员工部署Claude。</div>
+                <span class="highlight-tag">$300亿融资 | 9000亿估值</span>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-label">&#9670; 产品与硬件</div>
+                <div class="highlight-title">Google I/O 2026明日开幕，Gemini 4.0正式登场倒计时</div>
+                <div class="highlight-desc">Google I/O 2026将于5月19日举办，预计发布Gemini 4.0、Android XR眼镜、Aluminium OS及Cloud Agent Kit。Anthropic同步发布Claude for Small Business（15个代理工作流）和速率限制翻倍升级。</div>
+                <span class="highlight-tag">Gemini 4.0 | 明日发布</span>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-label">&#9670; 产业与投资</div>
+                <div class="highlight-title">月之暗面136亿融资创纪录，大基金拟领投DeepSeek</div>
+                <div class="highlight-desc">Kimi完成约136亿元D轮融资（大模型领域单笔最高），投后估值1362亿元。同期，国家大基金洽谈领投DeepSeek，落地后估值有望逼近3065亿元，超越Kimi成国产估值第一。</div>
+                <span class="highlight-tag">136亿融资 | 大基金入场</span>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-section">
+            <div class="summary-title">今日深度要点</div>
+            <p class="summary-text">
+                5月第三周，AI产业呈现"三足鼎立"新格局。Anthropic成为资本宠儿——Q1同比80倍营收增长、百万元客户翻倍、300亿美元融资谈判、9000亿估值反超OpenAI，PwC、盖茨基金会等头部客户争相押注。与此同时，Google I/O明日重磅开幕，Gemini 4.0蓄势待发，OpenAI GPT-5.6开发加速，两大巨头正面交锋临近。中国AI资本战持续升温：月之暗面136亿创国内单笔融资纪录，大基金跨界布局DeepSeek折射算力自主战略，同时拒绝英伟达H200加速国产替代进程。AI监管也迎来里程碑——美国五大前沿AI实验室全部纳入部署前审查，ArXiv对AI代写论文作者实施一年封禁，行业规范化进程提速。
+            </p>
+        </div>
+
+        <!-- News Grid -->
+        <div class="news-grid">
+
+            <!-- ============ 产品与硬件 ============ -->
+            <div style="grid-column: 1/-1;">
+                <div class="section-title">
+                    <span class="section-icon">&#9881;</span> 产品与硬件（新模型 / 产品 / 设备）
+                </div>
+            </div>
+
+            <!-- Card 1: HOT -->
+            <div class="news-card news-card-hot">
+                <div class="news-meta">
+                    <span class="category-badge badge-purple">新模型发布</span>
+                    <span class="source-tag">Google I/O 2026</span>
+                </div>
+                <div class="news-title">Google I/O 2026明日开幕：Gemini 4.0领衔，Android XR眼镜亮相</div>
+                <div class="news-desc">Google I/O 2026将于美国时间5月19日上午10点在Mountain View举办，核心看点包括：Gemini 4.0正式发布（预计多模态能力大幅升级）、Android XR智能眼镜（与三星、Warby Parker合作）、ChromeOS替代系统Aluminium OS、以及Google Cloud Agent Kit。中国开发者可通过官方直播平台实时观看。</div>
+                <a class="news-link" href="https://io.google" target="_blank">&#128279; 官方直播 io.google</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-blue">企业级产品</span>
+                    <span class="source-tag">Anthropic 官方</span>
+                </div>
+                <div class="news-title">Anthropic发布Claude for Small Business：15个代理工作流覆盖财务到营销</div>
+                <div class="news-desc">Claude for Small Business于5月13日发布，深度集成QuickBooks、PayPal、HubSpot、Canva、Docusign、Google Workspace、Microsoft 365等7大平台，覆盖月末结账、薪资预测、发票催收、合同处理等15个场景，每个操作均需用户审批确认。同日推出免费AI流利度课程及10城巡回工作坊。</div>
+                <a class="news-link" href="https://www.anthropic.com/news/claude-for-small-business" target="_blank">&#128279; Anthropic官方公告</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-purple">算力升级</span>
+                    <span class="source-tag">Anthropic</span>
+                </div>
+                <div class="news-title">Claude Code速率限制全面翻倍，SpaceX Colossus 1超级算力入局</div>
+                <div class="news-desc">5月6日起，所有Claude Code付费计划速率限制翻倍，开发者可运行更长代理循环、减少中断。更重磅的是，Anthropic与SpaceX签署Colossus 1超级计算机租用协议，获得22万+ NVIDIA GPU、300兆瓦算力支撑，远超Claude Code自身体量。</div>
+                <a class="news-link" href="https://www.anthropic.com/news" target="_blank">&#128279; Anthropic官方动态</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-purple">AI硬件</span>
+                    <span class="source-tag">OpenAI / MediaProfs</span>
+                </div>
+                <div class="news-title">OpenAI AI优先设备曝光：Jony Ive参与早期设计，已联手MediaTek/Qualcomm</div>
+                <div class="news-desc">OpenAI正探索"AI优先设备"，目标是以AI为核心重构甚至取代传统App界面。已与MediaTek、Qualcomm建立芯片供应合作，前苹果设计总监Jony Ive据报参与早期设计讨论。OpenAI尚未公开确认任何硬件项目。</div>
+                <a class="news-link" href="https://www.marketingprofs.com/opinions/2026/54786/ai-update-may-15-2026-ai-news-and-views-from-the-past-week" target="_blank">&#128279; MarketingProfs报道</a>
+            </div>
+
+            <!-- ============ 技术与研究 ============ -->
+            <div style="grid-column: 1/-1;">
+                <div class="divider"></div>
+                <div class="section-title">
+                    <span class="section-icon">&#128640;</span> 技术与研究（算法 / 论文 / 开源）
+                </div>
+            </div>
+
+            <!-- Card 5: HOT -->
+            <div class="news-card news-card-hot">
+                <div class="news-meta">
+                    <span class="category-badge badge-red">监管动态</span>
+                    <span class="source-tag">ArXiv / TechCrunch</span>
+                </div>
+                <div class="news-title">ArXiv宣布一年封禁令：使用AI生成整篇论文者禁止投稿</div>
+                <div class="news-desc">全球最大预印本平台ArXiv宣布，对使用AI生成完整研究论文的作者实施一年禁止投稿处罚，以打击学术界对生成式AI的滥用。这是主流学术平台首次对AI代写行为采取强制惩罚性措施，标志着AI学术规范进入强制执行阶段。</div>
+                <a class="news-link" href="https://techcrunch.com/2026/05/16/research-repository-arxiv-will-ban-authors-for-a-year-if-they-let-ai-do-all-the-work/" target="_blank">&#128279; TechCrunch报道</a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-orange">开源工具</span>
+                    <span class="source-tag">GitHub</span>
+                </div>
+                <div class="news-title">Anthropic发布官方Claude Agent Skills公开代码库，推动代理交互标准化</div>
+                <div class="news-desc">Anthropic在GitHub发布公开代码库托管Claude Agent Skills实现，推动AI代理交互标准的透明化与统一。同时开源社区涌现多个创新工具：CodeGraph（为Claude Code构建语义知识图谱，减少94% Token消耗）、Superpowers（可组合技能框架）、Supertonic（高速多语言本地TTS引擎）等。</div>
+                <a class="news-link" href="https://github.com/anthropics/skills" target="_blank">&#128279; Anthropic Skills GitHub</a>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-green">AI安全</span>
+                    <span class="source-tag">美国商务部</span>
+                </div>
+                <div class="news-title">美国五大前沿AI实验室全部纳入部署前政府审查，欧盟与Anthropic单独谈判</div>
+                <div class="news-desc">美国商务部CAISI与OpenAI、Anthropic、Google DeepMind、Microsoft、xAI均签署协议，所有重大模型发布须经政府安全评估后方可公开上线。英国AI安全研究所同步发布更新版红队测试指南。欧盟正与Anthropic就Mythos模型访问权限进行单独谈判。</div>
+                <a class="news-link" href="https://www.marketingprofs.com/opinions/2026/54786/ai-update-may-15-2026-ai-news-and-views-from-the-past-week" target="_blank">&#128279; MarketingProfs报道</a>
+            </div>
+
+            <!-- ============ 产业与投资 ============ -->
+            <div style="grid-column: 1/-1;">
+                <div class="divider"></div>
+                <div class="section-title">
+                    <span class="section-icon">&#128176;</span> 产业与投资（融资 / 并购 / 政策）
+                </div>
+            </div>
+
+            <!-- Card 8: HOT -->
+            <div class="news-card news-card-hot">
+                <div class="news-meta">
+                    <span class="category-badge badge-orange">融资</span>
+                    <span class="source-tag">Bloomberg / Anthropic</span>
+                </div>
+                <div class="news-title">Anthropic融资300亿美元估值9000亿：Q1营收同比增长80倍，百万元客户翻倍</div>
+                <div class="news-desc">Anthropic正与Sequoia、Dragoneer、Greenoaks、Altimeter等洽谈至少300亿美元新融资，估值有望突破9000亿美元。Q1 2026年营收同比增长80倍，ARR超440亿美元。年消费超100万美元客户从500家增至1000+仅用两个月。PwC全球数十万员工已完成Claude部署，保险承保从10周缩至10天。</div>
+                <a class="news-link" href="https://www.anthropic.com/news" target="_blank">&#128279; Anthropic官方动态</a>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-green">融资</span>
+                    <span class="source-tag">WhatLLM / Thrive Capital</span>
+                </div>
+                <div class="news-title">Isomorphic Labs完成21亿美元B轮融资：DeepMind分拆的AI药研独角兽</div>
+                <div class="news-desc">Google DeepMind分拆公司Isomorphic Labs于5月13日完成21亿美元B轮融资，由Thrive Capital领投。公司商业化AlphaFold蛋白质结构预测系统（2024年诺贝尔化学奖相关技术），成为全球资金最充裕的AI药物发现公司之一，正推进AI驱动的人体临床试验。</div>
+                <a class="news-link" href="https://whatllm.org/blog/new-ai-models-may-2026" target="_blank">&#128279; WhatLLM报道</a>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-green">融资</span>
+                    <span class="source-tag">EET-China / 36Kr</span>
+                </div>
+                <div class="news-title">月之暗面136亿元D轮创纪录，大基金拟领投DeepSeek：中国AI资本战升温</div>
+                <div class="news-desc">Kimi于5月7日完成约136亿元D轮融资（国内大模型单笔最高），美团龙珠领投，投后估值1362亿元，K2.6周调用量达1.85万亿Token全球第二。同期，国家大基金洽谈领投DeepSeek，落地后估值有望逼近3065亿元，超越Kimi成国产估值第一。大基金战略旨在构建"芯片-算力-大模型"自主产业链闭环。</div>
+                <a class="news-link" href="https://www.eet-china.com/mp/a493204.html" target="_blank">&#128279; EET-China报道</a>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-green">合作</span>
+                    <span class="source-tag">Anthropic / 盖茨基金会</span>
+                </div>
+                <div class="news-title">Anthropic与盖茨基金会4年2亿美元合作：AI驱动全球健康与疫苗研发</div>
+                <div class="news-desc">Anthropic与比尔及梅琳达·盖茨基金会于5月14日宣布4年2亿美元合作，重点方向包括：疫情检测、疫苗候选物筛查、供应链管理。覆盖脊髓灰质炎、HPV（每年约35万人死亡）、子痫前期等全球健康难题。合作包含资金补助、Claude使用积分及技术支持。</div>
+                <a class="news-link" href="https://www.anthropic.com/news/gates-foundation-partnership" target="_blank">&#128279; Anthropic官方公告</a>
+            </div>
+
+            <!-- ============ 跨界融合 ============ -->
+            <div style="grid-column: 1/-1;">
+                <div class="divider"></div>
+                <div class="section-title">
+                    <span class="section-icon">&#127758;</span> 跨界融合（AI应用于其他行业）
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-blue">AI + 医疗</span>
+                    <span class="source-tag">Dell / Blocks & Files</span>
+                </div>
+                <div class="news-title">Dell与Kioxia在2RU服务器中实现10PB存储密度：AI数据基础设施新里程碑</div>
+                <div class="news-desc">Dell与Kioxia合作，在2RU机架空间内集成近10PB存储容量，使用40块245.76 TB的E3.L QLC SSD。该方案满足AI基础设施和海量数据摄取的极端扩展需求，为AI训练数据湖提供高密度存储支撑。</div>
+                <a class="news-link" href="https://www.blocksandfiles.com/flash/2026/05/14/kioxia-and-dell-cram-10-pb-into-slim-2ru-server/5240574" target="_blank">&#128279; Blocks & Files报道</a>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-blue">AI + 司法</span>
+                    <span class="source-tag">TechCrunch</span>
+                </div>
+                <div class="news-title">马斯克 vs OpenAI庭审收尾：Sam Altman可信度成核心焦点</div>
+                <div class="news-desc">马斯克诉OpenAI案进入尾声，庭审焦点集中于CEO Sam Altman的个人诚信与可信度。陪审团和法官需评估Altman在OpenAI非营利转型、GPT-5开发等关键决策中的陈述是否属实，判决结果将影响OpenAI未来走向及AI行业治理标准。</div>
+                <a class="news-link" href="https://techcrunch.com/2026/05/17/why-trust-is-a-big-question-at-the-elon-musk-openai-trial/" target="_blank">&#128279; TechCrunch报道</a>
+            </div>
+
+            <!-- Card 14 -->
+            <div class="news-card">
+                <div class="news-meta">
+                    <span class="category-badge badge-orange">AI社会影响</span>
+                    <span class="source-tag">TechCrunch</span>
+                </div>
+                <div class="news-title">2026毕业生对AI未来说"不"：Eric Schmidt毕业演讲遭学生集体嘘声</div>
+                <div class="news-desc">亚利桑那大学毕业典礼上，前谷歌CEO Eric Schmidt推广AI时遭学生集体嘘声，反映新生代对AI冲击就业市场的强烈焦虑。TechCrunch同步分析指出，AI叙事在毕业演讲中正在失效，演讲者需谨慎提及AI，否则面临社会反弹。</div>
+                <a class="news-link" href="https://techcrunch.com/2026/05/17/university-of-arizona-students-boo-eric-schmidt-ai-commencement" target="_blank">&#128279; TechCrunch报道</a>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>AI每日资讯简报 | 每日10:00自动更新</p>
+            <p style="margin-top:6px;">数据来源：Anthropic官方 / TechCrunch / Bloomberg / EET-China / GitHub / 36Kr</p>
+            <p style="margin-top:6px;"><a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages存档</a> | 由WorkBuddy + Nova AI自动生成</p>
+        </div>
+
+    </div>
+</body>
+</html>
