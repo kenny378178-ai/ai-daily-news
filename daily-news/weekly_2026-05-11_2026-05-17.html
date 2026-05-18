@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI每周全球资讯周报｜2026年5月11日-5月17日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header .week-label {
+            font-size: 12px;
+            letter-spacing: 4px;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.4em;
+            font-weight: 800;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.85;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .header .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .header .stat-item {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+        }
+
+        .header .stat-item strong {
+            color: #a78bfa;
+        }
+
+        /* Highlights Section */
+        .highlights {
+            padding: 40px;
+            background: #f8f5ff;
+        }
+
+        .highlights h2 {
+            font-size: 1.5em;
+            color: #2d1a6e;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlights h2 .icon {
+            font-size: 1.2em;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 16px;
+        }
+
+        .highlight-card .tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .highlight-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.92;
+        }
+
+        /* Summary Section */
+        .summary {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary h2 {
+            font-size: 1.5em;
+            color: #2d1a6e;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-item {
+            background: #f8f5ff;
+            border-left: 4px solid #667eea;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+        }
+
+        .summary-item .num {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .summary-item h3 {
+            font-size: 1.1em;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+        }
+
+        .summary-item p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        .section {
+            padding: 36px 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            font-size: 1.2em;
+        }
+
+        .section-title .badge {
+            font-size: 13px;
+            background: #f0e8ff;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* News Cards */
+        .news-card {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 22px 26px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .news-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 20px rgba(102,126,234,0.12);
+            transform: translateY(-1px);
+        }
+
+        .news-card .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
+
+        .news-card .card-title {
+            font-size: 1.05em;
+            color: #1a1a2e;
+            font-weight: 600;
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .news-card .card-source {
+            font-size: 11px;
+            color: #999;
+            background: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .news-card .card-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .news-card .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .news-card .card-link:hover {
+            text-decoration: underline;
+        }
+
+        .news-card .card-link .arrow {
+            font-size: 11px;
+        }
+
+        /* Category Colors */
+        .tag-product {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .tag-tech {
+            background: #e3f2fd;
+            color: #0d47a1;
+        }
+        .tag-invest {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+        .tag-cross {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8f5ff;
+            padding: 24px 40px;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.6em; }
+            .section, .highlights, .summary { padding: 24px 20px; }
+            .header { padding: 32px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <div class="week-label">WEEKLY REPORT · AI GLOBAL NEWS</div>
+            <h1>AI 每周全球资讯周报</h1>
+            <div class="subtitle">📅 2026年5月11日 — 2026年5月17日</div>
+            <div class="stats">
+                <div class="stat-item"><strong>📱</strong> 6 条产品动态</div>
+                <div class="stat-item"><strong>🔬</strong> 3 条技术突破</div>
+                <div class="stat-item"><strong>💰</strong> 5 条产业投资</div>
+                <div class="stat-item"><strong>🌐</strong> 4 条跨界融合</div>
+            </div>
+        </div>
+
+        <!-- 5 Key Takeaways -->
+        <div class="highlights">
+            <h2><span class="icon">🔥</span> 本周 5 大核心看点</h2>
+
+            <div class="highlight-card">
+                <div class="tag">💥 头条重磅</div>
+                <h3>OpenAI史上最大内部重组：ChatGPT+Codex+API三线合并</h3>
+                <p>5月15日，OpenAI联合创始人Greg Brockman正式接管公司全部产品线，将ChatGPT、Codex和API三大核心产品合并为统一组织。这是OpenAI IPO前最剧烈的一次权力重组，Nick Turley被调离核心岗位。Brockman表示战略核心是"打造统一的AI智能体平台"，OpenAI正从产品矩阵全面转向超级应用。</p>
+            </div>
+
+            <div class="highlight-card">
+                <div class="tag">💰 融资王炸</div>
+                <h3>Anthropic完成300亿美元融资，估值9000亿美元首超OpenAI</h3>
+                <p>5月15日，红杉资本联合Dragoneer、Greenoaks、Altimeter领投Anthropic 300亿美元新一轮融资，估值飙升至约9000亿美元（OpenAI同期约8520亿美元），较三个月前增长近两倍。本轮融资创下AI企业史上最大单笔融资纪录，Anthropic正式成为全球估值第一的AI独角兽。</p>
+            </div>
+
+            <div class="highlight-card">
+                <div class="tag">🚀 资本盛宴</div>
+                <h3>Cerebras纳斯达克首秀暴涨68%，市值670亿美元成今年最大AI IPO</h3>
+                <p>5月14日，AI芯片公司Cerebras Systems以185美元/股发行价登陆纳斯达克（代码CBRS），以350美元开盘一度涨108%触发熔断，最终收涨68%报311美元，市值670亿美元。5月11日定价时即从最初的115-125美元一路上调至185美元，反映市场对AI算力芯片的极度热情。</p>
+            </div>
+
+            <div class="highlight-card">
+                <div class="tag">⚔️ 补贴大战</div>
+                <h3>GPT-5.6内部测试曝光，OpenAI vs Anthropic开发者补贴战白热化</h3>
+                <p>GPT-5.5发布仅三周，GPT-5.6开发代号（ember-alpha/beacon-alpha）已被抓包进入内部测试，下月有望发布。OpenAI同步测试Codex ultrafast模式，响应速度提升2-3倍；同时推出开发者迁移补贴（30天内迁入送2个月免费，价值400美元）。Anthropic反击：Claude Code付费额度提升50%，Claude Opus 4.7 Fast版同步上线。3小时内2000名开发者联系OpenAI迁移。</p>
+            </div>
+
+            <div class="highlight-card">
+                <div class="tag">🏭 具身智能</div>
+                <h3>宇树发布全球首款量产载人机甲GD01（390万元），科创板IPO获受理</h3>
+                <p>宇树科技正式发布全球首款量产版载人变形机甲GD01，基础版售价390万元人民币，支持变形功能、最大行走速度5km/h。与此同时，宇树科创板IPO申请已获上交所受理（3月20日），拟募资42.02亿元，IPO现场检查已于5月完成，2026年成为中国具身智能量产元年。</p>
+            </div>
+        </div>
+
+        <!-- Deep Summary -->
+        <div class="summary">
+            <h2>📊 本周深度总结</h2>
+
+            <div class="summary-item">
+                <div class="num">看点 01 · 企业战略转折</div>
+                <h3>OpenAI从"技术平台"转向"超级应用"——Brockman主导的重组意味着什么？</h3>
+                <p>Greg Brockman将ChatGPT、Codex和API三大产品线合并为统一组织，标志着OpenAI战略的重大转折：从分散的AI工具矩阵，转向"一个入口、一个智能体体验"的超级应用模式。此举正值Anthropic融资估值超越OpenAI之际，IPO前夜的OpenAI正全力争夺用户留存和开发者生态。Brockman的夺权被业界解读为Sam Altman与产品侧对"AGI商业化路径"的路线之争暂时落幕。</p>
+            </div>
+
+            <div class="summary-item">
+                <div class="num">看点 02 · 融资军备竞赛</div>
+                <h3>一周内Anthropic融资300亿美元+Cerebras IPO 670亿美元——AI资本泡沫还是价值重估？</h3>
+                <p>本周AI资本市场创下两项历史纪录：Anthropic 300亿美元单轮融资（估值9000亿美元）和Cerebras 670亿美元IPO市值。资本对AI基础设施的追捧已超越对商业化盈利的审视。更深层的信号是：英伟达GPU五年前的产品（H100等）依然热销且涨价，黄仁勋称"越陈越香的老酒"，算力稀缺持续推动芯片企业估值重估。中国侧DeepSeek同期融资500亿人民币，三天超百亿美元资金涌入AI头部。</p>
+            </div>
+
+            <div class="summary-item">
+                <div class="num">看点 03 · 编程智能体赛道</div>
+                <h3>阿里Qoder+xAI Grok Build+字节豆包全家桶——AI编程进入"自动驾驶"时代</h3>
+                <p>阿里云发布Qoder 1.0，用户输入自然语言需求后AI Agent团队自主完成需求拆解、代码编写、测试验证全流程。xAI推出Grok Build正面挑战Claude Code，支持并行子智能体多任务处理。腾讯内部AI助手（JARVIS同款代号）曝光，支持多步骤复杂任务和"打盹"状态管理。字节豆包、Doubao-Seed 2.5-Ultra全量上线。多方混战表明：AI编程工具已从"辅助"进化为"替代"，程序员角色正向"需求架构师"转型。</p>
+            </div>
+
+            <div class="summary-item">
+                <div class="num">看点 04 · 中国AI基础设施</div>
+                <h3>AI终端分级国标发布+AI WAN行动启动——中国AI标准化进入实质落地</h3>
+                <p>本周中国发布《人工智能终端智能化分级》系列国家标准，涵盖L1-L4四个等级，从被动响应到完全自主决策均有量化指标。信通院联合三大运营商正式启动AI WAN（智能IP广域网）应用推进行动，打通企业入算、边缘入算、城域网络和数据流通四大场景。小米确认玄戒芯片今年迭代下一代（3nm工艺），昆仑芯（百度）同时启动科创板+港交所双重上市准备。中国AI基础设施正从"能用"迈向"规范"。</p>
+            </div>
+
+            <div class="summary-item">
+                <div class="num">看点 05 · 跨界与监管</div>
+                <h3>马耳他AI全民基础服务+OpenAI接入12000家银行——AI渗透进入日常民生</h3>
+                <p>马耳他宣布向全体53万国民免费提供AI课程+ChatGPT Plus会员，成为全球首个AI全民基础服务国家。OpenAI为ChatGPT Pro用户接入Plaid连接全球12000+金融机构账户，推出实时消费分析、资产组合追踪，并拟集成Intuit税务申报。Pwn2Own柏林2026第二天即斩获15个零日漏洞、38万美元奖金，网络安全挑战持续。宇树之外，云深处（5月1日完成IPO辅导）、乐聚（辅导验收）等三家具身智能公司同期推进上市，2026具身智能量产元年全面加速。</p>
+            </div>
+        </div>
+
+        <!-- 📱 产品与硬件 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📱</span> 产品与硬件
+                <span class="badge">6 条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">OpenAI史上最大重组：Brockman夺权，ChatGPT+Codex+API三线合并为统一智能体平台</div>
+                    <span class="card-source">36氪</span>
+                </div>
+                <div class="card-desc">5月15日，OpenAI官方宣布将ChatGPT、Codex和API三大核心产品线合并为统一组织，联合创始人Greg Brockman正式全面主导产品战略。ChatGPT原负责人Nick Turley被调离核心岗位。这是OpenAI IPO前最剧烈的一次组织架构重组。Brockman表示战略核心是打造"统一的AI智能体平台"，OpenAI正从产品矩阵全面转向超级应用模式。</div>
+                <a class="card-link" href="https://www.sohu.com/a/1023547187_116365" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">GPT-5.6曝光：开发代号ember-alpha/beacon-alpha，下月有望发布</div>
+                    <span class="card-source">新智元</span>
+                </div>
+                <div class="card-desc">GPT-5.5发布仅三周，OpenAI内部测试代码即被知名爆料人Leo曝光。GPT-5.6开发代号分别为ember-alpha和beacon-alpha，首批检查点已启动内部测试，预计下个月正式亮相。Codex环境日志中已发现rollout mapping记录，OpenAI正在加速迭代节奏。</div>
+                <a class="card-link" href="https://finance.sina.com.cn/jjxw/2026-05-14/doc-inhxvtwn8722202.shtml" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">字节跳动Doubao-Seed 2.5-Ultra发布：音画同步多模态理解全量上线</div>
+                    <span class="card-source">日报整理</span>
+                </div>
+                <div class="card-desc">字节跳动发布Doubao-Seed 2.5-Ultra模型，新增音画同步推理能力，支持同时理解和生成图像、视频、音频内容，并具备更强的GUI操作能力。用户可通过自然语言控制手机操作各类应用。该模型已在豆包APP全量上线。</div>
+                <a class="card-link" href="https://www.toutiao.com/" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">Cerebras纳斯达克首秀暴涨68%，市值670亿美元成2026年最大AI IPO</div>
+                    <span class="card-source">同花顺</span>
+                </div>
+                <div class="card-desc">5月14日，Cerebras Systems以185美元/股发行价在纳斯达克（代码CBRS）挂牌，以350美元开盘一度涨108%触发熔断，最终收涨68%报311美元，总市值约670亿美元。发行价从最初115-125美元一路上调至185美元，反映市场极度追捧。公司年营收5.1亿美元，净利润2.38亿美元，是AI芯片赛道商业化最成功的企业之一。</div>
+                <a class="card-link" href="https://t.10jqka.com.cn/pid_625947664.shtml" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">小米确认玄戒芯片今年迭代：3nm工艺，性能对齐骁龙8 Elite</div>
+                    <span class="card-source">IT之家</span>
+                </div>
+                <div class="card-desc">小米总裁卢伟冰在微博确认，备受期待的玄戒自研芯片将在今年正式迭代下一代产品，并强调"肯定是一块非常强的芯片"。新款玄戒预计采用3nm工艺，性能将对标骁龙8 Elite系列。这是小米冲击高端市场、摆脱高通依赖的关键布局。</div>
+                <a class="card-link" href="https://www.ithome.com/" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">全球首家线下AI应用商店上海开幕：2000平方米、500款产品</div>
+                    <span class="card-source">AITOP100</span>
+                </div>
+                <div class="card-desc">全球首家线下AI应用商店在上海张江人工智能创新小镇开幕，占地超2000平方米，汇聚全球80个品类500余款最新AI产品（涵盖教育机器人、健康助手、办公设备等）。设体验区、开发对接区、极客创意空间，可将产品上市周期从6个月缩短至2-3个月。</div>
+                <a class="card-link" href="https://www.aitop100.cn/ai-daily-2026-05-12" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- 🔬 技术与研究 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🔬</span> 技术与研究
+                <span class="badge">3 条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">GPT-5.6内测曝光：Codex ultrafast模式响应速度提升2-3倍</div>
+                    <span class="card-source">MSN/AI Coders</span>
+                </div>
+                <div class="card-desc">OpenAI同步测试Codex ultrafast模式，主力模型推理速度可提升2-3倍，已在Codex环境中进行验证。此举被业界视为OpenAI在编程智能体赛道对抗Claude Code的核心武器，Anthropic的Claude Opus 4.7 Fast版同步上线应战。</div>
+                <a class="card-link" href="https://www.msn.cn/zh-cn/news/other/openai%E7%8B%82%E9%A3%99%E8%BF%AD%E4%BB%A3gpt-56-%E8%A1%A5%E8%B4%B4%E6%88%98%E5%85%A8%E9%9D%A2%E6%89%93%E5%93%8D/gm-GMA1461849" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">OpenAI vs Anthropic开发者补贴大战：3小时2000名开发者响应</div>
+                    <span class="card-source">AI Coders</span>
+                </div>
+                <div class="card-desc">OpenAI推出Codex迁移补贴：30天内从其他平台迁入的企业可获赠2个月免费使用（价值约400美元），3小时内吸引2000名开发者联系。Anthropic随即反击：Claude Code付费用户编程额度提升50%，并推出独立Agent SDK Credit包。双方在开发者生态争夺上已从技术竞争全面升级为价格补贴战。</div>
+                <a class="card-link" href="https://aicode.cc/2026-05-14-d5904e7f-138c-4d72-85e6-e79ae277660a.html" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">清华姚班校友剑指AI"灾难性遗忘"：持续学习2026年有望实用化</div>
+                    <span class="card-source">日报整理</span>
+                </div>
+                <div class="card-desc">谷歌DeepMind研究员与清华姚班校友联合发布重磅预测：2026年将成为AI"持续学习"之年，AI将在不遗忘已有知识的同时不断获取新技能。Anthropic CEO Dario Amodei预测持续学习将在2026年实现实用化，届时Claude将真正成为永不遗忘的"永生"智能体。</div>
+                <a class="card-link" href="https://jishuzhan.net/" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- 💰 产业与投资 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">💰</span> 产业与投资
+                <span class="badge">5 条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">Anthropic完成300亿美元融资：估值9000亿美元超越OpenAI，三个月翻两倍</div>
+                    <span class="card-source">21世纪经济报道</span>
+                </div>
+                <div class="card-desc">5月15日，红杉资本联合Dragoneer、Greenoaks、Altimeter Capital共同领投Anthropic 300亿美元新一轮融资，多家现有投资方及新入局机构跟投，预计最快本月完成交割。本轮融资后Anthropic投后估值约9000亿美元，较三个月前的3000亿美元增长近两倍，正式超越OpenAI同期约8520亿美元估值。</div>
+                <a class="card-link" href="https://finance.sina.com.cn/tech/roll/2026-05-15/doc-inhxyimq3306790.shtml" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">OpenAI成立部署公司：斥40亿美元收购Tomoro引入150名专业人才</div>
+                    <span class="card-source">钛媒体</span>
+                </div>
+                <div class="card-desc">5月11日，OpenAI宣布成立全资子公司OpenAI部署公司（OpenAI Deployment），初始投资超40亿美元，并收购人工智能咨询公司Tomoro，引入150名专业人才。目标是以企业级标准化流程加速大模型商业规模化应用，标志着OpenAI从技术研发向规模化部署的战略转型。</div>
+                <a class="card-link" href="https://www.tmtpost.com/agent/ai-article/16010" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">宇树科创板IPO获受理：拟募资42.02亿元，现场检查已完成</div>
+                    <span class="card-source">东方财富</span>
+                </div>
+                <div class="card-desc">宇树科技科创板IPO申请于3月20日获上交所受理，拟募资42.02亿元。4月1日被抽中现场检查，截至5月17日检查已接近完成。同期，云深处（5月1日完成IPO辅导）、乐聚（辅导验收）也在推进上市，三家成立约十年的具身智能公司同时走到上市关键节点。</div>
+                <a class="card-link" href="https://caifuhao.eastmoney.com/news/1709208075" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">昆仑芯启动科创板+港交所双重上市：百度持股57.67%</div>
+                    <span class="card-source">东方财富</span>
+                </div>
+                <div class="card-desc">百度旗下AI芯片子公司昆仑芯正式宣布启动科创板+港交所双重上市准备。目前百度持股昆仑芯57.67%。昆仑芯是国内头部AI芯片厂商之一，此举将为中国AI芯片企业在资本市场的估值提供重要参考坐标。</div>
+                <a class="card-link" href="https://caifuhao.eastmoney.com/news/20260509162821871924470" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">ASML与Tata合作：印度110亿美元芯片工厂即将上线</div>
+                    <span class="card-source">虎嗅</span>
+                </div>
+                <div class="card-desc">光刻机巨头ASML宣布与印度Tata Electronics合作，在古吉拉特邦建设投资额达110亿美元的300毫米芯片制造工厂，这是印度首个大型先进制程芯片工厂。ASML将提供全面技术支持和设备供应，助力印度实现芯片自主，全球半导体产业链格局面临重构。</div>
+                <a class="card-link" href="https://www.huxiu.com/" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- 🌐 跨界融合 -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🌐</span> 跨界融合
+                <span class="badge">4 条</span>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">马耳他首创AI全民基础服务：向全体53万国民免费提供ChatGPT Plus</div>
+                    <span class="card-source">知乎</span>
+                </div>
+                <div class="card-desc">马耳他宣布向全体53万国民免费提供AI课程+ChatGPT Plus会员，成为全球首个将AI纳入全民基础服务的国家。这项政策由政府全额补贴，旨在提升国民AI素养和数字竞争力。业界认为这将为其他国家AI普惠政策提供模板。</div>
+                <a class="card-link" href="https://zhuanlan.zhihu.com/p/2039401117159797148" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">中国AI终端智能化分级国标发布：L1-L4四档量化分级</div>
+                    <span class="card-source">技术栈</span>
+                </div>
+                <div class="card-desc">国家正式发布《人工智能终端智能化分级》系列国家标准，明确L1（功能辅助）、L2（条件感知）、L3（高度自主）、L4（完全自主）四个等级，从被动响应到完全自主决策均有量化指标。AI终端从"能用"进入"规范有序"阶段，为产业健康发展提供制度保障。</div>
+                <a class="card-link" href="https://jishuzhan.net/article/2055841663935418370" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">信通院联合三大运营商启动AI WAN行动：算力网络打通"最后一公里"</div>
+                    <span class="card-source">技术栈</span>
+                </div>
+                <div class="card-desc">中国信通院联合三大运营商、AIIA等机构正式发起智能IP广域网（AI WAN）应用推进行动，聚焦四大核心方向：企业入算（低成本调用远程算力）、边缘入算（智慧家庭算力服务）、城域网络（AI分布式训练/推理）、数据流通（数据要素安全高速流转），打通全国算力网络"最后一公里"。</div>
+                <a class="card-link" href="https://jishuzhan.net/article/2055841663935418370" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+
+            <div class="news-card">
+                <div class="card-header">
+                    <div class="card-title">OpenAI ChatGPT接入12000家银行：正式杀入个人金融赛道</div>
+                    <span class="card-source">技术栈</span>
+                </div>
+                <div class="card-desc">OpenAI为ChatGPT Pro用户推出个人金融工具，通过Plaid接口直接连接全球12000+金融机构账户，核心功能包括实时消费分析、资产组合追踪，并拟集成Intuit服务支持税务申报、信用管理。这是OpenAI首次大规模接入个人金融数据，标志着AI从对话工具向个人生活管家升级。</div>
+                <a class="card-link" href="https://jishuzhan.net/article/2055841663935418370" target="_blank">阅读原文 <span class="arrow">→</span></a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>📡 AI每周全球资讯周报 | 覆盖周期：2026年5月11日 — 5月17日</p>
+            <p style="margin-top: 6px;">🔗 <a href="https://kenny378178-ai.github.io/ai-daily-news/" target="_blank">GitHub Pages主页</a> · 由 <a href="https://www.codebuddy.cn" target="_blank">WorkBuddy</a> 自动生成与推送</p>
+        </div>
+
+    </div>
+</body>
+</html>
